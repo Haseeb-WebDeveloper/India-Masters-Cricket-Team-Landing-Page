@@ -20,12 +20,12 @@ export default function RootLayout({
       <body className="antialiased">
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
           <SmoothScrollProvider>
-            <Header />
+            {/* <Header /> */}
             <main className="relative">{children}</main>
           </SmoothScrollProvider>
         </ThemeProvider>

@@ -1,10 +1,11 @@
 import { HeroSection } from "@/components/layout/hero-section";
-import Image from "next/image";
+import { OurTeam } from "@/components/layout/our-team";
 
 export default function Home() {
   return (
     <>
-      <HeroSection />
+      {/* <HeroSection /> */}
+      <OurTeam />
     </>
   );
 }
