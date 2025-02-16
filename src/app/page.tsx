@@ -4,7 +4,7 @@ import { OurTeam } from "@/components/layout/our-team";
 export default function Home() {
   return (
     <>
-      {/* <HeroSection /> */}
+      <HeroSection />
       <OurTeam />
     </>
   );

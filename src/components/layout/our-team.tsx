@@ -26,7 +26,7 @@ const teamMembers: TeamMember[] = [
     role: "Captain & Batsman",
     description:
       "One of cricket's most prolific batsmen, known for his aggressive style and leadership.",
-    imageUrl: "/team/Ambati-Rayadu/257466.webp",
+    imageUrl: "/team/Ambati-Rayadu/2.webp",
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const teamMembers: TeamMember[] = [
     role: "Captain & Batsman",
     description:
       "One of cricket's most prolific batsmen, known for his aggressive style and leadership.",
-    imageUrl: "/team/Ambati-Rayadu/257466.webp",
+    imageUrl: "/team/Ambati-Rayadu/2.webp",
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const teamMembers: TeamMember[] = [
     role: "Captain & Batsman",
     description:
       "One of cricket's most prolific batsmen, known for his aggressive style and leadership.",
-    imageUrl: "/team/Ambati-Rayadu/257466.webp",
+    imageUrl: "/team/Ambati-Rayadu/2.webp",
   },
   {
     id: 4,
@@ -50,7 +50,7 @@ const teamMembers: TeamMember[] = [
     role: "Captain & Batsman",
     description:
       "One of cricket's most prolific batsmen, known for his aggressive style and leadership.",
-    imageUrl: "/team/Ambati-Rayadu/257466.webp",
+    imageUrl: "/team/Ambati-Rayadu/2.webp",
   },
   {
     id: 5,
@@ -58,7 +58,7 @@ const teamMembers: TeamMember[] = [
     role: "Captain & Batsman",
     description:
       "One of cricket's most prolific batsmen, known for his aggressive style and leadership.",
-    imageUrl: "/team/Ambati-Rayadu/257466.webp",
+    imageUrl: "/team/Ambati-Rayadu/2.webp",
   },
   {
     id: 6,
@@ -66,7 +66,7 @@ const teamMembers: TeamMember[] = [
     role: "Captain & Batsman",
     description:
       "One of cricket's most prolific batsmen, known for his aggressive style and leadership.",
-    imageUrl: "/team/Ambati-Rayadu/257466.webp",
+    imageUrl: "/team/Ambati-Rayadu/2.webp",
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ const teamMembers: TeamMember[] = [
     role: "Captain & Batsman",
     description:
       "One of cricket's most prolific batsmen, known for his aggressive style and leadership.",
-    imageUrl: "/team/Ambati-Rayadu/257466.webp",
+    imageUrl: "/team/Ambati-Rayadu/2.webp",
   },
   // ... Add all 12 team members here
 ];
@@ -148,7 +148,7 @@ export function OurTeam() {
           setIsDragging(false);
           // Ensure bounds are respected after inertia
           if (draggable) {
-            const currentX = draggable[0].x;
+            const currentX = draggable.x;
             if (currentX < exactBounds.minX) {
               gsap.to(slider, {
                 x: exactBounds.minX,
