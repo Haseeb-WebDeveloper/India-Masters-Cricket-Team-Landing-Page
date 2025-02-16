@@ -96,7 +96,7 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      className=" z-50 mx-auto px-4 py-6 md:py-12 max-w-[1180px] md:px-6"
+      className="absolute top-0 left-0 right-0 z-50 mx-auto px-4 py-6 md:py-12 max-w-[1180px] md:px-6"
     >
       <div className="relative mx-auto px-4 py-3 md:py-5 md:px-12">
         {/* Header Background with Border */}

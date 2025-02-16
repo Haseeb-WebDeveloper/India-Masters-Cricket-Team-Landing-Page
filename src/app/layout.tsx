@@ -24,10 +24,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SmoothScrollProvider>
-            <Header />
-            <main className="relative">{children}</main>
-          </SmoothScrollProvider>
+            <SmoothScrollProvider>
+              <Header />
+              <main className="relative bg-black">{children}</main>
+            </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>
