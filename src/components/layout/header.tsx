@@ -11,7 +11,7 @@ const navLinks = [
   { href: "team", label: "TEAM" },
   { href: "media", label: "MEDIA" },
   { href: "tickets", label: "TICKETS" },
-  { href: "owners", label: "OWNERS" },
+  { href: "ranking", label: "RANKING" },
   { href: "contact", label: "CONTACT" },
 ];
 
