@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/layout/header";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll";
+import { CustomCursor } from "@/components/custom-cursor";
 
 export const metadata: Metadata = {
   title: "India Masters",
@@ -17,17 +18,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={GeistSans.className}>
-      <body className="antialiased">
+      <body className="antialiased cursor-none">
+        <CustomCursor />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-            <SmoothScrollProvider>
-              <Header />
-              <main className="relative bg-black">{children}</main>
-            </SmoothScrollProvider>
+          <SmoothScrollProvider>
+            <Header />
+            <main className="relative bg-black">{children}</main>
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>

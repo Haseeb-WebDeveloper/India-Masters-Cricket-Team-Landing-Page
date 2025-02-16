@@ -103,6 +103,17 @@
   .mobile-menu-open {
     @apply fixed inset-0 bg-foreground/95 z-50;
   }
+
+  .is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @property --scroll-speed {
+    syntax: '<number>';
+    initial-value: 0;
+    inherits: false;
+  }
 }
 
 /* Add these animations */

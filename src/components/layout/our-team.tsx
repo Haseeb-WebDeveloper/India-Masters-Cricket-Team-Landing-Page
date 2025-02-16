@@ -184,7 +184,7 @@ export function OurTeam() {
       // Pin the section
       scrollTrigger = ScrollTrigger.create({
         trigger: container,
-        pin: true,
+        // pin: true,
         start: "top top",
         end: "+=100%",
       });
@@ -287,7 +287,8 @@ export function OurTeam() {
           {/* Main cursor */}
           <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center backdrop-blur-sm">
             <span className="text-black text-xs font-medium select-none">
-              {isDragging ? "DRAGGING" : "DRAG"}
+              {/* {isDragging ? "DRAGGING" : "DRAG"} */}
+              DRAG
             </span>
           </div>
 
@@ -301,7 +302,7 @@ export function OurTeam() {
               />
               <text className="text-[12px]">
                 <textPath href="#curve" className="tracking-wider">
-                  • SCROLL • EXPLORE • DISCOVER •
+                  • SCROLL • EXPLORE • DISCOVER
                 </textPath>
               </text>
             </svg>
