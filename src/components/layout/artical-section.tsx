@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -30,7 +30,7 @@ const articles: Article[] = [
   },
   {
     id: 2,
-    title: "Training in the Digital Age",
+    title: "Inaugural Season Of International Masters League To Be Played From February 22 To March 16",
     description:
       "How technology and data analytics are revolutionizing cricket training and player development.",
     image: "/article/article-1.avif",
@@ -94,11 +94,6 @@ const articles: Article[] = [
 export function ArticleSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const cursorTextRef = useRef<HTMLDivElement>(null);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-
   const { scrollYProgress } = useScroll({
     offset: ["start start", "end end"],
   });
@@ -110,77 +105,43 @@ export function ArticleSection() {
     ["0%", "-25%", "-75%", "-100%"]
   );
 
-  // Handle cursor movement
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   useEffect(() => {
     const container = containerRef.current;
     const heading = headingRef.current;
     if (!container || !heading) return;
 
-    // Auto-scrolling animation for heading
-    gsap.to(heading.querySelector(".scroll-text"), {
-      xPercent: -50,
-      duration: 20,
-      repeat: -1,
-      ease: "none",
-      modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % 100),
-      },
-    });
-
-    // ScrollTrigger for heading speed control
+    // Create a separate ScrollTrigger for the heading
     const headingTrigger = ScrollTrigger.create({
       trigger: container,
       start: "top top",
       end: "bottom bottom",
-      onUpdate: (self) => {
-        const speed = self.getVelocity() * 0.006;
-        const direction = self.direction;
-        gsap.to(heading.querySelector(".scroll-text"), {
-          timeScale: direction * (1 + Math.min(Math.abs(speed), 5)),
-          duration: 0.5,
-        });
-      },
+      toggleClass: { targets: heading, className: "is-visible" },
     });
 
     // Calculate total width for horizontal scroll
-    const totalWidth = container.scrollWidth;
-    const windowWidth = window.innerWidth;
     const sections = gsap.utils.toArray<HTMLElement>(".article-card");
-    const duration = 0.5 * sections.length; // Adjust this value to control scroll speed
+    const totalWidth = sections.reduce(
+      (acc, section) => acc + section.offsetWidth,
+      0
+    );
 
     // Create the horizontal scroll animation
     const horizontalScroll = gsap.timeline({
       scrollTrigger: {
         trigger: container,
         start: "top top",
-        end: `+=${totalWidth - windowWidth}`,
+        end: () => `+=${totalWidth}`,
         pin: true,
         anticipatePin: 1,
         scrub: 2,
         invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          // Prevent any potential conflicts with the heading animation
-          if (headingTrigger) {
-            headingTrigger.refresh();
-          }
-        },
       },
     });
 
-    // Add horizontal movement
+    // Add horizontal movement with adjusted starting position
     horizontalScroll.to(sections, {
-      xPercent: -100 * (sections.length - 1),
+      x: () => -(totalWidth - window.innerWidth),
       ease: "none",
-      duration: duration,
     });
 
     // Cleanup
@@ -191,70 +152,48 @@ export function ArticleSection() {
   }, []);
 
   return (
-    <section
-      className="relative bg-background overflow-hidden py-20 cursor-none"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-    >
-      {/* Custom Cursor */}
-      <motion.div
-        ref={cursorRef}
-        className="fixed top-0 left-0 w-8 h-8 rounded-full bg-primary pointer-events-none z-50 mix-blend-difference"
-        animate={{
-          x: cursorPosition.x - 16,
-          y: cursorPosition.y - 16,
-          scale: isHovering ? 1 : 0.5,
-        }}
-        transition={{
-          type: "spring",
-          damping: 30,
-          mass: 0.5,
-          stiffness: 400,
-        }}
-      />
-
+    <section className="relative bg-background overflow-hidden pb-20 pt-8">
       {/* Improved Scrolling Heading */}
       <motion.div
         ref={headingRef}
-        className="sticky top-0 z-10 py-6 overflow-hidden"
+        className="sticky top-0 z-10 p-6  overflow-hidden"
       >
         <div className="relative w-[200%]">
           <motion.div
-            className="scroll-text whitespace-nowrap text-[10vw] font-bold text-foreground/90 tracking-tighter"
+            className="whitespace-nowrap text-[10vw] font-bold text-foreground/90 tracking-tighter"
             style={{ x: headingX }}
           >
             <span className="inline-block mr-8">
-              LATEST INSIGHTS • CRICKET STORIES • TEAM UPDATES •&nbsp;
+             Media centre ❁ 𝕄𝕖𝕕𝕚𝕒 ℂ𝕖𝕟𝕥𝕣𝕖 ❁  Media centre  ❁ 𝕄𝕖𝕕𝕚𝕒 ℂ𝕖𝕟𝕥𝕣 •&nbsp;
             </span>
             <span className="inline-block">
-              LATEST INSIGHTS • CRICKET STORIES • TEAM UPDATES •&nbsp;
+             Media centre ❁ 𝕄𝕖𝕕𝕚𝕒 ℂ𝕖𝕟𝕥𝕣𝕖 ❁  Media centre  ❁ 𝕄𝕖𝕕𝕚𝕒 ℂ𝕖𝕟𝕥𝕣 •&nbsp;
             </span>
           </motion.div>
         </div>
       </motion.div>
 
       {/* Articles Container */}
-      <div
-        ref={containerRef}
-        className="relative min-h-screen max-w-8xl mx-auto"
-      >
-        <div className="flex items-center justify-center gap-10">
+      <div ref={containerRef} className="relative min-h-screen">
+        <div className="flex px-10">
           {articles.map((article, index) => (
-            <motion.a
+            <div
               key={article.id}
-              href={article.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="article-card relative w-screen h-[100vh] shrink-0 py-10"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-              whileHover="hover"
+              className="article-card relative w-[100vw] h-[100vh] shrink-0 py-10 pr-[4vw]"
             >
-              <div className="w-full h-full max-w-8xl mx-auto grid grid-cols-2 items-center justify-between gap-24 bg-foreground/5 px-16 rounded-2xl border border-border">
-                <motion.div className="h-full flex flex-col justify-center">
+              <div className="w-full h-full grid grid-cols-2 items-center gap-24 bg-foreground/5 px-16 rounded-2xl border border-border">
+                {/* Content */}
+                <motion.div
+                  className="h-full flex flex-col justify-center"
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                >
+                  {/* Title with animated line */}
                   <div className="overflow-hidden mb-6">
                     <motion.h3
-                      className="text-5xl font-bold leading-tight"
+                      className="text-4xl font-bold leading-tight"
                       initial={{ y: 100 }}
                       whileInView={{ y: 0 }}
                       viewport={{ once: true }}
@@ -268,38 +207,34 @@ export function ArticleSection() {
                     </motion.h3>
                   </div>
 
-                  {/* Improved Read More Icon */}
-                  <motion.div
-                    className="mt-8"
+                  {/* Enhanced Read More Button */}
+                  <motion.button
+                    className="group flex items-center gap-3 text-lg font-medium"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.1 }}
+                    transition={{ delay: index * 0.1 + 0.6 }}
                   >
+                    <span className="relative">
+                      Read Article
+                      <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-primary transform origin-left scale-x-0 transition-transform group-hover:scale-x-100" />
+                    </span>
                     <svg
-                      width="50"
-                      height="50"
-                      viewBox="0 0 50 50"
-                      fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      className="text-primary transform transition-transform duration-300 hover:translate-x-2"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
                     >
-                      <circle
-                        cx="25"
-                        cy="25"
-                        r="24"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                      <path
-                        d="M20 25h15M28 18l7 7-7 7"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
                     </svg>
-                  </motion.div>
+                  </motion.button>
                 </motion.div>
 
                 {/* Image Container */}
@@ -324,7 +259,7 @@ export function ArticleSection() {
                   />
                 </motion.div>
               </div>
-            </motion.a>
+            </div>
           ))}
         </div>
       </div>
