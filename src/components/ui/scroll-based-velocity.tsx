@@ -14,13 +14,13 @@ import {
 import { cn } from "@/lib/utils";
 
 interface VelocityScrollProps {
-  text: string;
+  text: string | React.ReactNode;
   default_velocity?: number;
   className?: string;
 }
 
 interface ParallaxProps {
-  children: string;
+  children: string | React.ReactNode;
   baseVelocity: number;
   className?: string;
 }
@@ -96,9 +96,11 @@ export function VelocityScroll({
       >
         <motion.div className={cn("inline-block", className)} style={{ x }}>
           {Array.from({ length: repetitions }).map((_, i) => (
-            <span key={i} ref={i === 0 ? textRef : null}>
-              {children}{" "}
-            </span>
+            <span
+              key={i}
+              ref={i === 0 ? textRef : null}
+              dangerouslySetInnerHTML={{ __html: children as string }}
+            />
           ))}
         </motion.div>
       </div>
