@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@radix-ui/react-slot": "^1.1.2",
     "@studio-freight/lenis": "^1.0.42",
     "class-variance-authority": "^0.7.1",
