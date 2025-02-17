@@ -5,7 +5,7 @@ import React from "react";
 
 export function ScrollBasedVelocityDemo() {
   return (
-    <div className="w-full">
+    <div className="w-full pb-2">
       <div>
         <div className="w-full mx-auto">
           <div

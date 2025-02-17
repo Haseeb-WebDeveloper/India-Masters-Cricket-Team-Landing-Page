@@ -132,12 +132,12 @@ export function ArticleSection() {
   }, []);
 
   return (
-    <section className="relative bg-background overflow-hidden pt-8">
+    <section className="relative bg-background overflow-hidden pt-12">
       {/* Scrolling Heading */}
       <ScrollBasedVelocityDemo />
 
       {/* Articles Container */}
-      <div ref={containerRef} className="relative min-h-screen">
+      <div ref={containerRef} className="relative min-h-screen  border-t border-dashed border-border">
         <div className="flex pl-[8vw]">
           {" "}
           {/* Added left padding to fix starting position */}
