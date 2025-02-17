@@ -132,12 +132,12 @@ export function ArticleSection() {
   }, []);
 
   return (
-    <section className="relative bg-background overflow-hidden pt-24">
+    <section className="relative bg-background overflow-hidden pt-8">
       {/* Scrolling Heading */}
       <ScrollBasedVelocityDemo />
 
       {/* Articles Container */}
-      <div ref={containerRef} className="relative min-h-screen mt-8">
+      <div ref={containerRef} className="relative min-h-screen">
         <div className="flex pl-[8vw]">
           {" "}
           {/* Added left padding to fix starting position */}
@@ -161,7 +161,7 @@ export function ArticleSection() {
                   transition={{ duration: 0.8 }}
                 >
                   <motion.h3
-                    className="text-[4vw] font-bold leading-tight uppercase text-foreground/95 tracking-normal"
+                    className="text-[4vw] font-bold leading-none uppercase text-foreground/95 tracking-normal"
                     initial={{ y: 50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
@@ -213,7 +213,7 @@ export function ArticleSection() {
 
                 {/* Image Container */}
                 <motion.div
-                  className="relative h-[80%] w-full rounded-2xl overflow-hidden"
+                  className="relative h-[80%] w-full rounded-xl overflow-hidden"
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -223,7 +223,7 @@ export function ArticleSection() {
                     src={article.image}
                     alt={article.title}
                     fill
-                    className="object-cover"
+                    className="object-contain h-full"
                     priority
                   />
                 </motion.div>
