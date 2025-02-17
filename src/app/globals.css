@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 
+.row-shadow {
+  -webkit-box-shadow: 3px 1px 33px 0px rgba(0,0,0,0.39);
+-moz-box-shadow: 3px 17px 3px 0px rgba(0,0,0,0.39);
+box-shadow: 3px 17px 33px 0px rgba(0,0,0,0.39);
+}
+
+
+
+
 
 @layer base {
   :root {

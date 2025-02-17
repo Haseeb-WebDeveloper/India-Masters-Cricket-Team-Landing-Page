@@ -12,7 +12,7 @@ type TeamRanking = {
   wins: number;
   losses: number;
   points: number;
-  nr: number; // No Result matches
+  nr: number;
   bgColor: string;
 };
 
@@ -26,7 +26,7 @@ const rankings: TeamRanking[] = [
     losses: 1,
     points: 16,
     nr: 0,
-    bgColor: "bg-gradient-to-r from-blue-500 to-red-500",
+    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
   },
   {
     id: 2,
@@ -37,14 +37,68 @@ const rankings: TeamRanking[] = [
     losses: 2,
     points: 14,
     nr: 0,
-    bgColor: "bg-gradient-to-r from-blue-500 to-red-500",
+    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
   },
-  // Add more teams...
+  {
+    id: 2,
+    logo: "/logos/logo.svg",
+    name: "SAN BEDA RED LIONS",
+    matches: 9,
+    wins: 7,
+    losses: 2,
+    points: 14,
+    nr: 0,
+    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
+  },
+  {
+    id: 2,
+    logo: "/logos/logo.svg",
+    name: "SAN BEDA RED LIONS",
+    matches: 9,
+    wins: 7,
+    losses: 2,
+    points: 14,
+    nr: 0,
+    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
+  },
+  {
+    id: 2,
+    logo: "/logos/logo.svg",
+    name: "SAN BEDA RED LIONS",
+    matches: 9,
+    wins: 7,
+    losses: 2,
+    points: 14,
+    nr: 0,
+    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
+  },
+  {
+    id: 2,
+    logo: "/logos/logo.svg",
+    name: "SAN BEDA RED LIONS",
+    matches: 9,
+    wins: 7,
+    losses: 2,
+    points: 14,
+    nr: 0,
+    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
+  },
+  {
+    id: 2,
+    logo: "/logos/logo.svg",
+    name: "SAN BEDA RED LIONS",
+    matches: 9,
+    wins: 7,
+    losses: 2,
+    points: 14,
+    nr: 0,
+    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
+  },
 ];
 
 export function RankingSection() {
   return (
-    <section className="relative min-h-screen w-full bg-background py-20">
+    <section className="relative min-h-screen w-full bg-foreground/5 py-20">
       <div className="container mx-auto px-4">
         <div className="mb-16">
           <h2 className="text-4xl md:text-6xl font-bold text-center">
@@ -54,47 +108,43 @@ export function RankingSection() {
 
         <div className="relative max-w-7xl mx-auto">
           {/* Header */}
-          <div className="grid grid-cols-[0.5fr,2.5fr,repeat(5,0.5fr)] gap-0 mb-8 px-8 text-foreground/60">
-            <div>Rank</div>
-            <div>Team</div>
-            <div className="text-center border-l border-border/20 text-sm">
+          <div className="grid grid-cols-[3fr,repeat(5,0.5fr)] gap-0 mb-8 px-8 text-foreground/80">
+            <div></div>
+            <div className="text-center border-l border-border/20 text-base">
               MAT
             </div>
-            <div className="text-center border-l border-border/20 text-sm">
+            <div className="text-center border-l border-border/20 text-base">
               W
             </div>
-            <div className="text-center border-l border-border/20 text-sm">
+            <div className="text-center border-l border-border/20 text-base">
               L
             </div>
-            <div className="text-center border-l border-border/20 text-sm">
+            <div className="text-center border-l border-border/20 text-base">
               PTS
             </div>
-            <div className="text-center border-l border-border/20 text-sm">
+            <div className="text-center border-l border-border/20 text-base">
               N/R
             </div>
           </div>
 
           {/* Rankings */}
-          <div className="space-y-3">
+          <div className="space-y-1">
             {rankings.map((team, index) => (
               <motion.div
                 key={team.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative bg-white"
-                // left side edge row
+                className="relative bg-foreground/80 hover:bg-foreground transition-all duration-300 h-20 rounded-e-sm shadow-2xl border border-border"
                 style={{
-                  clipPath: "polygon(45px 0, 100% 0, 100% 100%, 0 100%, 0 100%)",
+                  clipPath:
+                    "polygon(45px 0, 100% 0, 100% 100%, 0 100%, 0 100%)",
                 }}
               >
                 {/* Background with curved edges */}
-                <div className="absolute inset-0 w-[45%] h-full">
+                <div className="absolute inset-0 w-[50%] h-full">
                   <div
-                    className={cn(
-                      "absolute inset-0 opacity-90",
-                      team.bgColor
-                    )}
+                    className={cn("absolute inset-0 opacity-90", team.bgColor)}
                     style={{
                       clipPath: "polygon(8% 0, 100% 0, 92% 100%, 0% 100%)",
                     }}
@@ -103,28 +153,27 @@ export function RankingSection() {
 
                 <div
                   className={cn(
-                    "relative grid grid-cols-[0.5fr,2.5fr,repeat(5,0.5fr)] items-center gap-0 py-4",
+                    "relative grid grid-cols-[3fr,repeat(5,0.5fr)] items-center gap-0 h-20",
                     "shadow-[0_4px_8px_-2px_rgba(0,0,0,0.2)]"
                   )}
                 >
-                  {/* Rank */}
-                  <div className="text-2xl font-bold pl-12">
-                    {String(team.id).padStart(2, "0")}
-                  </div>
-
                   {/* Team */}
-                  <div className="flex items-center gap-4">
-                    <div className="relative w-12 h-12">
+                  <div className="relative flex items-center gap-2 h-20">
+                    {/* Logo container aligned with row edges */}
+                    <div
+                      className="absolute left-0 top-0 w-32 h-20 bg-white"
+                      style={{
+                        clipPath: "polygon(0 45px, 45px 0, 100% 0, 65% 100%, 0 100%)",
+                      }}
+                    >
                       <Image
                         src={team.logo}
                         alt={team.name}
                         fill
-                        className="object-contain"
+                        className="object-contain p-2"
                       />
                     </div>
-                    <span className="font-semibold text-3xl">
-                      {team.name}
-                    </span>
+                    <span className="font-semibold text-[3vw] pl-36">{team.name}</span>
                   </div>
 
                   {/* Stats */}
