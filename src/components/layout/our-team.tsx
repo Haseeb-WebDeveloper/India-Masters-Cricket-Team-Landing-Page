@@ -5,7 +5,13 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Draggable } from "gsap/Draggable";
 import { cn } from "@/lib/utils";
-import { isDragging, motion, useMotionValue } from "framer-motion";
+import {
+  isDragging,
+  motion,
+  useMotionValue,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable);
@@ -36,7 +42,7 @@ const teamMembers: TeamMember[] = [
         dob: "24 April 1973",
         battingStyle: "Right Handed Batsman",
         bowlingStyle: "",
-      }
+      },
     ],
     description:
       "Sachin Tendulkar is a global icon, a legend whose name resonates with billions. He's not just a record-breaker; he's a symbol of India's spirit, its unwavering determination, and its enduring love for cricket. The roar of the crowd, the thundering applause, the outpouring of affection. It wasn't just for the runs he scored, but for the pride he imprints on the nation. Each boundary, each masterful stroke, was a testament to his unwavering dedication and the immense love he returned to his people, forging an unbreakable bond that fueled countless victories and cemented his status as the 'God of Cricket'.",
@@ -269,6 +275,14 @@ export function OurTeam() {
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
 
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       requestAnimationFrame(() => {
@@ -366,7 +380,7 @@ export function OurTeam() {
     <section
       id="team"
       ref={containerRef}
-      className="relative h-screen w-full overflow-hidden bg-background cursor-none"
+      className="relative min-h-screen h-full w-full overflow-hidden bg-background cursor-none"
     >
       <motion.div
         ref={cursorRef}
@@ -406,16 +420,26 @@ export function OurTeam() {
         </div>
       </motion.div>
 
-      <div className="absolute inset-0 flex items-center">
+      {/* Title with Parallax */}
+      <div className="relative h-[30vh] flex items-center justify-start px-[max(2rem,calc((100vw-1500px)/2))]">
+        <motion.div style={{ y, opacity }} className="relative z-10">
+          <span className="text-foreground/20 text-9xl font-medium left-0">
+            Our Team
+          </span>
+        </motion.div>
+      </div>
+
+      {/* Slider */}
+      <div className="absolute inset-0 top-[30vh] flex items-end">
         <div
           ref={sliderRef}
-          className="flex gap-4 cursor-none px-[max(2rem,calc((100vw-1500px)/2)) px-4 md:px-6"
+          className="flex gap-4 cursor-none px-[max(2rem,calc((100vw-1500px)/2)) px-0"
         >
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.id}
               className={cn(
-                "relative h-[85vh] transition-all duration-700 ease-out border border-border rounded-xl bg-blue-100",
+                "relative h-[80vh] transition-all duration-700 ease-out border border-border rounded-xl bg-blue-100",
                 activeIndex === index ? "w-[500px]" : "w-[250px]"
               )}
               onMouseEnter={() => !isDragging && setActiveIndex(index)}
@@ -481,8 +505,12 @@ export function OurTeam() {
                         <div key={idx} className="space-y-1">
                           {detail.age && <p>Age: {detail.age}</p>}
                           {detail.dob && <p>DOB: {detail.dob}</p>}
-                          {detail.battingStyle && <p>Batting: {detail.battingStyle}</p>}
-                          {detail.bowlingStyle && <p>Bowling: {detail.bowlingStyle}</p>}
+                          {detail.battingStyle && (
+                            <p>Batting: {detail.battingStyle}</p>
+                          )}
+                          {detail.bowlingStyle && (
+                            <p>Bowling: {detail.bowlingStyle}</p>
+                          )}
                         </div>
                       ))}
                     </div>

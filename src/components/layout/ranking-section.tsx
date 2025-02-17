@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { useRef } from "react";
 
 type TeamRanking = {
   id: number;
@@ -19,89 +20,81 @@ type TeamRanking = {
 const rankings: TeamRanking[] = [
   {
     id: 1,
-    logo: "/logos/logo.svg",
-    name: "MAPUA CARDINALS",
-    matches: 9,
-    wins: 8,
-    losses: 1,
-    points: 16,
+    logo: "/logos/ind.png",
+    name: "India",
+    matches: 0,
+    wins: 0,
+    losses: 0,
+    points: 0,
     nr: 0,
-    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
+    bgColor: "bg-gradient-to-r from-yellow-800/90 via-yellow-600",
   },
   {
     id: 2,
-    logo: "/logos/logo.svg",
-    name: "SAN BEDA RED LIONS",
-    matches: 9,
-    wins: 7,
-    losses: 2,
-    points: 14,
+    logo: "/logos/sri.png",
+    name: "Sri Lanka",
+    matches: 0,
+    wins: 0,
+    losses: 0,
+    points: 0,
     nr: 0,
-    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
+    bgColor: "bg-gradient-to-r from-[#8E153C] via-[#8E153C]/60",
   },
   {
     id: 3,
-    logo: "/logos/logo.svg",
-    name: "SAN BEDA RED LIONS",
-    matches: 9,
-    wins: 7,
-    losses: 2,
-    points: 14,
+    logo: "/logos/pak.png",
+    name: "West Indies",
+    matches: 0,
+    wins: 0,
+    losses: 0,
+    points: 0,
     nr: 0,
-    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
+    bgColor: "bg-gradient-to-r from-green-800 via-green-500/50",
   },
   {
     id: 4,
-    logo: "/logos/logo.svg",
-    name: "SAN BEDA RED LIONS",
-    matches: 9,
-    wins: 7,
-    losses: 2,
-    points: 14,
+    logo: "/logos/aus.png",
+    name: "Australia",
+    matches: 0,
+    wins: 0,
+    losses: 0,
+    points: 0,
     nr: 0,
-    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
+    bgColor: "bg-gradient-to-r from-blue-800 via-blue-500/50",
   },
   {
     id: 5,
-    logo: "/logos/logo.svg",
-    name: "SAN BEDA RED LIONS",
-    matches: 9,
-    wins: 7,
-    losses: 2,
-    points: 14,
+    logo: "/logos/sa.png",
+    name: "South Africa",
+    matches: 0,
+    wins: 0,
+    losses: 0,
+    points: 0,
     nr: 0,
-    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
+    bgColor: "bg-gradient-to-r from-yellow-800/90 via-blue-100/50",
   },
   {
     id: 6,
-    logo: "/logos/logo.svg",
-    name: "SAN BEDA RED LIONS",
-    matches: 9,
-    wins: 7,
-    losses: 2,
-    points: 14,
+    logo: "/logos/eng.png",
+    name: "England",
+    matches: 0,
+    wins: 0,
+    losses: 0,
+    points: 0,
     nr: 0,
-    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
-  },
-  {
-    id: 7,
-    logo: "/logos/logo.svg",
-    name: "SAN BEDA RED LIONS",
-    matches: 9,
-    wins: 7,
-    losses: 2,
-    points: 14,
-    nr: 0,
-    bgColor: "bg-gradient-to-r from-blue-900 to-blue-400",
+    bgColor: "bg-gradient-to-r from-red-800 via-red-500/50",
   },
 ];
 
 export function RankingSection() {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true });
+
   return (
-    <section className="relative min-h-screen w-full bg-foreground/5 py-20">
+    <section className="relative min-h-screen w-full bg-foreground/5 py-24">
       <div className="container mx-auto px-4">
         <div className="mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold text-center">
+          <h2 className="text-4xl md:text-[6vw] font-display text-center">
             Tournament Standings
           </h2>
         </div>
@@ -128,12 +121,14 @@ export function RankingSection() {
           </div>
 
           {/* Rankings */}
-          <div className="space-y-1 relative">
+          <div ref={containerRef} className="space-y-1 relative">
             {rankings.map((team, index) => (
               <motion.div
                 key={team.id}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative bg-foreground/80 group hover:bg-foreground transition-all duration-300 h-20 rounded-e-sm border border-border"
                 style={{
@@ -142,7 +137,7 @@ export function RankingSection() {
                 }}
               >
                 {/* Hover Effects Container */}
-                <div className="absolute inset-0 transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-1 group-hover:z-10">
+                <div className="absolute inset-0 transition-all duration-300 group-hover:shadow-2xl group-hover:z-10">
                   {/* Background with curved edges */}
                   <div className="absolute inset-0 w-[50%] h-full">
                     <div
@@ -168,7 +163,7 @@ export function RankingSection() {
                     <div className="relative flex items-center gap-2 h-20">
                       {/* Logo container with hover effect */}
                       <div
-                        className="absolute left-0 top-0 w-32 h-20 bg-white transition-transform duration-300 group-hover:scale-[1.02]"
+                        className="absolute left-0 top-0 w-32 h-20 bg-foreground transition-transform duration-300 group-hover:scale-[1.02]"
                         style={{
                           clipPath:
                             "polygon(0 45px, 45px 0, 100% 0, 65% 100%, 0 100%)",
@@ -178,10 +173,10 @@ export function RankingSection() {
                           src={team.logo}
                           alt={team.name}
                           fill
-                          className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                          className="object-contain p-2 transition-transform duration-300 "
                         />
                       </div>
-                      <span className="font-semibold text-[3vw] pl-36 text-background/90 transition-colors duration-300 group-hover:text-background">
+                      <span className="uppercase font-semibold text-[3vw] pl-36 text-background/90 transition-colors duration-300 group-hover:text-background">
                         {team.name}
                       </span>
                     </div>
