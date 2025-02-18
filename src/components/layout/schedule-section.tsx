@@ -119,10 +119,10 @@ const matches: Match[] = [
 
 export function ScheduleSection() {
   return (
-    <section className="relative w-full bg-background py-12">
+    <section className="relative w-full bg-background py-16">
       <div className="container mx-auto px-4">
         <div className="mb-20">
-          <h2 className="text-4xl md:text-8xl text-white outline-text text-center">
+          <h2 className="text-[5rem] text-white outline-text text-center">
             Coming Soon...
           </h2>
         </div>

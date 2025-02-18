@@ -5,7 +5,8 @@ import { RankingSection } from "@/components/layout/ranking-section";
 import { ScheduleSection } from "@/components/layout/schedule-section";
 import { Logos3 } from "@/components/logos3"
 import RollingGallery from "@/components/layout/logo-gallery";
-
+import { Marquee } from "@/components/magicui/marquee";
+import StorySection from "@/components/layout/story-section";
 
 
 const demoData = {
@@ -64,7 +65,8 @@ export default function Home() {
       <RollingGallery autoplay={true} pauseOnHover={true} />
       <OurTeam />
       <ArticleSection />
-      <Logos3 {...demoData} />
+      <StorySection />
+      {/* <Logos3 {...demoData} /> */}
       <ScheduleSection />
       <RankingSection />
     </>
