@@ -64,7 +64,7 @@ const Logos3 = ({
       id: "logo-7",
       description: "Logo 7",
       image: "https://shadcnblocks.com/images/block/logos/tailwind.svg",
-      className: "h-4 w-auto",
+      className: "h-24 w-auto",
     },
     {
       id: "logo-8",

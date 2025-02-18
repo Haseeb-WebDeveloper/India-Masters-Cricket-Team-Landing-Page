@@ -5,7 +5,7 @@ import { RankingSection } from "@/components/layout/ranking-section";
 import { ScheduleSection } from "@/components/layout/schedule-section";
 import { Logos3 } from "@/components/logos3"
 import RollingGallery from "@/components/layout/logo-gallery";
-import CircularGallery from "@/components/layout/circle-gallery";
+// import CircularGallery from "@/components/layout/circle-gallery";
 
 
 
