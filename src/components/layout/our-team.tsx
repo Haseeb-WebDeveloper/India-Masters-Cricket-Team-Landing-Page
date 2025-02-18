@@ -280,7 +280,7 @@ export function OurTeam() {
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const y = useTransform(scrollYProgress, [0, 0.5], ["0%", "100%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   useEffect(() => {
@@ -384,7 +384,7 @@ export function OurTeam() {
     >
       <motion.div
         ref={cursorRef}
-        className="fixed top-0 left-0 z-[9999] pointer-events-none mix-blend-difference"
+        className="fixed top-0 left-0 z-[9999] pointer-events-none mix-blend-screen"
         style={{
           x: cursorX,
           y: cursorY,
@@ -404,7 +404,7 @@ export function OurTeam() {
         <div className="relative -translate-x-1/2 -translate-y-1/2">
           <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center backdrop-blur-sm">
             <span className="text-black text-xs font-medium select-none">
-              {isDragging ? "DRAGGING" : "MOVE"}
+              {/* {isDragging ? "DRAGGING" : "MOVE"} */}
             </span>
           </div>
 
@@ -430,7 +430,7 @@ export function OurTeam() {
       </div>
 
       {/* Slider */}
-      <div className="absolute inset-0 top-[30vh] flex items-end">
+      <div className="absolute inset-0 top-[30vh] flex items-end z-10">
         <div
           ref={sliderRef}
           className="flex gap-4 cursor-none px-[max(2rem,calc((100vw-1500px)/2)) px-0"

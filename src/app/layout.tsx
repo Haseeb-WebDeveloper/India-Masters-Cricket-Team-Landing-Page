@@ -26,7 +26,7 @@ export default function RootLayout({
         >
           <SmoothScrollProvider>
             <Header />
-            <main className="relative bg-black">{children}</main>
+            <main className="relative">{children}</main>
           </SmoothScrollProvider>
         </ThemeProvider>
       </body>
