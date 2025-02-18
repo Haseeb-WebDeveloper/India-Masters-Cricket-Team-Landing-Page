@@ -5,7 +5,6 @@ import { RankingSection } from "@/components/layout/ranking-section";
 import { ScheduleSection } from "@/components/layout/schedule-section";
 import { Logos3 } from "@/components/logos3"
 import RollingGallery from "@/components/layout/logo-gallery";
-// import CircularGallery from "@/components/layout/circle-gallery";
 
 
 
@@ -62,9 +61,6 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      {/* <div style={{ height: '200px', position: 'relative' }}>
-        <CircularGallery bend={0} textColor="#ffffff" borderRadius={0} items={demoData.logos} />
-      </div> */}
       <RollingGallery autoplay={true} pauseOnHover={true} />
       <OurTeam />
       <ArticleSection />
