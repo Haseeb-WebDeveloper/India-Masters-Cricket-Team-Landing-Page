@@ -117,10 +117,9 @@ const teamMembers: TeamMember[] = [
     title: "The Bihari Blizzard",
     details: [
       {
-        age: "NON",
-        dob: "NON",
+        age: "35",
+        dob: "30 Dec 1989",
         battingStyle: " Left-Handed Batsman",
-        bowlingStyle: "NON",
       },
     ],
     description:
