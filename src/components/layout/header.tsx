@@ -5,6 +5,8 @@ import Image from "next/image";
 import gsap from "gsap";
 import { cn, scrollToSection } from "@/lib/utils";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "home", label: "HOME" },
@@ -84,7 +86,10 @@ export function Header() {
     }
   }, [isMenuOpen]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault();
     setIsMenuOpen(false);
 
@@ -100,7 +105,8 @@ export function Header() {
     if (element) {
       const headerHeight = headerRef.current?.offsetHeight || 0;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerHeight;
 
       window.scrollTo({
         top: offsetPosition,
@@ -112,46 +118,39 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      className="absolute top-0 left-0 right-0 z-50 mx-auto px-4 py-6 md:py-12 max-w-[1180px] md:px-6"
+      className="absolute top-0 left-0 right-0 z-50 mx-auto px-4 py-4 md:py-8 lg:py-12 max-w-[1180px] md:px-6"
     >
-      <div className="relative mx-auto px-4 py-3 md:py-5 md:px-12">
+      <div className="relative mx-auto px-3 py-2 md:px-8 md:py-6 z-[1000]">
         {/* Header Background with Border */}
-        <div className="absolute inset-0 rounded-full border border-yellow-500/20 bg-background/80 backdrop-blur-sm" />
+        <div className="absolute inset-0 rounded-full border border-yellow-500/20 bg-background/80 backdrop-blur-sm " />
 
-        <div className="relative flex items-center justify-between">
-          {/* Mobile Menu Button */}
+        <div className="relative flex items-center justify-between px-4 ">
+          {/* Mobile Logo - Left Aligned */}
+          <div className="md:hidden relative h-12 w-12">
+            <Image
+              src="/logo.png"
+              alt="India Champions Logo"
+              width={48}
+              height={48}
+              className="relative z-10"
+              priority
+            />
+          </div>
+
+          {/* Mobile Menu Button - Right Aligned */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="nav-link md:hidden text-foreground/90 hover:text-foreground z-50"
+            className="md:hidden relative p-2  hover:text-primary transition-colors z-50"
+            aria-label="Toggle menu"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className={cn(
-                "w-6 h-6 transition-transform duration-300",
-                isMenuOpen && "rotate-90"
-              )}
-            >
-              {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              )}
-            </svg>
+            {isMenuOpen ? (
+              <X className="w-8 h-8" />
+            ) : (
+              <Menu className="w-8 h-8" />
+            )}
           </button>
 
-          {/* Left Navigation - Desktop */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-4">
             {navLinks.slice(0, 3).map((link, index) => (
               <div key={link.href} className="flex items-center">
@@ -169,15 +168,13 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Logo */}
+          {/* Desktop Logo */}
           <div
             ref={logoRef}
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:block"
           >
-            <div className="relative h-36 w-36 mt-4">
-              {/* Enhanced logo glow effect */}
-              <div className="absolute inset-0 animate-pulse rounded-full bg-blue-400/20 blur-xl" />
-
+            <div className="relative h-28 w-28 lg:h-36 lg:w-36 mt-4">
+              <div className="absolute inset-0 animate-pulse rounded-full bg-blue-400/20 blur-xl opacity-50" />
               <Image
                 src="/logo.png"
                 alt="India Champions Logo"
@@ -189,19 +186,7 @@ export function Header() {
             </div>
           </div>
 
-          {/* Mobile Logo */}
-          <div className="md:hidden relative h-10 w-10">
-            <Image
-              src="/logo.png"
-              alt="India Champions Logo"
-              width={40}
-              height={40}
-              className="relative z-10"
-              priority
-            />
-          </div>
-
-          {/* Right Navigation - Desktop */}
+          {/* Desktop Right Navigation */}
           <nav className="hidden md:flex items-center gap-4">
             {navLinks.slice(3).map((link, index) => (
               <div key={link.href} className="flex items-center">
@@ -218,28 +203,46 @@ export function Header() {
               </div>
             ))}
           </nav>
-        </div>
 
-        {/* Mobile Menu */}
-        <div
-          ref={menuRef}
-          className={cn(
-            "fixed inset-0 bg-foreground/98 z-40 flex items-center justify-center transition-all duration-300",
-            isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-          )}
-        >
-          <nav className="flex flex-col items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={`#${link.href}`}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-xl font-medium text-white/90 hover:text-white transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          {/* Mobile Menu Overlay */}
+          <div
+            ref={menuRef}
+            className={cn(
+              "fixed inset-0 top-0 left-0 z-40 transition-all duration-500 md:hidden",
+              isMenuOpen
+                ? "opacity-100 visible"
+                : "opacity-0 invisible pointer-events-none"
+            )}
+          >
+
+            {/* Menu Content */}
+            <nav className="relative h-[100vh] flex flex-col items-center justify-center gap-8 bg-background">
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={
+                    isMenuOpen
+                      ? {
+                          opacity: 1,
+                          y: 0,
+                          transition: { delay: index * 0.1 },
+                        }
+                      : { opacity: 0, y: 20 }
+                  }
+                  transition={{ duration: 0.3 }}
+                >
+                  <Link
+                    href={`#${link.href}`}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-3xl font-medium text-white tracking-wider hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+          </div>
         </div>
       </div>
     </header>

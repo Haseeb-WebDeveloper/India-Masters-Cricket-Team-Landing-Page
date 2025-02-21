@@ -31,14 +31,14 @@ const rankings: TeamRanking[] = [
   },
   {
     id: 2,
-    logo: "partners/sri-lanka-masters.svg",
-    name: "Sri Lanka Masters",
+    logo: "partners/south-africa-masters.svg",
+    name: "South Africa Masters",
     matches: 0,
     wins: 0,
     losses: 0,
     points: 0,
     nr: 0,
-    bgColor: "bg-gradient-to-r from-[#30000E] via-[#8E153C]/60",
+    bgColor: "bg-gradient-to-r from-[#6ADFCF] via-[#6ADFCF]/50",
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const rankings: TeamRanking[] = [
     losses: 0,
     points: 0,
     nr: 0,
-    bgColor: "bg-gradient-to-r from-green-800 via-green-500/50",
+    bgColor: "bg-gradient-to-r from-[#A3383D] via-[#E4BE2F]-20%",
   },
   {
     id: 4,
@@ -60,18 +60,18 @@ const rankings: TeamRanking[] = [
     losses: 0,
     points: 0,
     nr: 0,
-    bgColor: "bg-gradient-to-r from-blue-800 via-blue-500/50",
+    bgColor: "bg-gradient-to-r from-[#B7EE06] via-[#B7EE06]/50",
   },
   {
     id: 5,
-    logo: "partners/south-africa-masters.svg",
-    name: "South Africa Masters",
+    logo: "partners/sri-lanka-masters.svg",
+    name: "Sri Lanka Masters",
     matches: 0,
     wins: 0,
     losses: 0,
     points: 0,
     nr: 0,
-    bgColor: "bg-gradient-to-r from-yellow-800/90 via-blue-100/50",
+    bgColor: "bg-gradient-to-r from-[#8E153C] via-[#8E153C]/60",
   },
   {
     id: 6,
@@ -82,7 +82,7 @@ const rankings: TeamRanking[] = [
     losses: 0,
     points: 0,
     nr: 0,
-    bgColor: "bg-gradient-to-r from-red-800 via-red-500/50",
+    bgColor: "bg-gradient-to-r from-[#418EC1] via-[#418EC1]/50",
   },
 ];
 
@@ -176,7 +176,7 @@ export function RankingSection() {
                           className="object-contain p-2 transition-transform duration-300 "
                         />
                       </div>
-                      <span className="uppercase font-semibold text-[3vw] pl-36 text-background/90 transition-colors duration-300 group-hover:text-background">
+                      <span className="uppercase font-semibold text-[2.5vw] md:pl-36 pl-32 text-background/90 transition-colors duration-300 group-hover:text-background text-nowrap text-ellipsis overflow-hidden whitespace-nowrap truncate tracking-tight">
                         {team.name}
                       </span>
                     </div>

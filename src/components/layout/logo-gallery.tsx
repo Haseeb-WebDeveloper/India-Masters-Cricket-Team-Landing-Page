@@ -112,20 +112,20 @@ const RollingGallery = ({
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-foreground/5 py-24">
-      <div className="max-w-7xl mx-auto h-full px-4 md:px-12">
-        <div className="flex flex-col lg:flex-row gap-4 items-center">
+    <div className="relative w-full overflow-hidden bg-foreground/5 md:py-28 pt-24 pb-12">
+      <div className="max-w-[1550px] mx-auto h-full px-2  md:px-12">
+        <div className="flex flex-col lg:flex-row items-center ">
           {/* Left side content */}
-          <div className="w-[50%] flex flex-col justify-center">
+          <div className="md:w-[50%] w-full flex flex-col justify-center">
             <div>
-              <h2 className="text-[4.5vw] font-custom font-medium uppercase leading-tight">
+              <h2 className="text-[2rem] md:text-[4rem] text-center md:text-left font-custom font-medium uppercase leading-tight">
                 Our Broadcast Partners
               </h2>
             </div>
           </div>
 
           {/* Right side - Logo Gallery */}
-          <div className="w-[50%] min-h-[150px]">
+          <div className="md:w-[50%] w-full min-h-[150px]">
             <div className="flex h-full items-center justify-center [perspective:2000px] [transform-style:preserve-3d]">
               <motion.div
                 drag="x"

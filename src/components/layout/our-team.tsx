@@ -404,7 +404,7 @@ export function OurTeam() {
     <section
       id="team"
       ref={containerRef}
-      className="relative min-h-screen h-full w-full overflow-hidden bg-background"
+      className="relative min-h-[100vh] h-full w-full overflow-hidden bg-background "
     >
       <motion.div
         ref={cursorRef}
@@ -445,16 +445,16 @@ export function OurTeam() {
       </motion.div>
 
       {/* Title with Parallax */}
-      <div className="relative h-[30vh] flex items-center justify-start px-[max(2rem,calc((100vw-1500px)/2))]">
+      <div className="relative h-[20vh] md:h-[30vh] flex items-center justify-start px-[max(2rem,calc((100vw-1500px)/2))]">
         <motion.div style={{ y, opacity }} className="relative z-10">
-          <span className="text-foreground/20 text-9xl font-medium left-0">
+          <span className="text-foreground/20 text-[4rem] md:text-[7rem] font-medium left-0">
             Our Team
           </span>
         </motion.div>
       </div>
 
       {/* Slider */}
-      <div className="absolute inset-0 top-[30vh] flex items-end z-10">
+      <div className="absolute inset-0 top-0 flex items-end z-10 b">
         <div
           ref={sliderRef}
           className="flex gap-4 cursor-none px-[max(2rem,calc((100vw-1500px)/2)) px-4 md:px-8"

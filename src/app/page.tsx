@@ -64,7 +64,7 @@ export default function Home() {
       <ScheduleSection />
       <RankingSection />
       <ArticleSection />
-      <ContactSection />
+      {/* <ContactSection /> */}
     </>
   );
 }

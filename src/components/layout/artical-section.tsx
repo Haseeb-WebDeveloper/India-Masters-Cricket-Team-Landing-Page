@@ -139,7 +139,7 @@ export function ArticleSection() {
       {/* Articles Container */}
       <div ref={containerRef} className="relative min-h-screen  border-t border-dashed border-border">
         <div className="flex pl-[8vw]">
-          {" "}
+          {" "}s
           {/* Added left padding to fix starting position */}
           {articles.map((article, index) => (
             <motion.a

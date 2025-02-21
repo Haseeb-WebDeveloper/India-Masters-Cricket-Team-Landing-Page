@@ -61,7 +61,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="relative w-full bg-foreground/10 py-24">
       <div className="container mx-auto px-4">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 lg:gap-24 items-center">
           {/* Left Side - Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -70,10 +70,10 @@ export function ContactSection() {
             className="relative"
           >
             <div className="sticky top-24">
-              <span className="px-6 py-1.5 bg-primary/10 border border-border text-foreground/80 rounded-full inline-block text-sm mb-4">
+              <span className="px-6 py-1.5 bg-orange-200/10 border border-border text-foreground/80 rounded-full inline-block text-sm mb-4">
                 Contact Us
               </span>
-              <h2 className="text-[3rem] font-display text-primary uppercase mb-6 leading-none tracking-tight">
+              <h2 className="text-[3rem] font-display text-orange-500 uppercase mb-6 leading-none tracking-tight">
                 Follow
                 <span className="block mt-2">Competitions</span>
               </h2>
@@ -85,23 +85,23 @@ export function ContactSection() {
               {/* Contact Info */}
               <div className="space-y-6 mt-12">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Mail className="w-4 h-4 text-primary" />
+                  <div className="w-10 h-10 rounded-full bg-orange-200/10 flex items-center justify-center">
+                    <Mail className="w-4 h-4 text-orange-200" />
                   </div>
                   <div>
                     <p className="text-sm text-foreground/60">Email us at</p>
-                    <a href="mailto:contact@indiamasters.com" className="text-base hover:text-primary transition-colors">
+                    <a href="mailto:contact@indiamasters.com" className="text-base hover:text-orange-200 transition-colors">
                       contact@indiamasters.com
                     </a>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Phone className="w-4 h-4 text-primary" />
+                  <div className="w-10 h-10 rounded-full bg-orange-200/10 flex items-center justify-center">
+                    <Phone className="w-4 h-4 text-orange-200" />
                   </div>
                   <div>
                     <p className="text-sm text-foreground/60">Call us at</p>
-                    <a href="tel:+1234567890" className="text-base hover:text-primary transition-colors">
+                    <a href="tel:+1234567890" className="text-base hover:text-orange-200 transition-colors">
                       +1 (234) 567-890
                     </a>
                   </div>
@@ -119,14 +119,14 @@ export function ContactSection() {
           >
             <motion.form
               onSubmit={handleSubmit}
-              className="relative bg-background/70 backdrop-blur-sm border border-border rounded-2xl p-6"
+              className="relative bg-background/70 backdrop-blur-sm border border-border rounded-2xl p-8"
             >
               <div className="space-y-2">
                 {/* Name Field */}
                 <div className="space-y-1">
                   <label className="text-sm font-medium text-foreground/80 flex items-center gap-2">
                     <User className="w-4 h-4" />
-                    Name <span className="text-primary">*</span>
+                    Name <span className="text-orange-200">*</span>
                   </label>
                   <input
                     type="text"
@@ -134,7 +134,7 @@ export function ContactSection() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-4 py-2 rounded-lg bg-foreground/5 border border-border 
-                             focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50
+                             focus:outline-none focus:ring-2 focus:ring-orange-200/20 focus:border-orange-200/50
                              transition-all duration-300"
                     placeholder="Enter your name"
                   />
@@ -144,7 +144,7 @@ export function ContactSection() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-foreground/80 flex items-center gap-2">
                     <Mail className="w-4 h-4" />
-                    Email <span className="text-primary">*</span>
+                    Email <span className="text-orange-200">*</span>
                   </label>
                   <input
                     type="email"
@@ -152,7 +152,7 @@ export function ContactSection() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-2 rounded-lg bg-foreground/5 border border-border 
-                             focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50
+                             focus:outline-none focus:ring-2 focus:ring-orange-200/20 focus:border-orange-200/50
                              transition-all duration-300"
                     placeholder="Enter your email"
                   />
@@ -169,7 +169,7 @@ export function ContactSection() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-2 rounded-lg bg-foreground/5 border border-border 
-                             focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50
+                             focus:outline-none focus:ring-2 focus:ring-orange-200/20 focus:border-primary/50
                              transition-all duration-300"
                     placeholder="Enter your phone number"
                   />
