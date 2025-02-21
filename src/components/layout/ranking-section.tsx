@@ -93,11 +93,11 @@ export function RankingSection() {
   return (
     <section
       id="ranking"
-      className="relative min-h-screen w-full bg-foreground/5 py-24"
+      className="relative min-h-screen w-full bg-foreground/5 md:py-40 py-24"
     >
       <div className="container mx-auto px-4">
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-[6vw] font-display text-center">
+        <div className="mb-24">
+          <h2 className="text-4xl md:text-[6vw] font-bold text-center uppercase">
             Tournament Standings
           </h2>
         </div>

@@ -121,7 +121,7 @@ const RollingGallery = ({
           {/* Left side content */}
           <div className="md:w-[50%] w-full flex flex-col justify-center">
             <div>
-              <h2 className="text-[2rem] md:text-[4rem] text-center md:text-left font-custom font-medium uppercase leading-tight">
+              <h2 className="text-[2rem] md:text-[4rem] text-center md:text-left  font-bold uppercase leading-tight">
                 Our Broadcast Partners
               </h2>
             </div>

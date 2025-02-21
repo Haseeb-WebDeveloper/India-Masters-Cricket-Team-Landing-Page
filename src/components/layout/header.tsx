@@ -13,7 +13,7 @@ const navLinks = [
   { href: "team", label: "TEAM" },
   { href: "media", label: "MEDIA" },
   { href: "schedule", label: "SCHEDULE" },
-  { href: "ranking", label: "RANKING" },
+  { href: "ranking", label: "STANDINGS" },
   { href: "contact", label: "CONTACT" },
 ];
 

@@ -2,30 +2,36 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Youtube,
+  X,
+} from "lucide-react";
 import { useRef } from "react";
 
 const socialLinks = [
-  // {
-  //   name: "Facebook",
-  //   icon: Facebook,
-  //   href: "https://facebook.com",
-  // },
-  // {
-  //   name: "Twitter",
-  //   icon: Twitter,
-  //   href: "https://twitter.com",
-  // },
+  {
+    name: "X",
+    icon: X,
+    href: "https://x.com/Imlindiamasters?t=qN1hn8IvRbh2fYBHK25JwQ&s=09",
+  },
   {
     name: "Instagram",
     icon: Instagram,
-    href: "https://www.instagram.com/imlt20official/?hl=en",
+    href: "https://www.threads.net/@iml_indiamasters?source_application=com.instagram.android&glyph_type=SELF_PROFILE&fbclid=PAY2xjawIk9bRleHRuA2FlbQIxMAABpm18a77_cVPoAja-93DssVuVmmGZtlFdeVPlKKf29ndzNTmdVSeaYYj2Gw_aem_Yew-GNDEm2Qc1x6xR3rWaQ",
   },
-  // {
-  //   name: "Youtube",
-  //   icon: Youtube,
-  //   href: "https://youtube.com",
-  // },
+  {
+    name: "Facebook",
+    icon: Facebook,
+    href: "https://www.facebook.com/IndiaMastersOfficial/",
+  },
+  {
+    name: "Instagram",
+    icon: Instagram,
+    href: "https://www.instagram.com/studioenzig/",
+  },
 ];
 
 export function Footer() {
@@ -42,7 +48,7 @@ export function Footer() {
   const textY = useTransform(scrollYProgress, [0, 1], [60, 0]);
 
   const handleSocialClick = (url: string) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -69,7 +75,7 @@ export function Footer() {
 
           {/* Main Text */}
           <motion.h2
-            className="text-[12vw] font-custom text-center leading-none tracking-tighter text-foreground/70 relative"
+            className="text-[12vw] font-bold text-center leading-none tracking-tighter text-foreground/70 relative"
             style={{ y: useTransform(textY, (v) => v * 0.5) }}
           >
             INDIA MASTERS
@@ -94,12 +100,14 @@ export function Footer() {
               © {new Date().getFullYear()} India Masters. All rights reserved.
             </motion.p>
 
-            {/* Social Links */}
-            <div className="flex items-center gap-8 order-1 md:order-2">
+          {/* Social Links */}
+            <div className="flex items-center gap-8 order-1 md:order-2 z-[1000]">
               {socialLinks.map((social, index) => (
-                <motion.button
+                <motion.a
                   key={social.name}
-                  onClick={() => handleSocialClick(social.href)}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -110,7 +118,7 @@ export function Footer() {
                   className="text-foreground/60 transition-colors duration-200 cursor-pointer"
                 >
                   <social.icon className="w-4 h-4" />
-                </motion.button>
+                </motion.a>
               ))}
             </div>
 
@@ -121,12 +129,9 @@ export function Footer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <button
-                  onClick={() => window.open('https://haseebkhan.online/', '_blank', 'noopener,noreferrer')}
-                  className="text-sm text-foreground/60 hover:text-primary transition-colors duration-200 cursor-pointer"
-                >
-                  Developer
-                </button>
+                <p className="text-sm text-foreground/60 hover:text-primary transition-colors duration-200 cursor-pointer">
+                  Powered by Enzig
+                </p>
               </motion.div>
             </div>
           </div>

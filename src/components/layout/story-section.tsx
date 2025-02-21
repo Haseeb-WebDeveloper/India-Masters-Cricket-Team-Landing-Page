@@ -117,12 +117,12 @@ const Stories = [
 
 export default function StorySection() {
     return (
-        <section className=" pb-28 pt-24 flex justify-center items-center flex-col gap-1 overflow-hidden px-4">
+        <section className=" pb-28 pt-40 flex justify-center items-center flex-col gap-1 overflow-hidden px-4">
             <div>
-                <h2 className="text-center text-[3rem] md:text-[5rem] font-display mb-12 max-w-2xl leading-tight">Classic clips of legendary players</h2>
+                <h2 className="text-center text-[3rem] md:text-[6rem] font-bold mb-12 max-w-7xl leading-tight uppercase">From the memory lane</h2>
             </div>
             <Marquee 
-                className="space-x-0 [--duration:15s]"
+                className="space-x-0 [--duration:15s]" 
                 repeat={10}
                 pauseOnHover={true}
             >
@@ -130,7 +130,7 @@ export default function StorySection() {
                     <a key={story.id} href={story.link} className="relative flex flex-col items-center justify-center border-border border-2 rounded-lg overflow-hidden hover:[&>div]:opacity-100">
                         <img src={story.image} alt={story.description} className="md:h-60 h-52  rounded-lg w-auto" />
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-orange-500/50 opacity-0 transition-opacity duration-300" />
-                        <h1 className="absolute bottom-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_2px_2px_0_rgb(0_0_0_/_40%)]">{story.description}</h1>
+                        <h1 className="absolute bottom-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_1px_1px_1px_rgb(0_0_0),_-1px_-1px_1px_rgb(0_0_0),_1px_-1px_1px_rgb(0_0_0),_-1px_1px_1px_rgb(0_0_0)]">{story.description}</h1>
                     </a>
                 ))}
             </Marquee>
@@ -142,9 +142,11 @@ export default function StorySection() {
             >
                 {Stories[1].map((story) => (
                     <a key={story.id} href={story.link} className="relative flex flex-col items-center justify-center border-border border-2 rounded-lg overflow-hidden hover:[&>div]:opacity-100">
+                        {/* little overlay on image */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/70 to-orange-500/30 opacity-0 transition-opacity duration-300" />
                         <img src={story.image} alt={story.description} className="md:h-60 h-52  rounded-lg w-auto" />
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/70 to-orange-500/30 opacity-0 transition-opacity duration-300" />
-                        <h1 className="absolute bottom-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_2px_2px_0_rgb(0_0_0_/_40%)]">{story.description}</h1>
+                        <h1 className="absolute bottom-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_1px_1px_1px_rgb(0_0_0),_-1px_-1px_1px_rgb(0_0_0),_1px_-1px_1px_rgb(0_0_0),_-1px_1px_1px_rgb(0_0_0)]">{story.description}</h1>
                     </a>
                 ))}
             </Marquee>

@@ -24,6 +24,7 @@ type Match = {
     date: string;
     time: string;
     venue: string;
+    bookingLink: string;
   };
 };
 
@@ -31,14 +32,14 @@ const matches: Match[] = [
   {
     id: 1,
     team1: {
-      name: "India",
+      name: "India Masters",
       logo: "/logos/india-masters.svg",
       playerImage: "team/10.svg",
       bgColor:
         "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
     },
     team2: {
-      name: "Sri Lanka  ",
+      name: "Sri Lanka   Masters",
       logo: "/logos/sri-lanka-masters.svg",
       playerImage: "team/10.svg",
       bgColor:
@@ -48,19 +49,20 @@ const matches: Match[] = [
       date: "Feb 22, 2025",
       time: "19:30 IST",
       venue: "Mumbai",
+      bookingLink: "https://in.bookmyshow.com/sports/iml-2025-india-vs-sri-lanka/ET00432998",
     },
   },
   {
     id: 2,
     team1: {
-      name: "India",
+      name: "India Masters",
       logo: "/logos/india-masters.svg",
       playerImage: "team/15.svg",
       bgColor:
         "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
     },
     team2: {
-      name: "England",
+      name: "England Masters",
       logo: "/logos/england-masters.svg",
       playerImage: "team/10.svg",
       bgColor:
@@ -70,19 +72,20 @@ const matches: Match[] = [
       date: "Feb 25, 2025",
       time: "19:30 IST",
       venue: "Mumbai",
+      bookingLink: "https://in.bookmyshow.com/sports/iml-2025-india-vs-england/ET00433000",
     },
   },
   {
     id: 3,
     team1: {
-      name: "India",
+      name: "India Masters",
       logo: "/logos/india-masters.svg",
       playerImage: "team/10.svg",
       bgColor:
         "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
     },
     team2: {
-      name: "South Africa",
+      name: "South Africa Masters",
       logo: "/logos/south-africa-masters.svg",
       playerImage: "team/10.svg",
       bgColor:
@@ -92,19 +95,20 @@ const matches: Match[] = [
       date: "March 01, 2025",
       time: "19:30 IST",
       venue: "Vadodara",
+      bookingLink: "https://in.bookmyshow.com/sports/iml-2025-india-vs-south-africa/ET00434850",
     },
   },
   {
     id: 4,
     team1: {
-      name: "India",
+      name: "India Masters",
       logo: "/logos/india-masters.svg",
       playerImage: "team/15.svg",
       bgColor:
         "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
     },
     team2: {
-      name: "Australia",
+      name: "Australia Masters",
       logo: "/logos/australia-masters.svg",
       playerImage: "team/10.svg",
       bgColor:
@@ -114,19 +118,20 @@ const matches: Match[] = [
       date: "March 05, 2025",
       time: "19:30 IST",
       venue: "Vadodara",
+      bookingLink: "https://in.bookmyshow.com/sports/iml-2025-india-vs-australia/ET00434855",
     },
   },
   {
     id: 4,
     team1: {
-      name: "India",
+      name: "India Masters",
       logo: "/logos/india-masters.svg",
       playerImage: "team/10.svg",
       bgColor:
         "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
     },
     team2: {
-      name: "West Indies",
+      name: "West Indies Masters",
       logo: "/logos/west-indies-masters.svg",
       playerImage: "team/10.svg",
       bgColor:
@@ -136,6 +141,7 @@ const matches: Match[] = [
       date: "March 08, 2025",
       time: "19:30 IST",
       venue: "Raipur",
+      bookingLink: "https://in.bookmyshow.com/sports/iml-2025-india-vs-west-indies/ET00434315",
     },
   },
 ];
@@ -145,8 +151,8 @@ export function ScheduleSection() {
     <section id="schedule" className="relative w-full bg-background md:pt-16 pt-0 pb-32 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="md:mb-12 mb-20">
-          <h2 className="md:text-[5rem] text-[3rem] text-white outline-text text-center">
-            Coming Soon...
+          <h2 className="md:text-[6rem] text-[3rem] text-white outline-text text-center font-bold uppercase">
+              Match Fixtures
           </h2>
         </div>
 
@@ -219,7 +225,7 @@ export function ScheduleSection() {
                 <div className="absolute inset-0 bg-gradient-to-r  opacity-0 group-hover:opacity-100 transition-all duration-500">
                   <div className="h-full flex items-center justify-between px-16">
                     {/* Team 1 Info */}
-                    <div className="text-center">
+                    <div className="text-centerD flex flex-col items-center justify-center">
                       <div className="w-20 h-20 relative mb-2">
                         <Image
                           src={match.team1.logo}
@@ -237,6 +243,9 @@ export function ScheduleSection() {
                     <div className="grid grid-cols-2 gap-12 items-center justify-center h-full">
                       <div className="space-y-2">
                         <div className="flex items-center justify-center gap-3 text-foreground/90">
+                          <span>{match.matchDetails.venue}</span>
+                        </div>
+                        <div className="flex items-center justify-center gap-3 text-foreground/90">
                           <span className="text-lg">
                             {match.matchDetails.date}
                           </span>
@@ -252,7 +261,7 @@ export function ScheduleSection() {
                             <span>Are you ready?</span>
                           </div>
                           <Button variant="brand" size="lg" className="">
-                          <Link href="#contact" className="flex items-center justify-center gap-2">
+                          <Link href={match.matchDetails.bookingLink} target="_blank" className="flex items-center justify-center gap-2">
                             <CalendarDays />
                               Book Now
                           </Link>
@@ -261,7 +270,7 @@ export function ScheduleSection() {
                     </div>
 
                     {/* Team 2 Info */}
-                    <div className="text-center">
+                    <div className="text-center flex flex-col items-center justify-center">
                       <div className="w-20 h-20 relative mb-2">
                         <Image
                           src={match.team2.logo}

@@ -73,7 +73,7 @@ export function ContactSection() {
               <span className="px-6 py-1.5 bg-orange-200/10 border border-border text-foreground/80 rounded-full inline-block text-sm mb-4">
                 Contact Us
               </span>
-              <h2 className="text-[3rem] font-display text-orange-500 uppercase mb-6 leading-none tracking-tight">
+              <h2 className="text-[3rem] font-bold text-orange-500 uppercase mb-6 leading-none tracking-tight ">
                 Follow
                 <span className="block mt-2">Competitions</span>
               </h2>
@@ -90,8 +90,8 @@ export function ContactSection() {
                   </div>
                   <div>
                     <p className="text-sm text-foreground/60">Email us at</p>
-                    <a href="mailto:contact@indiamasters.com" className="text-base hover:text-orange-200 transition-colors">
-                      contact@indiamasters.com
+                    <a href="mailto:kartikey@indiamasters.co.in" className="text-base hover:text-orange-200 transition-colors">
+                    kartikey@indiamasters.co.in
                     </a>
                   </div>
                 </div>
@@ -101,8 +101,8 @@ export function ContactSection() {
                   </div>
                   <div>
                     <p className="text-sm text-foreground/60">Call us at</p>
-                    <a href="tel:+1234567890" className="text-base hover:text-orange-200 transition-colors">
-                      +1 (234) 567-890
+                    <a href="tel:+919266622460" className="text-base hover:text-orange-200 transition-colors">
+                    +919266622460
                     </a>
                   </div>
                 </div>

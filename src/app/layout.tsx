@@ -31,8 +31,8 @@ const customFont  = localFont({
 
 
 export const metadata: Metadata = {
-  title: "India Masters",
-  description: "India Masters | No 1 Cricket Team in the World",
+  title: "India Masters | Official Website - International Masters League",
+  description: "India Masters is the official website for the International Masters League, a cricket tournament that features teams from around the world. The league is a celebration of the sport and a showcase of the best players from across the globe.",
 };
 
 export default function RootLayout({
