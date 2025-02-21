@@ -33,14 +33,14 @@ const matches: Match[] = [
     team1: {
       name: "India",
       logo: "/logos/india-masters.svg",
-      playerImage: "/captain/01.png",
+      playerImage: "team/10.svg",
       bgColor:
         "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
     },
     team2: {
       name: "Sri Lanka  ",
       logo: "/logos/sri-lanka-masters.svg",
-      playerImage: "/captain/01.png",
+      playerImage: "team/10.svg",
       bgColor:
         "bg-gradient-to-l from-[#8E153C] via-[#8E153C]/60",
     },
@@ -55,14 +55,14 @@ const matches: Match[] = [
     team1: {
       name: "India",
       logo: "/logos/india-masters.svg",
-      playerImage: "/captain/01.png",
+      playerImage: "team/15.svg",
       bgColor:
         "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
     },
     team2: {
       name: "England",
       logo: "/logos/england-masters.svg",
-      playerImage: "/captain/01.png",
+      playerImage: "team/10.svg",
       bgColor:
         "bg-gradient-to-l from-transparent from-[#418EC1] via-[#418EC1]/50",
     },
@@ -77,14 +77,14 @@ const matches: Match[] = [
     team1: {
       name: "India",
       logo: "/logos/india-masters.svg",
-      playerImage: "/captain/01.png",
+      playerImage: "team/10.svg",
       bgColor:
         "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
     },
     team2: {
       name: "South Africa",
       logo: "/logos/south-africa-masters.svg",
-      playerImage: "/captain/01.png",
+      playerImage: "team/10.svg",
       bgColor:
         "bg-gradient-to-l  from-[#6ADFCF] via-[#6ADFCF]/50",
     },
@@ -99,14 +99,14 @@ const matches: Match[] = [
     team1: {
       name: "India",
       logo: "/logos/india-masters.svg",
-      playerImage: "/captain/01.png",
+      playerImage: "team/15.svg",
       bgColor:
         "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
     },
     team2: {
       name: "Australia",
       logo: "/logos/australia-masters.svg",
-      playerImage: "/captain/01.png",
+      playerImage: "team/10.svg",
       bgColor:
         "bg-gradient-to-l from-transparent from-[#B7EE06] via-[#B7EE06]/50",
     },
@@ -121,14 +121,14 @@ const matches: Match[] = [
     team1: {
       name: "India",
       logo: "/logos/india-masters.svg",
-      playerImage: "/captain/01.png",
+      playerImage: "team/10.svg",
       bgColor:
         "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
     },
     team2: {
       name: "West Indies",
       logo: "/logos/west-indies-masters.svg",
-      playerImage: "/captain/01.png",
+      playerImage: "team/10.svg",
       bgColor:
         "bg-gradient-to-l from-[#A3383D] via-[#E4BE2F]-20%",
     },

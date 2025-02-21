@@ -46,6 +46,15 @@ const Stories = [
             description: "Sachin's first century ever - 119* vs England 1991",
             image: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202408/sachin-tendulkar-144726942-16x9_0.jpg?VersionId=gRtUFNvZKrUp0t4qGMg4L7sTKOP46vZz&size=690:388",
             link: "https://www.youtube.com/watch?v=G27C4AHk-Iw",
+        },
+        {
+            id: "pathan-2", 
+            name: "Irfan Pathan",
+            achievement: "Player of the Match",
+            when: "T20 World Cup final 2007",
+            description: "Player-of-the-Match in 2007 T20 World Cup final",
+            image: "https://dxn76xj9mnmqa.cloudfront.net/images/Irfan-Pathan_t20_world_cup_2007.width-800.jpg",
+            link: "https://fb.watch/xUsDyV6wLg/",
         }
     ],
     [
@@ -93,56 +102,7 @@ const Stories = [
             description: "58(16) vs England, Durban, World T20 2007",
             image: "https://images.mykhel.com/img/2019/09/yuvrajsingh-1568875026.jpg",
             link: "https://www.youtube.com/watch?v=8b0ubLO2MUE",
-        }
-    ],
-    [
-        {
-            id: "raina-1",
-            name: "Suresh Raina",
-            achievement: "89 runs",
-            when: "VS England, 2006",
-            description: "Raina's 89 vs England, 2006",
-            image: "banner.jpeg",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         },
-        {
-            id: "raina-2",
-            name: "Suresh Raina",
-            achievement: "101 runs",
-            when: "VS South Africa, 2010",
-            description: "Raina's 101 vs South Africa, 2010",
-            image: "banner.jpeg",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        },
-        {
-            id: "raina-3",
-            name: "Suresh Raina",
-            achievement: "100 runs",
-            when: "VS England, 2014",
-            description: "Raina's 100 vs England, 2014",
-            image: "banner.jpeg",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        },
-        {
-            id: "raina-4",
-            name: "Suresh Raina",
-            achievement: "101 runs off 60 balls",
-            when: "VS South Africa, World T20 2010",
-            description: "Raina's 101(60) vs South Africa, World T20 2010",
-            image: "banner.jpeg",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        },
-        {
-            id: "raina-5",
-            name: "Suresh Raina",
-            achievement: "110* runs",
-            when: "VS Zimbabwe, World Cup 2015",
-            description: "Raina's 110* vs Zimbabwe, World Cup 2015",
-            image: "banner.jpeg",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        }
-    ],
-    [
         {
             id: "pathan-1",
             name: "Irfan Pathan",
@@ -152,16 +112,7 @@ const Stories = [
             image: "/Hatrick-against-Pakistan.jpg",
             link: "https://www.youtube.com/watch?v=WJXAXt8KP4U",
         },
-        {
-            id: "pathan-2", 
-            name: "Irfan Pathan",
-            achievement: "Player of the Match",
-            when: "T20 World Cup final 2007",
-            description: "Player-of-the-Match in 2007 T20 World Cup final",
-            image: "https://dxn76xj9mnmqa.cloudfront.net/images/Irfan-Pathan_t20_world_cup_2007.width-800.jpg",
-            link: "https://fb.watch/xUsDyV6wLg/",
-        },
-    ]
+    ],
 ];
 
 export default function StorySection() {
@@ -179,7 +130,7 @@ export default function StorySection() {
                     <a key={story.id} href={story.link} className="relative flex flex-col items-center justify-center border-border border-2 rounded-lg overflow-hidden hover:[&>div]:opacity-100">
                         <img src={story.image} alt={story.description} className="md:h-60 h-52  rounded-lg w-auto" />
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-orange-500/50 opacity-0 transition-opacity duration-300" />
-                        {/* <h1 className="absolute bottom-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_2px_2px_0_rgb(0_0_0_/_40%)]">{story.description}</h1> */}
+                        <h1 className="absolute bottom-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_2px_2px_0_rgb(0_0_0_/_40%)]">{story.description}</h1>
                     </a>
                 ))}
             </Marquee>
@@ -193,35 +144,7 @@ export default function StorySection() {
                     <a key={story.id} href={story.link} className="relative flex flex-col items-center justify-center border-border border-2 rounded-lg overflow-hidden hover:[&>div]:opacity-100">
                         <img src={story.image} alt={story.description} className="md:h-60 h-52  rounded-lg w-auto" />
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/70 to-orange-500/30 opacity-0 transition-opacity duration-300" />
-                        {/* <h1 className="absolute bottom-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_2px_2px_0_rgb(0_0_0_/_40%)]">{story.description}</h1> */}
-                    </a>
-                ))}
-            </Marquee>
-            <Marquee 
-                className="space-x-0 [--duration:15s]"
-                repeat={10}
-                pauseOnHover={true}
-                reverse={true}
-            >
-                {Stories[2].map((story) => (
-                    <a key={story.id} href={story.link} className="relative flex flex-col items-center justify-center border-border border-2 rounded-lg overflow-hidden hover:[&>div]:opacity-100">
-                        <img src={story.image} alt={story.description} className="md:h-60 h-52  rounded-lg w-auto" />
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/70 to-orange-500/30 opacity-0 transition-opacity duration-300" />
-                        {/* <h1 className="absolute bottom-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_2px_2px_0_rgb(0_0_0_/_40%)]">{story.description}</h1> */}
-                    </a>
-                ))}
-            </Marquee>
-            <Marquee 
-                className="space-x-0 [--duration:15s]"
-                repeat={10}
-                pauseOnHover={true}
-                reverse={true}
-            >
-                {Stories[3].map((story) => (
-                    <a key={story.id} href={story.link} className="relative flex flex-col items-center justify-center border-border border-2 rounded-lg overflow-hidden hover:[&>div]:opacity-100">
-                        <img src={story.image} alt={story.description} className="md:h-60 h-52  rounded-lg w-auto" />
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/70 to-orange-500/30 opacity-0 transition-opacity duration-300" />
-                        {/* <h1 className="absolute bottom-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_2px_2px_0_rgb(0_0_0_/_40%)]">{story.description}</h1> */}
+                        <h1 className="absolute bottom-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_2px_2px_0_rgb(0_0_0_/_40%)]">{story.description}</h1>
                     </a>
                 ))}
             </Marquee>

@@ -11,12 +11,15 @@ import {
 } from "framer-motion";
 
 const IMGS = [
-  "/partners/australia-masters.svg",
-  "/partners/england-masters.svg",
-  "/partners/india-masters.svg",
-  "/partners/south-africa-masters.svg",
-  "/partners/sri-lanka-masters.svg",
-  "/partners/west-indies-masters.svg",
+  "/partners/1.svg",
+  "/partners/3.svg",
+  "/partners/2.svg",
+  "/partners/2.svg",
+  "/partners/3.svg",
+  "/partners/1.svg",
+  "/partners/1.svg",
+  "/partners/2.svg",
+  "/partners/3.svg",
 ] as const;
 
 interface RollingGalleryProps {
