@@ -31,8 +31,7 @@ const articles: Article[] = [
   },
   {
     id: 2,
-    title:
-      "Watson to Lead Australia in Masters League 2025",
+    title: "Watson to Lead Australia in Masters League 2025",
     description:
       "Inaugural Season Of International Masters League To Be Played From February 22 To March 16",
     image: "/article/article-2.jpeg",
@@ -40,8 +39,7 @@ const articles: Article[] = [
   },
   {
     id: 3,
-    title:
-      "International Masters League Set for Feb 22 - Mar 16",
+    title: "International Masters League Set for Feb 22 - Mar 16",
     description:
       "Inaugural Season Of International Masters League To Be Played From February 22 To March 16",
     image: "/article/article-3.webp",
@@ -57,8 +55,7 @@ const articles: Article[] = [
   },
   {
     id: 5,
-    title:
-      "IML 2025: Tendulkar vs Sangakkara in Opener - Full Details",
+    title: "IML 2025: Tendulkar vs Sangakkara in Opener - Full Details",
     description:
       "International Masters League: Tendulkar, Sangakkara to meet in opening match - fixtures, cities, live streaming",
     image: "/article/article-5.avif",
@@ -74,8 +71,7 @@ const articles: Article[] = [
   },
   {
     id: 7,
-    title:
-      "uvraj, Duminy & Tharanga Join IML 2025 Roster",
+    title: "Duminy & Tharanga Join IML 2025 Roster",
     description:
       "International Masters League 2025: Yuvraj Singh, JP Duminy & Upul Tharanga to Play in Inaugural Edition of IML",
     image: "/article/article-7.webp",
@@ -83,8 +79,7 @@ const articles: Article[] = [
   },
   {
     id: 8,
-    title:
-      "15-Man Australia Masters Squad Named; Watson to Captain",
+    title: "15-Man Australia Masters Squad Named; Watson to Captain",
     description:
       "Australia Masters announce 15-member squad for International Masters League 2025; Shane Watson named captain",
     image: "/article/article-8.webp",
@@ -97,12 +92,12 @@ export function ArticleSection() {
 
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) return;
+    if (!container || window.innerWidth < 768) return; // Don't initialize on mobile
 
     // Calculate total width for horizontal scroll
     const sections = gsap.utils.toArray<HTMLElement>(".article-card");
     const totalWidth = sections.reduce(
-      (acc, section) => acc + section.offsetWidth + 40, // Added gap
+      (acc, section) => acc + section.offsetWidth + 40,
       0
     );
 
@@ -132,106 +127,142 @@ export function ArticleSection() {
   }, []);
 
   return (
-    <section id="media" className="relative bg-background overflow-hidden pt-12">
+    <section
+      id="media"
+      className="relative bg-background overflow-hidden pt-12"
+    >
       {/* Scrolling Heading */}
       <ScrollBasedVelocityDemo />
 
-      {/* Articles Container */}
-      <div ref={containerRef} className="relative min-h-screen  border-t border-dashed border-border">
-        <div className="flex pl-[8vw]">
-          {" "}s
-          {/* Added left padding to fix starting position */}
+      {/* Desktop Articles Container */}
+      <div className="hidden md:block">
+        <div
+          ref={containerRef}
+          className="relative min-h-screen border-t border-dashed border-border"
+        >
+          <div className="flex pl-[8vw]">
+            {articles.map((article, index) => (
+              <DesktopArticleCard
+                key={article.id}
+                article={article}
+                index={index}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Articles Container */}
+      <div className="md:hidden border-t border-dashed border-border">
+        <div className="flex flex-col gap-8 py-12 px-4">
           {articles.map((article, index) => (
-            <motion.a
+            <MobileArticleCard
               key={article.id}
-              href={article.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="article-card relative w-[120vw] h-[100vh] shrink-0 pr-[10vw] "
-              whileHover={{ scale: 0.98 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className=" w-full h-full grid grid-cols-2 gap-16 items-center">
-                {/* Content */}
-                <motion.div
-                  className="space-y-8 relative h-full flex flex-col justify-center"
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                >
-                  <motion.h3
-                    className="text-[4vw] font-bold leading-none uppercase text-foreground/95 tracking-normal"
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                  >
-                    {article.title}
-                  </motion.h3>
-                  <motion.p
-                    className="text-[1.5vw] text-foreground/90 font-light"
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                  >
-                    {article.description}
-                  </motion.p>
-
-                  {/* Arrow Icon */}
-                  <motion.div
-                    className="inline-flex items-center gap-2 text-primary pt-16 ml-12"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 }}
-                  >
-                    <motion.div
-                      className="relative group bg-foreground/5 hover:bg-foreground/10 border border-border/80 hover:border-border rounded-full transition-colors duration-300 group-hover:scale-105"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 17,
-                      }}
-                    >
-                      <motion.div
-                        className=" text-foreground p-4 flex items-center justify-center"
-                        whileHover={{ x: 5 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 17,
-                        }}
-                      >
-                        <ArrowRightIcon className="w-12 h-12 -rotate-45 hover:rotate-0 transition-transform duration-300" />
-                      </motion.div>
-                    </motion.div>
-                  </motion.div>
-                </motion.div>
-
-                {/* Image Container */}
-                <motion.div
-                  className="relative h-[80%] w-full rounded-xl overflow-hidden"
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                >
-                  <Image
-                    src={article.image}
-                    alt={article.title}
-                    fill
-                    className="object-contain h-full"
-                    priority
-                  />
-                </motion.div>
-              </div>
-            </motion.a>
+              article={article}
+              index={index}
+            />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function DesktopArticleCard({
+  article,
+  index,
+}: {
+  article: any;
+  index: number;
+}) {
+  return (
+    <motion.a
+      href={article.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="article-card relative w-[120vw] h-[100vh] shrink-0 pr-[10vw]"
+      whileHover={{ scale: 0.98 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="w-full h-full grid grid-cols-2 gap-16 items-center">
+        <motion.div
+          className="space-y-8 relative h-full flex flex-col justify-center"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h3
+            className="text-6xl font-display"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {article.title}
+          </motion.h3>
+          <motion.p
+            className="text-lg text-foreground/60 max-w-xl"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            {article.description}
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <img
+            src={article.image}
+            alt={article.title}
+            className="w-full h-full object-contain"
+          />
+        </motion.div>
+      </div>
+    </motion.a>
+  );
+}
+
+function MobileArticleCard({
+  article,
+  index,
+}: {
+  article: any;
+  index: number;
+}) {
+  return (
+    <motion.a
+      href={article.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block rounded-xl overflow-hidden bg-foreground/5"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ scale: 0.98 }}
+    >
+      <div className="relative aspect-video">
+        <img
+          src={article.image}
+          alt={article.title}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="p-6 space-y-4">
+        <h3 className="text-2xl font-display">{article.title}</h3>
+        <p className="text-sm text-foreground/60 line-clamp-3">
+          {article.description}
+        </p>
+        <div className="pt-2">
+          <span className="text-sm text-primary hover:text-primary/80 transition-colors">
+            Read More →
+          </span>
+        </div>
+      </div>
+    </motion.a>
   );
 }

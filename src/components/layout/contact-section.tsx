@@ -60,8 +60,8 @@ export function ContactSection() {
 
   return (
     <section className="relative w-full bg-foreground/10 py-24">
-      <div  id="contact" className="container mx-auto px-4">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 lg:gap-24 items-center">
+      <div  id="contact" className="max-w-7xl mx-auto px-4 overflow-hidden">
+        <div className="mx-auto grid lg:grid-cols-2 gap-20 lg:gap-24 items-center">
           {/* Left Side - Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -213,9 +213,9 @@ export function ContactSection() {
                   type="submit"
                   disabled={isLoading}
                   className={cn(
-                    "w-full px-6 py-3 rounded-lg bg-primary/90 text-primary-foreground text-base",
-                    "hover:bg-primary transition-all duration-300",
-                    "focus:outline-none focus:ring-2 focus:ring-primary/20",
+                    "w-full px-6 py-3 rounded-lg bg-orange-700/90 text-foreground text-base",
+                    "hover:bg-pr transition-all duration-300",
+                    "focus:outline-none focus:ring-2 focus:ring-pr/20",
                     "disabled:opacity-50 disabled:cursor-not-allowed",
                     "flex items-center justify-center gap-2"
                   )}

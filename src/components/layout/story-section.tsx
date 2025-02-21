@@ -50,49 +50,49 @@ const Stories = [
     ],
     [
         {
-            id: "yuvraj-1",
+            id: "Yuvraj-1",
             name: "Yuvraj Singh",
             achievement: "113 runs",
-            when: "VS West Indies, Chennai, World Cup 2011",
-            description: "Yuvraj's 113 vs West Indies, World Cup 2011",
-            image: "banner.jpeg",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            when: "VS West Indies, Chennai, ICC Cricket World Cup 2011",
+            description: "113 (123 balls) vs West Indies, Chennai, ICC Cricket World Cup 2011",
+            image: "https://i.ytimg.com/vi/6H4KqNb1gVk/maxresdefault.jpg",
+            link: "https://fb.watch/xUmU2um5I7/",
         },
         {
-            id: "yuvraj-2",
+            id: "yuvraj-2", 
             name: "Yuvraj Singh",
             achievement: "138* runs",
             when: "VS England, Rajkot, 2008",
-            description: "Yuvraj's 138* vs England, Rajkot 2008",
-            image: "banner.jpeg",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            description: "138* (78 balls) vs England, Rajkot, 2008",
+            image: "https://i.pinimg.com/736x/ae/d6/e7/aed6e7bbc330fbde670abde0d780ba08.jpg",
+            link: "https://www.youtube.com/watch?v=T3fh0XfVpA4",
         },
         {
             id: "yuvraj-3",
-            name: "Yuvraj Singh",
+            name: "Yuvraj Singh", 
             achievement: "57* runs",
-            when: "VS Australia, World Cup 2011",
-            description: "Yuvraj's 57* vs Australia, World Cup 2011",
-            image: "banner.jpeg",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            when: "VS Australia, Ahmedabad, ICC Cricket World Cup 2011",
+            description: "57* (65 balls) vs Australia, Ahmedabad, ICC Cricket World Cup 2011",
+            image: "https://i.pinimg.com/736x/f5/64/9f/f5649fcb1d612bcf08ed35f94876f676.jpg",
+            link: "https://www.facebook.com/watch/?v=2521566004721665",
         },
         {
             id: "yuvraj-4",
             name: "Yuvraj Singh",
             achievement: "169 runs",
             when: "VS Pakistan, Bangalore Test 2007",
-            description: "Yuvraj's 169 vs Pakistan, Bangalore 2007",
-            image: "banner.jpeg",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            description: "169 vs Pakistan, Bangalore Test 2007",
+            image: "https://storage.googleapis.com/cenews-bucket/News/mazcQYjLlSOMtCTJmCMW.png",
+            link: "https://www.youtube.com/watch?v=u30HFt9tj9U",
         },
         {
             id: "yuvraj-5",
             name: "Yuvraj Singh",
             achievement: "58 runs off 16 balls",
-            when: "VS England, World T20 2007",
-            description: "Yuvraj's 58(16) vs England, World T20 2007",
-            image: "banner.jpeg",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            when: "VS England, Durban, World T20 2007",
+            description: "58(16) vs England, Durban, World T20 2007",
+            image: "https://images.mykhel.com/img/2019/09/yuvrajsingh-1568875026.jpg",
+            link: "https://www.youtube.com/watch?v=8b0ubLO2MUE",
         }
     ],
     [
@@ -197,7 +197,7 @@ export default function StorySection() {
                     <a key={story.id} href={story.link} className="relative flex flex-col items-center justify-center border-border border-2 rounded-lg overflow-hidden hover:[&>div]:opacity-100">
                         <img src={story.image} alt={story.description} className="md:h-60 h-52  rounded-lg w-auto" />
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/90 to-orange-500/50 opacity-0 transition-opacity duration-300" />
-                        <h1 className="absolute top-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_2px_2px_0_rgb(0_0_0_/_40%)]">{story.description}</h1>
+                        <h1 className="absolute bottom-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_2px_2px_0_rgb(0_0_0_/_40%)]">{story.description}</h1>
                     </a>
                 ))}
             </Marquee>
@@ -211,7 +211,7 @@ export default function StorySection() {
                     <a key={story.id} href={story.link} className="relative flex flex-col items-center justify-center border-border border-2 rounded-lg overflow-hidden hover:[&>div]:opacity-100">
                         <img src={story.image} alt={story.description} className="md:h-60 h-52  rounded-lg w-auto" />
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/70 to-orange-500/30 opacity-0 transition-opacity duration-300" />
-                        <h1 className="absolute top-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_2px_2px_0_rgb(0_0_0_/_40%)]">{story.description}</h1>
+                        <h1 className="absolute bottom-2 left-4 uppercase text-pretty text-white text-2xl font-bold [text-shadow:_2px_2px_0_rgb(0_0_0_/_40%)]">{story.description}</h1>
                     </a>
                 ))}
             </Marquee>

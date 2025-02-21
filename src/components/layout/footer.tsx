@@ -41,6 +41,10 @@ export function Footer() {
   const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const textY = useTransform(scrollYProgress, [0, 1], [60, 0]);
 
+  const handleSocialClick = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <footer
       ref={containerRef}
@@ -93,11 +97,9 @@ export function Footer() {
             {/* Social Links */}
             <div className="flex items-center gap-8 order-1 md:order-2">
               {socialLinks.map((social, index) => (
-                <motion.a
+                <motion.button
                   key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  onClick={() => handleSocialClick(social.href)}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -105,10 +107,10 @@ export function Footer() {
                     scale: 1.2,
                     color: "hsl(var(--primary))",
                   }}
-                  className="text-foreground/60 transition-colors duration-200"
+                  className="text-foreground/60 transition-colors duration-200 cursor-pointer"
                 >
                   <social.icon className="w-4 h-4" />
-                </motion.a>
+                </motion.button>
               ))}
             </div>
 
@@ -119,14 +121,12 @@ export function Footer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                  <Link
-                    href="https://haseebkhan.online/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-foreground/60 hover:text-primary transition-colors duration-200 cursor-pointer"
+                <button
+                  onClick={() => window.open('https://haseebkhan.online/', '_blank', 'noopener,noreferrer')}
+                  className="text-sm text-foreground/60 hover:text-primary transition-colors duration-200 cursor-pointer"
                 >
                   Developer
-                </Link>
+                </button>
               </motion.div>
             </div>
           </div>

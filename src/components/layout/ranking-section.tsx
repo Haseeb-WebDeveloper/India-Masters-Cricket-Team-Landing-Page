@@ -91,7 +91,10 @@ export function RankingSection() {
   const isInView = useInView(containerRef, { once: true });
 
   return (
-    <section id="ranking" className="relative min-h-screen w-full bg-foreground/5 py-24">
+    <section
+      id="ranking"
+      className="relative min-h-screen w-full bg-foreground/5 py-24"
+    >
       <div className="container mx-auto px-4">
         <div className="mb-16">
           <h2 className="text-4xl md:text-[6vw] font-display text-center">
