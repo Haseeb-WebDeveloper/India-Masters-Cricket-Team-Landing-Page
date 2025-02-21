@@ -22,63 +22,69 @@ interface Logos3Props {
 }
 
 const Logos3 = ({
-  heading = "Our Brodcast Partners",
+  heading = "Our Sponsers",
   logos = [
     {
       id: "logo-1",
       description: "Logo 1",
-      image: "https://shadcnblocks.com/images/block/logos/astro.svg",
+      image: "/sponsors/1.svg",
       className: "h-24 w-auto",
     },
     {
       id: "logo-2",
       description: "Logo 2",
-      image: "https://shadcnblocks.com/images/block/logos/figma.svg",
+      image: "/sponsors/2.svg",
       className: "h-24 w-auto",
     },
     {
       id: "logo-3",
       description: "Logo 3",
-      image: "https://shadcnblocks.com/images/block/logos/nextjs.svg",
+      image: "/sponsors/3.svg",
       className: "h-24 w-auto",
     },
     {
       id: "logo-4",
       description: "Logo 4",
-      image: "https://shadcnblocks.com/images/block/logos/react.png",
+      image: "/sponsors/4.svg",
       className: "h-24 w-auto",
     },
     {
       id: "logo-5",
       description: "Logo 5",
-      image: "https://shadcnblocks.com/images/block/logos/shadcn-ui.svg",
+      image: "/sponsors/5.svg",
       className: "h-24 w-auto",
     },
     {
       id: "logo-6",
       description: "Logo 6",
-      image: "https://shadcnblocks.com/images/block/logos/supabase.svg",
+      image: "/sponsors/6.svg",
       className: "h-24 w-auto",
     },
     {
       id: "logo-7",
       description: "Logo 7",
-      image: "https://shadcnblocks.com/images/block/logos/tailwind.svg",
+      image: "/sponsors/7.svg",
       className: "h-24 w-auto",
     },
     {
       id: "logo-8",
       description: "Logo 8",
-      image: "https://shadcnblocks.com/images/block/logos/vercel.svg",
+      image: "/sponsors/8.svg",
+      className: "h-24 w-auto",
+    },
+    {
+      id: "logo-9",
+      description: "Logo 9",
+      image: "/sponsors/9.svg",
       className: "h-24 w-auto",
     },
   ],
 }: Logos3Props) => {
   return (
-    <section className="pt-20 pb-12 bg-foreground/5">
-      <div className=" mx-auto rounded-2xl flex flex-col items-center gap-10">
+    <section className="pt-32 pb-32">
+      <div className=" mx-auto rounded-2xl flex flex-col items-center gap-20">
       <div className=" flex flex-col items-center text-center">
-        <h1 className=" text-pretty text-2xl font-normal lg:text-[3rem] uppercase">
+        <h1 className=" text-pretty text-[3rem] lg:text-[5rem] uppercase font-bold">
           {heading}
         </h1>
       </div>

@@ -9,6 +9,7 @@ import {
   Youtube,
   X,
 } from "lucide-react";
+import { FaThreads } from "react-icons/fa6";
 import { useRef } from "react";
 
 const socialLinks = [
@@ -18,8 +19,8 @@ const socialLinks = [
     href: "https://x.com/Imlindiamasters?t=qN1hn8IvRbh2fYBHK25JwQ&s=09",
   },
   {
-    name: "Instagram",
-    icon: Instagram,
+    name: "Threads",
+    icon: FaThreads,
     href: "https://www.threads.net/@iml_indiamasters?source_application=com.instagram.android&glyph_type=SELF_PROFILE&fbclid=PAY2xjawIk9bRleHRuA2FlbQIxMAABpm18a77_cVPoAja-93DssVuVmmGZtlFdeVPlKKf29ndzNTmdVSeaYYj2Gw_aem_Yew-GNDEm2Qc1x6xR3rWaQ",
   },
   {
@@ -75,7 +76,7 @@ export function Footer() {
 
           {/* Main Text */}
           <motion.h2
-            className="text-[12vw] font-bold text-center leading-none tracking-tighter text-foreground/70 relative"
+            className="text-[12rem] font-bold text-center leading-none tracking-tighter text-foreground/70 relative"
             style={{ y: useTransform(textY, (v) => v * 0.5) }}
           >
             INDIA MASTERS
@@ -129,9 +130,9 @@ export function Footer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <p className="text-sm text-foreground/60 hover:text-primary transition-colors duration-200 cursor-pointer">
+                <a href="https://www.instagram.com/studioenzig/" target="_blank" rel="noopener noreferrer" className="text-sm text-foreground/60 hover:text-primary transition-colors duration-200 cursor-pointer">
                   Powered by Enzig
-                </p>
+                </a>
               </motion.div>
             </div>
           </div>

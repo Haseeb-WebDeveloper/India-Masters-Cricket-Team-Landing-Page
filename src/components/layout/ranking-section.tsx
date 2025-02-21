@@ -97,7 +97,7 @@ export function RankingSection() {
     >
       <div className="container mx-auto px-4">
         <div className="mb-24">
-          <h2 className="text-4xl md:text-[6vw] font-bold text-center uppercase">
+          <h2 className="text-[3rem] md:text-[5rem] font-bold text-center uppercase tracking-tighter max-w-5xl mx-auto leading-[6rem]">
             Tournament Standings
           </h2>
         </div>
@@ -179,7 +179,7 @@ export function RankingSection() {
                           className="object-contain p-2 transition-transform duration-300 "
                         />
                       </div>
-                      <span className="uppercase font-semibold text-[2.5vw] md:pl-36 pl-32 text-background/90 transition-colors duration-300 group-hover:text-background text-nowrap text-ellipsis overflow-hidden whitespace-nowrap truncate tracking-tight">
+                      <span className="uppercase font-semibold text-[2.5rem] md:pl-36 pl-32 text-background/90 transition-colors duration-300 group-hover:text-background text-nowrap text-ellipsis overflow-hidden whitespace-nowrap truncate tracking-tight">
                         {team.name}
                       </span>
                     </div>

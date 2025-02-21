@@ -11,43 +11,61 @@ import { ContactSection } from "@/components/layout/contact-section";
 
 
 const demoData = {
-  heading: "Our Brodcast Partners",
+  heading: "Our Sponsers",
   logos: [
     {
       id: "logo-1",
-      description: "Astro",
-      image: "/partners/logo-1.svg",
-      className: "h-40 w-auto",
+      description: "Logo 1",
+      image: "/sponsors/1.svg",
+      className: "h-24 w-auto",
     },
     {
       id: "logo-2",
-      description: "Figma",
-      image: "/partners/logo-2.svg",
-      className: "h-40 w-auto",
+      description: "Logo 2",
+      image: "/sponsors/2.svg",
+      className: "h-24 w-auto",
     },
     {
       id: "logo-3",
-      description: "Next.js",
-      image: "/partners/logo-3.svg",
-      className: "h-40 w-auto",
+      description: "Logo 3",
+      image: "/sponsors/3.svg",
+      className: "h-24 w-auto",
     },
     {
       id: "logo-4",
-      description: "React",
-      image: "/partners/logo-4.svg",
-      className: "h-40 w-auto",
+      description: "Logo 4",
+      image: "/sponsors/4.svg",
+      className: "h-24 w-auto",
     },
     {
       id: "logo-5",
-      description: "shadcn/ui",
-      image: "/partners/logo-5.svg",
-      className: "h-40 w-auto",
+      description: "Logo 5",
+      image: "/sponsors/5.svg",
+      className: "h-24 w-auto",
     },
     {
       id: "logo-6",
-      description: "Supabase",
-      image: "/partners/logo-6.svg",
-      className: "h-40 w-auto",
+      description: "Logo 6",
+      image: "/sponsors/6.svg",
+      className: "h-24 w-auto",
+    },
+    {
+      id: "logo-7",
+      description: "Logo 7",
+      image: "/sponsors/7.svg",
+      className: "h-24 w-auto",
+    },
+    {
+      id: "logo-8",
+      description: "Logo 8",
+      image: "/sponsors/8.svg",
+      className: "h-24 w-auto",
+    },
+    {
+      id: "logo-9",
+      description: "Logo 9",
+      image: "/sponsors/9.svg",
+      className: "h-24 w-auto",
     },
   ],
 };
@@ -59,10 +77,10 @@ export default function Home() {
       <HeroSection />
       <RollingGallery autoplay={true} pauseOnHover={true} />
       <OurTeam />
-      <StorySection />
-      {/* <Logos3 {...demoData} /> */}
       <ScheduleSection />
       <RankingSection />
+      <Logos3 {...demoData} />
+      <StorySection />
       <ArticleSection />
       <ContactSection />
     </>

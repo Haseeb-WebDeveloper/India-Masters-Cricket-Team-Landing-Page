@@ -140,7 +140,7 @@ export function ArticleSection() {
           ref={containerRef}
           className="relative min-h-screen border-t border-dashed border-border"
         >
-          <div className="flex pl-[8vw]">
+          <div className="flex pl-[8rem]">
             {articles.map((article, index) => (
               <DesktopArticleCard
                 key={article.id}
