@@ -7,10 +7,10 @@ import { cn, scrollToSection } from "@/lib/utils";
 import Link from "next/link";
 
 const navLinks = [
-  { href: "about", label: "ABOUT" },
+  { href: "home", label: "HOME" },
   { href: "team", label: "TEAM" },
   { href: "media", label: "MEDIA" },
-  { href: "tickets", label: "TICKETS" },
+  { href: "schedule", label: "SCHEDULE" },
   { href: "ranking", label: "RANKING" },
   { href: "contact", label: "CONTACT" },
 ];
@@ -84,13 +84,29 @@ export function Header() {
     }
   }, [isMenuOpen]);
 
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsMenuOpen(false);
-    scrollToSection(href);
+
+    if (href === "home") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      return;
+    }
+
+    const element = document.getElementById(href);
+    if (element) {
+      const headerHeight = headerRef.current?.offsetHeight || 0;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -100,7 +116,7 @@ export function Header() {
     >
       <div className="relative mx-auto px-4 py-3 md:py-5 md:px-12">
         {/* Header Background with Border */}
-        <div className="absolute inset-0 rounded-full border border-yellow-500/20 bg-background" />
+        <div className="absolute inset-0 rounded-full border border-yellow-500/20 bg-background/80 backdrop-blur-sm" />
 
         <div className="relative flex items-center justify-between">
           {/* Mobile Menu Button */}

@@ -7,6 +7,7 @@ import { Logos3 } from "@/components/logos3"
 import RollingGallery from "@/components/layout/logo-gallery";
 import { Marquee } from "@/components/magicui/marquee";
 import StorySection from "@/components/layout/story-section";
+import { ContactSection } from "@/components/layout/contact-section";
 
 
 const demoData = {
@@ -15,43 +16,37 @@ const demoData = {
     {
       id: "logo-1",
       description: "Astro",
-      image: "/partners/logo.png",
+      image: "/partners/logo-1.svg",
       className: "h-40 w-auto",
     },
     {
       id: "logo-2",
       description: "Figma",
-      image: "/partners/logo.png",
+      image: "/partners/logo-2.svg",
       className: "h-40 w-auto",
     },
     {
       id: "logo-3",
       description: "Next.js",
-      image: "/partners/logo.png",
+      image: "/partners/logo-3.svg",
       className: "h-40 w-auto",
     },
     {
       id: "logo-4",
       description: "React",
-      image: "/partners/logo.png",
+      image: "/partners/logo-4.svg",
       className: "h-40 w-auto",
     },
     {
       id: "logo-5",
       description: "shadcn/ui",
-      image: "/partners/logo.png",
+      image: "/partners/logo-5.svg",
       className: "h-40 w-auto",
     },
     {
       id: "logo-6",
       description: "Supabase",
-      image: "/partners/logo.png",
-      className: "h-40 w-auto",
-    },
-    {
-      id: "logo-7",
-      description: "Tailwind CSS",
-      image: "/partners/logo.png",
+      image: "/partners/logo-6.svg",
       className: "h-40 w-auto",
     },
   ],
@@ -64,11 +59,12 @@ export default function Home() {
       <HeroSection />
       <RollingGallery autoplay={true} pauseOnHover={true} />
       <OurTeam />
-      <ArticleSection />
       <StorySection />
       {/* <Logos3 {...demoData} /> */}
       <ScheduleSection />
       <RankingSection />
+      <ArticleSection />
+      <ContactSection />
     </>
   );
 }

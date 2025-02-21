@@ -11,15 +11,12 @@ import {
 } from "framer-motion";
 
 const IMGS = [
-  "/partners/logo.png",
-  "/partners/logo.png",
-  "/partners/logo.png",
-  "/partners/logo.png",
-  "/partners/logo.png",
-  "/partners/logo.png",
-  "/partners/logo.png",
-  "/partners/logo.png",
-  "/partners/logo.png",
+  "/partners/australia-masters.svg",
+  "/partners/england-masters.svg",
+  "/partners/india-masters.svg",
+  "/partners/south-africa-masters.svg",
+  "/partners/sri-lanka-masters.svg",
+  "/partners/west-indies-masters.svg",
 ] as const;
 
 interface RollingGalleryProps {
@@ -45,10 +42,10 @@ const RollingGallery = ({
   }, []);
 
   // 3D geometry
-  const cylinderWidth = isScreenSizeSm ? 1100 : 1800;
+  const cylinderWidth = isScreenSizeSm ? 1100 : 2400;
   const faceCount = galleryImages.length;
-  const faceWidth = (cylinderWidth / faceCount) * 2.5;
-  const radius = (cylinderWidth / (2 * Math.PI)) * 0.7;
+  const faceWidth = (cylinderWidth / faceCount) * 0.5;
+  const radius = (cylinderWidth / (2 * Math.PI)) * 0.6;
 
   // Framer Motion
   const dragFactor = 0.05;
@@ -115,20 +112,20 @@ const RollingGallery = ({
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-foreground/5 py-12">
+    <div className="relative w-full overflow-hidden bg-foreground/5 py-24">
       <div className="max-w-7xl mx-auto h-full px-4 md:px-12">
         <div className="flex flex-col lg:flex-row gap-4 items-center">
           {/* Left side content */}
-          <div className="w-[40%] flex flex-col justify-center px-8">
+          <div className="w-[50%] flex flex-col justify-center">
             <div>
-              <h2 className="text-[3vw] font-medium uppercase">
+              <h2 className="text-[4.5vw] font-custom font-medium uppercase leading-tight">
                 Our Broadcast Partners
               </h2>
             </div>
           </div>
 
           {/* Right side - Logo Gallery */}
-          <div className="w-[60%] min-h-[150px]">
+          <div className="w-[50%] min-h-[150px]">
             <div className="flex h-full items-center justify-center [perspective:2000px] [transform-style:preserve-3d]">
               <motion.div
                 drag="x"
@@ -150,7 +147,7 @@ const RollingGallery = ({
                 {galleryImages.map((url, i) => (
                   <div
                     key={i}
-                    className="group absolute flex h-fit items-center justify-center p-[4%] [backface-visibility:hidden] md:p-[2%]"
+                    className="group absolute flex h-fit items-center justify-center  [backface-visibility:hidden] "
                     style={{
                       width: `${faceWidth}px`,
                       transform: `rotateY(${

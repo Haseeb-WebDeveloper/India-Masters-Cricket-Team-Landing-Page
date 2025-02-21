@@ -184,9 +184,9 @@ const Stories = [
 
 export default function StorySection() {
     return (
-        <section className="bg-foreground/5 pb-24 pt-16 flex justify-center items-center flex-col gap-1">
+        <section className="bg-foreground/5 pb-28 pt-24 flex justify-center items-center flex-col gap-1">
             <div>
-                <h2 className="text-center text-[3.4rem] font-display mb-8 max-w-4xl leading-tight">Classic clips and career-defining highlights of legendary players</h2>
+                <h2 className="text-center text-[4rem] font-display mb-12 max-w-2xl leading-tight">Classic clips of legendary players</h2>
             </div>
             <Marquee 
                 className="space-x-0 [--duration:15s]"

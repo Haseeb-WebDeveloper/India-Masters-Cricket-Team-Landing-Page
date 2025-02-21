@@ -39,12 +39,12 @@ export function HeroSection() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full min-h-[120vh] overflow-hidden pt-12 bg-black"
+      className="relative w-full min-h-[120vh] overflow-hidden pt-20 bg-black"
     >
       <div ref={imageRef} className="sticky top-0 w-full min-h-[120vh]">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="/banner-2.png"
+            src="/banner.png"
             alt="Hero Section"
             fill
             priority

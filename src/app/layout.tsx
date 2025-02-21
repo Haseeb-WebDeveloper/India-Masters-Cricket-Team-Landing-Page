@@ -4,6 +4,31 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/layout/header";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll";
+import { Footer } from "@/components/layout/footer";
+import localFont from 'next/font/local'
+
+
+const customFont  = localFont({
+  src: [
+    {
+      path: '../../public/fonts/NeueMachina-Light.otf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/NeueMachina-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/NeueMachina-Ultrabold.otf',
+      weight: '700',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-custom'
+})
+
 
 export const metadata: Metadata = {
   title: "India Masters",
@@ -16,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={GeistSans.className}>
+    <html lang="en" className={`${GeistSans.className} ${customFont.variable}`}>
       <body className="antialiased">
         <ThemeProvider
           attribute="class"
@@ -27,6 +52,7 @@ export default function RootLayout({
           <SmoothScrollProvider>
             <Header />
             <main className="relative">{children}</main>
+            <Footer />
           </SmoothScrollProvider>
         </ThemeProvider>
       </body>
