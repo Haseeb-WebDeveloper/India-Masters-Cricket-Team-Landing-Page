@@ -6,26 +6,26 @@ import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { useRef } from "react";
 
 const socialLinks = [
-  {
-    name: "Facebook",
-    icon: Facebook,
-    href: "https://facebook.com",
-  },
-  {
-    name: "Twitter",
-    icon: Twitter,
-    href: "https://twitter.com",
-  },
+  // {
+  //   name: "Facebook",
+  //   icon: Facebook,
+  //   href: "https://facebook.com",
+  // },
+  // {
+  //   name: "Twitter",
+  //   icon: Twitter,
+  //   href: "https://twitter.com",
+  // },
   {
     name: "Instagram",
     icon: Instagram,
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/imlt20official/?hl=en",
   },
-  {
-    name: "Youtube",
-    icon: Youtube,
-    href: "https://youtube.com",
-  },
+  // {
+  //   name: "Youtube",
+  //   icon: Youtube,
+  //   href: "https://youtube.com",
+  // },
 ];
 
 export function Footer() {

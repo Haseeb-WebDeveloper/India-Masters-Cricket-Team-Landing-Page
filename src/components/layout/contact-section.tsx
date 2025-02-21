@@ -59,8 +59,8 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative w-full bg-foreground/10 py-24">
-      <div className="container mx-auto px-4">
+    <section className="relative w-full bg-foreground/10 py-24">
+      <div  id="contact" className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 lg:gap-24 items-center">
           {/* Left Side - Content */}
           <motion.div

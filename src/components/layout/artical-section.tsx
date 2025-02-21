@@ -132,7 +132,7 @@ export function ArticleSection() {
   }, []);
 
   return (
-    <section className="relative bg-background overflow-hidden pt-12">
+    <section id="media" className="relative bg-background overflow-hidden pt-12">
       {/* Scrolling Heading */}
       <ScrollBasedVelocityDemo />
 

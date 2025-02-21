@@ -142,7 +142,7 @@ const matches: Match[] = [
 
 export function ScheduleSection() {
   return (
-    <section className="relative w-full bg-background md:pt-24 pt-0 pb-32 overflow-hidden">
+    <section id="schedule" className="relative w-full bg-background md:pt-16 pt-0 pb-32 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="md:mb-12 mb-20">
           <h2 className="md:text-[5rem] text-[3rem] text-white outline-text text-center">
