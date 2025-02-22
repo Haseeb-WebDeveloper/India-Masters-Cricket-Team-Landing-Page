@@ -93,34 +93,33 @@ export function RankingSection() {
   return (
     <section
       id="ranking"
-      className="relative min-h-screen w-full bg-foreground/5 md:py-40 py-24 overflow-hidden"
+      className="relative md:min-h-screen w-full bg-foreground/5 py-24 md:py-24 overflow-hidden"
     >
-      <div className="container mx-auto px-4">
-        <div className="mb-24">
-          <h2 className="text-[3rem] md:text-[5rem] font-bold text-center uppercase tracking-tighter max-w-5xl mx-auto leading-[6rem]">
+      <div className="container mx-auto px-2 md:px-4">
+        <div className="mb-8 md:mb-16">
+          <h2 className="text-3xl md:text-5xl lg:text-[5rem] font-bold text-center uppercase tracking-tighter max-w-5xl mx-auto leading-tight md:leading-[6rem]">
             Tournament Standings
           </h2>
         </div>
 
         <div className="relative max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="grid grid-cols-[3fr,repeat(5,0.5fr)] gap-0 mb-8 px-8 text-foreground/80">
+          {/* Header - Hide on mobile, show abbreviated version */}
+          <div className="hidden md:grid grid-cols-[3fr,repeat(5,0.5fr)] gap-0 mb-8 px-8 text-foreground/80">
             <div></div>
-            <div className="text-center border-l border-border/20 text-base">
-              MAT
-            </div>
-            <div className="text-center border-l border-border/20 text-base">
-              W
-            </div>
-            <div className="text-center border-l border-border/20 text-base">
-              L
-            </div>
-            <div className="text-center border-l border-border/20 text-base">
-              PTS
-            </div>
-            <div className="text-center border-l border-border/20 text-base">
-              N/R
-            </div>
+            <div className="text-center border-l border-border/20 text-base">MAT</div>
+            <div className="text-center border-l border-border/20 text-base">W</div>
+            <div className="text-center border-l border-border/20 text-base">L</div>
+            <div className="text-center border-l border-border/20 text-base">PTS</div>
+            <div className="text-center border-l border-border/20 text-base">N/R</div>
+          </div>
+
+          {/* Mobile Header */}
+          <div className="grid md:hidden grid-cols-[2fr,repeat(4,0.5fr)] gap-0 mb-4 px-2 text-foreground/80 ">
+            <div></div>
+            <div className="text-center text-xs">M</div>
+            <div className="text-center text-xs">W</div>
+            <div className="text-center text-xs">L</div>
+            <div className="text-center text-xs">P</div>
           </div>
 
           {/* Rankings */}
@@ -129,14 +128,11 @@ export function RankingSection() {
               <motion.div
                 key={team.id}
                 initial={{ opacity: 0, y: 20 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                }
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative bg-foreground/80 group hover:bg-foreground transition-all duration-300 h-20 rounded-e-sm border border-border"
+                className="relative bg-foreground/80 group hover:bg-foreground transition-all duration-300 h-16 md:h-20 rounded-e-sm border border-border"
                 style={{
-                  clipPath:
-                    "polygon(45px 0, 100% 0, 100% 100%, 0 100%, 0 100%)",
+                  clipPath: "polygon(35px 0, 100% 0, 100% 100%, 0 100%, 0 100%)",
                 }}
               >
                 {/* Hover Effects Container */}
@@ -157,48 +153,38 @@ export function RankingSection() {
 
                   <div
                     className={cn(
-                      "relative grid grid-cols-[3fr,repeat(5,0.5fr)] items-center gap-0 h-20",
+                      "relative grid md:grid-cols-[3fr,repeat(5,0.5fr)] grid-cols-[2fr,repeat(4,0.5fr)] items-center gap-0 h-16 md:h-20",
                       "shadow-[0_4px_8px_-2px_rgba(0,0,0,0.2)]",
                       "transition-transform duration-300 group-hover:scale-[1.01]"
                     )}
                   >
                     {/* Team */}
-                    <div className="relative flex items-center gap-2 h-20">
+                    <div className="relative flex items-center gap-2 h-16 md:h-20">
                       {/* Logo container with hover effect */}
                       <div
-                        className="absolute left-0 top-0 w-32 h-20 bg-foreground transition-transform duration-300 group-hover:scale-[1.02]"
+                        className="absolute left-0 top-0 w-24 md:w-32 h-16 md:h-20 bg-foreground transition-transform duration-300 group-hover:scale-[1.02]"
                         style={{
-                          clipPath:
-                            "polygon(0 45px, 45px 0, 100% 0, 65% 100%, 0 100%)",
+                          clipPath: "polygon(0 35px, 35px 0, 100% 0, 65% 100%, 0 100%)",
                         }}
                       >
                         <Image
                           src={team.logo}
                           alt={team.name}
                           fill
-                          className="object-contain p-2 transition-transform duration-300 "
+                          className="object-contain p-2 transition-transform duration-300"
                         />
                       </div>
-                      <span className="uppercase font-semibold text-[2.5rem] md:pl-36 pl-32 text-background/90 transition-colors duration-300 group-hover:text-background text-nowrap text-ellipsis overflow-hidden whitespace-nowrap truncate tracking-tight">
+                      <span className="uppercase font-semibold md:text-lg text-sm md:text-[2.5rem] pl-24 md:pl-36 text-background/90 transition-colors duration-300 group-hover:text-background text-nowrap text-ellipsis overflow-hidden whitespace-nowrap truncate tracking-tight">
                         {team.name}
                       </span>
                     </div>
 
-                    {/* Stats with hover effects */}
-                    {[
-                      team.matches,
-                      team.wins,
-                      team.losses,
-                      team.points,
-                      team.nr,
-                    ].map((stat, i) => (
-                      <div
-                        key={i}
-                        className="text-center border-l border-border/30 text-xl text-background/90 font-medium transition-all duration-300 group-hover:text-background group-hover:border-border/50"
-                      >
-                        {stat}
-                      </div>
-                    ))}
+                    {/* Stats with hover effects - Mobile shows less stats */}
+                    <div className="text-center text-sm md:text-xl text-background/90 font-medium">{team.matches}</div>
+                    <div className="text-center text-sm md:text-xl text-background/90 font-medium">{team.wins}</div>
+                    <div className="text-center text-sm md:text-xl text-background/90 font-medium">{team.losses}</div>
+                    <div className="text-center text-sm md:text-xl text-background/90 font-medium">{team.points}</div>
+                    <div className="hidden md:block text-center text-sm md:text-xl text-background/90 font-medium">{team.nr}</div>
                   </div>
                 </div>
               </motion.div>

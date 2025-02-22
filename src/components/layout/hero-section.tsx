@@ -39,7 +39,7 @@ export function HeroSection() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full min-h-[120vh] overflow-hidden md:pt-32 pt-12 bg-black"
+      className="relative w-full min-h-[120vh] overflow-hidden md:pt-32  bg-black"
     >
       <div ref={imageRef} className="sticky top-0 w-full min-h-[120vh]">
         <div className="absolute inset-0 w-full h-full">
@@ -48,22 +48,26 @@ export function HeroSection() {
             alt="Hero Section"
             fill
             priority
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full hidden md:block"
           />
          
+         <Image
+            src="/mobile-banner.png"
+            alt="Hero Section"
+            fill
+            priority
+            className="object-contain w-full h-full block md:hidden"
+          />
         </div>
 
         {/* Optional: Hero Content */}
-        {/* <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
-          <div className="max-w-2xl">
-            <h1 className="text-6xl font-bold text-white mb-6">
+        <div className="relative top-[12vh] left-1/2 -translate-x-1/2  md:hidden z-10 container mx-auto px-4 h-full flex items-center w-full">
+          <div className="max-w-2xl w-full">
+            <h1 className="text-[3rem] text-center font-bold text-white uppercase leading-tight">
               India Masters
             </h1>
-            <p className="text-xl text-white/80">
-              Experience the legacy of cricket excellence
-            </p>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );

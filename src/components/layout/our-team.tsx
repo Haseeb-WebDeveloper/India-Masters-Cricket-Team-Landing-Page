@@ -403,7 +403,7 @@ export function OurTeam() {
     <section
       id="team"
       ref={containerRef}
-      className="relative min-h-[100vh] h-full w-full overflow-hidden bg-background "
+      className="relative md:min-h-[110vh] min-h-[100vh] h-full w-full overflow-hidden bg-background "
     >
       <motion.div
         ref={cursorRef}
@@ -444,16 +444,16 @@ export function OurTeam() {
       </motion.div>
 
       {/* Title with Parallax */}
-      <div className="relative h-[20vh] md:h-[30vh] flex items-center justify-start px-[max(2rem,calc((100vw-1500px)/2))]">
-        <motion.div style={{ y, opacity }} className="relative z-10">
-          <span className="text-foreground/20 text-[4rem] md:text-[7rem] font-bold left-0 uppercase">
+      <div className="relative h-[20vh] md:h-[30vh] flex items-center justify-start md:px-[max(2rem,calc((100vw-1500px)/2))] px-4">
+        <motion.div style={{ y, opacity }} className="relative z-10 ">
+          <span className="text-foreground text-[2.5rem] leading-[4rem] md:text-[7rem] font-bold left-1/2 -translate-x-1/2 uppercase text-center">
             PLayers Lineup
           </span>
         </motion.div>
       </div>
 
       {/* Slider */}
-      <div className="absolute inset-0 top-0 flex items-end z-10 b">
+      <div className="absolute inset-0 top-0 flex items-end z-10">
         <div
           ref={sliderRef}
           className="flex gap-4 cursor-none px-[max(2rem,calc((100vw-1500px)/2)) px-4 md:px-8"
@@ -462,7 +462,7 @@ export function OurTeam() {
             <motion.div
               key={member.id}
               className={cn(
-                "relative h-[80vh] transition-all duration-700 ease-out border border-border rounded-xl bg-blue-100",
+                "relative md:h-[80vh] h-[82vh] transition-all duration-700 ease-out border border-border rounded-xl bg-blue-100",
                 activeIndex === index ? "w-[500px]" : "w-[250px]"
               )}
               onMouseEnter={() => !isDragging && setActiveIndex(index)}

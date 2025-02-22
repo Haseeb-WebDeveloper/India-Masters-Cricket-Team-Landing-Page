@@ -81,10 +81,10 @@ const Logos3 = ({
   ],
 }: Logos3Props) => {
   return (
-    <section className="pt-32 pb-32 bg-orange-900/10 overflow-hidden">
-      <div className="mx-auto rounded-2xl flex flex-col items-center gap-20">
-        <div className="flex flex-col items-center text-center">
-          <h1 className="text-pretty text-[3rem] lg:text-[5rem] uppercase font-bold">
+    <section className="pt-20 md:pb-32 pb-24 bg-orange-900/30 overflow-hidden">
+      <div className="mx-auto rounded-2xl flex flex-col items-center gap-10">
+        <div className="flex flex-col items-center text-center px-4">
+          <h1 className="text-pretty text-[2.5rem] lg:text-[5rem] uppercase font-bold">
             {heading}
           </h1>
         </div>
@@ -106,7 +106,7 @@ const Logos3 = ({
               ]}
               className="w-full"
             >
-              <CarouselContent className="-ml-2 md:-ml-4">
+              <CarouselContent className="-ml-0 md:-ml-4">
                 {[...logos, ...logos].map((logo, index) => (
                   <CarouselItem
                     key={`${logo.id}-${index}`}
@@ -126,8 +126,8 @@ const Logos3 = ({
               </CarouselContent>
             </Carousel>
             {/* Gradient overlays */}
-            <div className="absolute -left-1 w-1/3 h-full bg-gradient-to-r from-[#0F0C17] from-10% to-transparent"></div>
-            <div className="absolute -right-1 w-1/3 h-full bg-gradient-to-l from-[#0F0C17] from-10% to-transparent"></div>
+            <div className="absolute -left-1 w-1/3 h-full bg-gradient-to-r from-[#261415] from-10% to-transparent"></div>
+            <div className="absolute -right-1 w-1/3 h-full bg-gradient-to-l from-[#261415] from-10% to-transparent"></div>
           </div>
         </div>
       </div>

@@ -64,7 +64,7 @@ export function Footer() {
       />
 
       {/* Main heading with parallax */}
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 md:py-20 py-12">
         <motion.div className="relative" style={{ y, scale }}>
           {/* Shadow Text */}
           {/* <motion.h2
@@ -76,7 +76,7 @@ export function Footer() {
 
           {/* Main Text */}
           <motion.h2
-            className="md:text-[6rem] text-[3rem] font-bold text-center leading-none tracking-tighter text-foreground/70 relative"
+            className="md:text-[7rem] text-[3rem] font-bold text-center leading-none tracking-tighter text-foreground/70 relative"
             style={{ y: useTransform(textY, (v) => v * 0.5) }}
           >
             INDIA MASTERS
@@ -124,7 +124,7 @@ export function Footer() {
             </div>
 
             {/* Legal Links */}
-            <div className="flex items-center gap-4 order-3">
+            <div className="flex items-center gap-4 order-3 z-[100]">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

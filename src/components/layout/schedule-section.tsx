@@ -42,14 +42,14 @@ const matches: Match[] = [
       name: "Sri Lanka Masters",
       logo: "/logos/sri-lanka-masters.svg",
       playerImage: "fixtures/3.svg",
-      bgColor:
-        "bg-gradient-to-l from-[#8E153C] via-[#8E153C]/60",
+      bgColor: "bg-gradient-to-l from-[#8E153C] via-[#8E153C]/60",
     },
     matchDetails: {
       date: "Feb 22, 2025",
       time: "19:30 IST",
       venue: "Mumbai",
-      bookingLink: "https://in.bookmyshow.com/sports/iml-2025-india-vs-sri-lanka/ET00432998",
+      bookingLink:
+        "https://in.bookmyshow.com/sports/iml-2025-india-vs-sri-lanka/ET00432998",
     },
   },
   {
@@ -72,7 +72,8 @@ const matches: Match[] = [
       date: "Feb 25, 2025",
       time: "19:30 IST",
       venue: "Mumbai",
-      bookingLink: "https://in.bookmyshow.com/sports/iml-2025-india-vs-england/ET00433000",
+      bookingLink:
+        "https://in.bookmyshow.com/sports/iml-2025-india-vs-england/ET00433000",
     },
   },
   {
@@ -88,14 +89,14 @@ const matches: Match[] = [
       name: "South Africa Masters",
       logo: "/logos/south-africa-masters.svg",
       playerImage: "fixtures/5.svg",
-      bgColor:
-        "bg-gradient-to-l  from-[#6ADFCF] via-[#6ADFCF]/50",
+      bgColor: "bg-gradient-to-l  from-[#6ADFCF] via-[#6ADFCF]/50",
     },
     matchDetails: {
       date: "March 01, 2025",
       time: "19:30 IST",
       venue: "Vadodara",
-      bookingLink: "https://in.bookmyshow.com/sports/iml-2025-india-vs-south-africa/ET00434850",
+      bookingLink:
+        "https://in.bookmyshow.com/sports/iml-2025-india-vs-south-africa/ET00434850",
     },
   },
   {
@@ -118,7 +119,8 @@ const matches: Match[] = [
       date: "March 05, 2025",
       time: "19:30 IST",
       venue: "Vadodara",
-      bookingLink: "https://in.bookmyshow.com/sports/iml-2025-india-vs-australia/ET00434855",
+      bookingLink:
+        "https://in.bookmyshow.com/sports/iml-2025-india-vs-australia/ET00434855",
     },
   },
   {
@@ -134,25 +136,28 @@ const matches: Match[] = [
       name: "West Indies Masters",
       logo: "/logos/west-indies-masters.svg",
       playerImage: "fixtures/2.svg",
-      bgColor:
-        "bg-gradient-to-l from-[#A3383D] via-[#E4BE2F]-20%",
+      bgColor: "bg-gradient-to-l from-[#A3383D] via-[#E4BE2F]-20%",
     },
     matchDetails: {
       date: "March 08, 2025",
       time: "19:30 IST",
       venue: "Raipur",
-      bookingLink: "https://in.bookmyshow.com/sports/iml-2025-india-vs-west-indies/ET00434315",
+      bookingLink:
+        "https://in.bookmyshow.com/sports/iml-2025-india-vs-west-indies/ET00434315",
     },
   },
 ];
 
 export function ScheduleSection() {
   return (
-    <section id="schedule" className="relative w-full bg-background md:pt-16 pt-0 pb-32 overflow-hidden">
+    <section
+      id="schedule"
+      className="relative w-full bg-background pt-28 md:pt-16 pb-32 overflow-hidden"
+    >
       <div className="container mx-auto px-4">
-        <div className="md:mb-12 mb-20">
+        <div className="md:mb-12 mb-12">
           <h2 className="md:text-[6rem] text-[3rem] text-white outline-text text-center font-bold uppercase">
-              Match Fixtures
+            Match Fixtures
           </h2>
         </div>
 
@@ -257,15 +262,19 @@ export function ScheduleSection() {
                         </div>
                       </div>
                       <div className="flex flex-col items-center justify-center gap-2 text-foreground">
-                          <div className="flex items-center justify-center gap-2 text-lg">
-                            <span>Are you ready?</span>
-                          </div>
-                          <Button variant="brand" size="lg" className="">
-                          <Link href={match.matchDetails.bookingLink} target="_blank" className="flex items-center justify-center gap-2">
+                        <div className="flex items-center justify-center gap-2 text-lg">
+                          <span>Are you ready?</span>
+                        </div>
+                        <Button variant="brand" size="lg" className="">
+                          <Link
+                            href={match.matchDetails.bookingLink}
+                            target="_blank"
+                            className="flex items-center justify-center gap-2"
+                          >
                             <CalendarDays />
-                              Book Now
+                            Book Now
                           </Link>
-                          </Button>
+                        </Button>
                       </div>
                     </div>
 
@@ -291,77 +300,86 @@ export function ScheduleSection() {
         </div>
 
         {/* mobile version */}
-        <div className="w-full mx-auto md:hidden">
-          <div className="flex flex-col gap-12">
+        <div className="md:hidden">
+          <div className="flex flex-col gap-6">
             {matches.map((match) => (
-              <motion.div
+              <motion.a
                 key={match.id}
+                href={match.matchDetails.bookingLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="h-full group cursor-pointer "
+                className="relative h-36 group cursor-pointer overflow-hidden rounded-lg border border-border"
               >
-                {/* Base Card */}
-                <div className="w-full h-full flex flex-col gap-4 items-center">
-                  {/* Team 1 */}
-                  <div
-                    className={`flex justify-between w-full h-full ${match.team1.bgColor} transition-all duration-500 rounded-t-md py-2`}
-                  >
-                    <div className="aspect-square flex items-center justify-center">
-                      <Image
-                        src={match.team1.playerImage}
-                        alt={`${match.team1.name} Player`}
-                        className="object-cover object-center w-32 h-32"
-                        width={100}
-                        height={100}
-                      />
-                    </div>
-                    <div className="aspect-square flex items-center justify-center">
-                      <Image
-                        src={match.team1.logo}
-                        alt={match.team1.name}
-                        width={100}
-                        height={100}
-                        className="object-contain w-32 h-32"
-                      />
-                    </div>
+                {/* Background Gradient */}
+                <div className="absolute inset-0 flex">
+                  <div className={`w-1/2 ${match.team1.bgColor}`} />
+                  <div className={`w-1/2 ${match.team2.bgColor}`} />
+                </div>
+
+                {/* Content */}
+                <div className="relative h-full flex items-center justify-between">
+                  {/* Team 1 Player */}
+                  <div className="w-32 h-32 relative -bottom-2 left-0">
+                    <Image
+                      src={match.team1.playerImage}
+                      alt={match.team1.name}
+                      fill
+                      className="object-cover object-center"
+                    />
                   </div>
 
-                  {/* VS */}
-                  <div className="px-0 group-hover:opacity-0 transition-opacity duration-500">
-                    <span className="text-5xl font-medium text-foreground">
-                      VS
-                    </span>
+                  {/* Match Info */}
+                  <div className="flex flex-col items-center justify-center gap-1 h-full z-[1000]">
+                    <span className="text-xl font-bold text-white">VS</span>
+                    <div className="flex flex-col items-center text-center">
+                      <span className="text-sm font-medium text-white/90">
+                        {match.matchDetails.date}
+                      </span>
+                      <span className="text-xs text-white/70">
+                        {match.matchDetails.venue}
+                      </span>
+                    </div>
+                    <Button
+                      variant="brand"
+                      className="mt-1"
+                    >
+                      <CalendarDays className="w-4 h-4" />
+                      Book
+                    </Button>
                   </div>
 
-                  {/* Team 2 */}
-                  <div
-                    className={`flex justify-between w-full h-full ${match.team2.bgColor} transition-all duration-500 rounded-t-md`}
-                  >
-                    <div className="aspect-square">
-                      <Image
-                        src={match.team2.playerImage}
-                        alt={`${match.team2.name} Player`}
-                        className="object-cover object-center w-40 h-40"
-                        width={100}
-                        height={100}
-                      />
-                    </div>
-                    <div className="aspect-square flex items-center justify-center">
-                      <Image
-                        src={match.team2.logo}
-                        alt={match.team2.name}
-                        width={100}
-                        height={100}
-                        className="object-contain w-32 h-32"
-                      />
-                    </div>
+                  {/* Team 2 Player */}
+                  <div className="w-32 h-32 relative -bottom-2 right-0">
+                    <Image
+                      src={match.team2.playerImage}
+                      alt={match.team2.name}
+                      fill
+                      className="object-cover object-center"
+                    />
                   </div>
                 </div>
 
-                {/* Hover Content */}
-             
-              </motion.div>
+                {/* Team Logos - Small Overlays */}
+                <div className="absolute bottom-2 left-[20%] w-12 h-12">
+                  <Image
+                    src={match.team1.logo}
+                    alt={match.team1.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div className="absolute bottom-2 right-[20%] w-12 h-12">
+                  <Image
+                    src={match.team2.logo}
+                    alt={match.team2.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </motion.a>
             ))}
           </div>
         </div>

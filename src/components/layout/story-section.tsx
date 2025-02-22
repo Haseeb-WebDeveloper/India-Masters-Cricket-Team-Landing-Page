@@ -117,9 +117,9 @@ const Stories = [
 
 export default function StorySection() {
     return (
-        <section className="bg-foreground/5 pb-28 pt-28 flex justify-center items-center flex-col gap-1 overflow-hidden px-4">
+        <section className="bg-foreground/5 md:pb-28 pb-20 md:pt-24 pt-20 flex justify-center items-center flex-col gap-1 overflow-hidden px-4">
             <div>
-                <h2 className="text-center text-[3rem] md:text-[6rem] font-bold mb-12 max-w-7xl leading-tight uppercase">From the memory lane</h2>
+                <h2 className="text-center text-[2.5rem] md:text-[6rem] font-bold mb-8 max-w-7xl leading-tight uppercase">From the memory lane</h2>
             </div>
             <Marquee 
                 className="space-x-0 [--duration:15s]" 

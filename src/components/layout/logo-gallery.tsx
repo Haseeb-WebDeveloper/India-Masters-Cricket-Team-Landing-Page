@@ -12,11 +12,11 @@ import {
 
 const IMGS = [
   "/partners/1.svg",
-  "/partners/3.svg",
-  "/partners/2.svg",
   "/partners/2.svg",
   "/partners/3.svg",
   "/partners/1.svg",
+  "/partners/2.svg",
+  "/partners/3.svg",
   "/partners/1.svg",
   "/partners/2.svg",
   "/partners/3.svg",
@@ -45,7 +45,7 @@ const RollingGallery = ({
   }, []);
 
   // 3D geometry
-  const cylinderWidth = isScreenSizeSm ? 1100 : 2400;
+  const cylinderWidth = isScreenSizeSm ? 2100 : 2400;
   const faceCount = galleryImages.length;
   const faceWidth = (cylinderWidth / faceCount) * 0.5;
   const radius = (cylinderWidth / (2 * Math.PI)) * 0.6;
