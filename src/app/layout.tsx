@@ -33,7 +33,24 @@ const customFont  = localFont({
 export const metadata: Metadata = {
   title: "India Masters | Official Website - International Masters League",
   description: "The India Masters Team is Led by the 'CRICKETING GOD' Sachin Tendulkar, whose captaincy promises a masterful blend of timeless technique and explosive T20 flair along with explosive batting of Yuvraj Singh, alongside the versatile Irfan Pathan, a true all-rounder.  The formidable batting line-up is further strengthened by the powerful Yusuf Pathan, while Ambati Rayudu provides strategic depth and explosive stroke play. Relive the glory days as these cricketing legends grace the field once more, donning the iconic blue Indian jersey.",
+  icons: {
+    icon: '/favicon.ico',
+  },
+  openGraph: {
+    images: [
+      {
+        url: '/og-image.png',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'India Masters | Official Website - International Masters League',
+    description: 'The India Masters Team is Led by the \'CRICKETING GOD\' Sachin Tendulkar, whose captaincy promises a masterful blend of timeless technique and explosive T20 flair along with explosive batting of Yuvraj Singh, alongside the versatile Irfan Pathan, a true all-rounder.  The formidable batting line-up is further strengthened by the powerful Yusuf Pathan, while Ambati Rayudu provides strategic depth and explosive stroke play. Relive the glory days as these cricketing legends grace the field once more, donning the iconic blue Indian jersey.',
+    images: ['/og-image.png'],
+  },
 };
+
 
 export default function RootLayout({
   children,
