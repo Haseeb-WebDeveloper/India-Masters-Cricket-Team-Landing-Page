@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import { cn, scrollToSection } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -22,6 +22,10 @@ export function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  // Use a ref for last scroll position
+  const lastScrollY = useRef<number>(typeof window !== "undefined" ? window.scrollY : 0);
+  // Set a threshold (in pixels) to avoid tiny changes
+  const scrollThreshold = 10;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -61,7 +65,6 @@ export function Header() {
         ease: "power2.out",
       });
     });
-
     return () => ctx.revert();
   }, []);
 
@@ -89,34 +92,40 @@ export function Header() {
   // Hide header on scroll down and show on scroll up (only on large devices)
   useEffect(() => {
     if (typeof window === "undefined") return;
-    console.log("headerRef", headerRef.current);
 
-    let lastScrollY = window.pageYOffset;
-    console.log("lastScrollY", lastScrollY);
-
+    let ticking = false;
     const updateHeader = () => {
-      if (window.innerWidth >= 1024 && headerRef.current) {
-        const currentScrollY = window.pageYOffset;
+      if (window.innerWidth < 1024 || !headerRef.current) return;
 
-        if (currentScrollY < lastScrollY) {
-          // User is scrolling up – show header
-          headerRef.current.style.transform = "translateY(0)";
-          console.log("scrolling up");
-        } else {
-          // User is scrolling down – hide header
-          headerRef.current.style.transform = "translateY(-100%)";
-          console.log("scrolling down");
-        }
-        lastScrollY = currentScrollY;
-        console.log("lastScrollY", lastScrollY);
+      const currentScrollY = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // If the difference is less than the threshold, do nothing
+          if (Math.abs(currentScrollY - lastScrollY.current) < scrollThreshold) {
+            ticking = false;
+            return;
+          }
+
+          if (currentScrollY < lastScrollY.current) {
+            // Scrolling up
+            headerRef.current!.style.transform = "translateY(0)";
+            // console.log("scrolling up", { currentScrollY, lastScrollY: lastScrollY.current });
+          } else if (currentScrollY > lastScrollY.current) {
+            // Scrolling down
+            headerRef.current!.style.transform = "translateY(-100%)";
+            // console.log("scrolling down", { currentScrollY, lastScrollY: lastScrollY.current });
+          }
+          lastScrollY.current = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
     window.addEventListener("scroll", updateHeader);
-    console.log("updateHeader", updateHeader);
-
     return () => window.removeEventListener("scroll", updateHeader);
-  }, [  ]);
+  }, []);
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -150,7 +159,8 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      className="absolute top-0 left-0 right-0 z-50 mx-auto px-4 py-4 md:py-8 lg:py-12 max-w-[1180px] md:px-6 transition-transform duration-300"
+      // Changed position to fixed so it stays visible when shown
+      className="fixed top-0 left-0 right-0 z-50 mx-auto px-4 py-4 md:py-8 lg:py-12 max-w-[1180px] md:px-6 transition-transform duration-300"
     >
       <div className="relative mx-auto px-3 py-2 md:px-8 md:py-6 z-[1000]">
         {/* Header Background with Border */}

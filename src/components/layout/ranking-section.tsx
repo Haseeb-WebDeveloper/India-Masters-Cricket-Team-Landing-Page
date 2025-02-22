@@ -8,7 +8,8 @@ import { useRef } from "react";
 type TeamRanking = {
   id: number;
   logo: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   matches: number;
   wins: number;
   losses: number;
@@ -21,7 +22,8 @@ const rankings: TeamRanking[] = [
   {
     id: 1,
     logo: "partners/india-masters.svg",
-    name: "India Masters",
+    firstName: "India",
+    lastName: "Masters",
     matches: 0,
     wins: 0,
     losses: 0,
@@ -32,7 +34,8 @@ const rankings: TeamRanking[] = [
   {
     id: 2,
     logo: "partners/south-africa-masters.svg",
-    name: "South Africa Masters",
+    firstName: "South Africa",
+    lastName: "Masters",
     matches: 0,
     wins: 0,
     losses: 0,
@@ -43,7 +46,8 @@ const rankings: TeamRanking[] = [
   {
     id: 3,
     logo: "partners/west-indies-masters.svg",
-    name: "West Indies Masters",
+    firstName: "West Indies",
+    lastName: "Masters",
     matches: 0,
     wins: 0,
     losses: 0,
@@ -54,7 +58,8 @@ const rankings: TeamRanking[] = [
   {
     id: 4,
     logo: "partners/australia-masters.svg",
-    name: "Australia Masters",
+    firstName: "Australia",
+    lastName: "Masters",
     matches: 0,
     wins: 0,
     losses: 0,
@@ -65,7 +70,8 @@ const rankings: TeamRanking[] = [
   {
     id: 5,
     logo: "partners/sri-lanka-masters.svg",
-    name: "Sri Lanka Masters",
+    firstName: "Sri Lanka",
+    lastName: "Masters",
     matches: 0,
     wins: 0,
     losses: 0,
@@ -76,7 +82,8 @@ const rankings: TeamRanking[] = [
   {
     id: 6,
     logo: "partners/england-masters.svg",
-    name: "England Masters",
+    firstName: "England",
+    lastName: "Masters",
     matches: 0,
     wins: 0,
     losses: 0,
@@ -93,7 +100,7 @@ export function RankingSection() {
   return (
     <section
       id="ranking"
-      className="relative  w-full bg-foreground/5 py-24 md:py-24 overflow-hidden"
+      className="relative  w-full bg-foreground/5 py-24 md:py-32 overflow-hidden"
     >
       <div className="container mx-auto px-2 md:px-4">
         <div className="mb-8 md:mb-16">
@@ -169,13 +176,13 @@ export function RankingSection() {
                       >
                         <Image
                           src={team.logo}
-                          alt={team.name}
+                          alt={`${team.firstName} ${team.lastName}`}
                           fill
                           className="object-contain p-2 transition-transform duration-300"
                         />
                       </div>
-                      <span className="uppercase font-semibold md:text-lg text-sm md:text-[2.5rem] pl-24 md:pl-36 text-background/90 transition-colors duration-300 group-hover:text-background text-nowrap text-ellipsis overflow-hidden whitespace-nowrap truncate tracking-tight">
-                        {team.name}
+                      <span className="uppercase font-semibold md:text-lg text-sm md:text-[2.5rem] pl-24 md:pl-36  text-background/90 transition-colors duration-300 group-hover:text-background text-nowrap text-ellipsis overflow-hidden whitespace-nowrap truncate tracking-tight">
+                        {team.firstName} <br /> {team.lastName}
                       </span>
                     </div>
 

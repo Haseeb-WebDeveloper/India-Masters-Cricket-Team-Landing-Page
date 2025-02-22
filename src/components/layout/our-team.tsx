@@ -154,7 +154,7 @@ const teamMembers: TeamMember[] = [
       },
     ],
     description:
-      "Ranganath Vinay Kumar 'The Davangere Express' is a cricketer with precision and control, a bowler whose mastery of subtle variations has made him a formidable force. He's a tactician on the field, a master of deception whose arsenal of leg-cutters, slower balls, and pinpoint accuracy keeps batsmen guessing. His journey, marked by consistent wicket-taking from his early first-class days, is a testament to unwavering skill and a deep understanding of the game. From mentoring young bowlers to leading Karnataka to the Ranji Trophy final. While his international appearances have been sporadic, his impact in domestic cricket remains undeniable. The 'Davangere Express' continues to deliver, proving that true skill lies not only in raw pace but also in intelligent execution and unwavering precision.",
+      "Ranganath Vinay Kumar 'The Davangere Express' is a fast bowler whose imposing physique and aggressive style have made him a force to be judged with. He's a physical specimen, a towering presence on the field whose height and raw pace are his greatest weapons. His journey, marked by impressive performances in domestic cricket, showcases his talent and dedication. From early success in the Ranji Trophy, where he led the bowling charts, to helping Karnataka reach the finals, Mithun has consistently demonstrated his ability to deliver crucial breakthroughs. He's a powerhouse, a player whose imposing presence and aggressive style make him a challenging opponent for any batsman.",
     imageUrl: "team/9.svg",
   },
   {
@@ -259,7 +259,7 @@ const teamMembers: TeamMember[] = [
       },
     ],
     description:
-      "Saurabh Tiwary, a name whispered with respect in the corridors of Indian domestic cricket, is a testament to unwavering dedication and quiet determination. Modeled on the cool composure of MS Dhoni, Tiwary's journey from the Jamshedpur grounds to the national stage is a story of consistent performance and unwavering passion.  His elegant left-handed stroke play, honed through years of dedication, has captivated audiences and earned him the moniker of 'The Bihari Blizzard'.  He's a symbol of his state's cricketing spirit, a force of nature who quietly but powerfully makes his mark on the game.",
+      "Saurabh Tiwary, a name whispered with respect in the corridors of Indian domestic cricket, is a testament to unwavering dedication and quiet determination. Modeled on the cool composure of MS Dhoni, Tiwary's journey from the Jamshedpur grounds to the national stage is a story of consistent performance and unwavering passion.  His elegant left-handed stroke play, honed through years of dedication, has captivated audiences and earned him the moniker of 'The Bihari Blizzard'.  He's a symbol of his state's cricketing spirit, a force of nature who quietly but powerfully makes his mark on the game.",
     imageUrl: "team/13.svg",
   },
 ];
@@ -330,70 +330,55 @@ export function OurTeam() {
     let draggable: Draggable;
 
     const initializeAnimations = () => {
+      // Pin the container
       scrollTrigger = ScrollTrigger.create({
         trigger: container,
+        // pin: true,
         start: "top top",
-        end: "+=100%",
+        // end: "+=100%",
+        scrub: true,
       });
 
-      const totalWidth = slider.scrollWidth;
-      const containerWidth = container.clientWidth;
-      const sliderPadding = parseInt(
-        window.getComputedStyle(slider).paddingLeft
-      );
-      const exactBounds = {
-        minX: -(totalWidth - containerWidth),
-        maxX: 0,
-      };
-
+      // Make the slider draggable
       draggable = Draggable.create(slider, {
         type: "x",
         inertia: true,
-        bounds: exactBounds,
-        edgeResistance: 0.85,
-        dragResistance: 0.2,
+        bounds: {
+          minX: -slider.scrollWidth + window.innerWidth,
+          maxX: 0,
+        },
+        dragResistance: 0.2, // Reduced resistance for smoother drag
+        edgeResistance: 0.65,
         onDragStart: () => setIsDragging(true),
-        onDragEnd: () => {
-          setIsDragging(false);
-          if (draggable) {
-            const currentX = draggable.x;
-            if (currentX < exactBounds.minX) {
-              gsap.to(slider, {
-                x: exactBounds.minX,
-                duration: 0.5,
-                ease: "power2.out",
-              });
-            } else if (currentX > exactBounds.maxX) {
-              gsap.to(slider, {
-                x: exactBounds.maxX,
-                duration: 0.5,
-                ease: "power2.out",
-              });
-            }
+        onDragEnd: () => setIsDragging(false),
+        onPress: () => setIsDragging(true),
+        onRelease: () => setIsDragging(false),
+        // Add these properties for better mobile experience
+        allowContextMenu: true,
+        minimumMovement: 2,
+        throwResistance: 3000,
+        snap: {
+          x: function(endValue) {
+            return Math.round(endValue / 50) * 50;
           }
         },
-        onDrag: function () {
-          gsap.to(slider, {
-            x: this.x,
-            duration: 0.5,
-            ease: "power2.out",
-            overwrite: "auto",
-          });
-        },
+        // Improved momentum settings
+        momentum: true,
+        momentumMultiplier: 8,
+        overshootTolerance: 0.8,
       })[0];
 
-      const currentX = draggable.x;
-      if (currentX < exactBounds.minX || currentX > exactBounds.maxX) {
-        gsap.set(slider, {
-          x: Math.max(exactBounds.minX, Math.min(exactBounds.maxX, currentX)),
-        });
-      }
+      // Cleanup function
+      return () => {
+        scrollTrigger.kill();
+        draggable.kill();
+      };
     };
 
-    const timer = setTimeout(initializeAnimations, 100);
+    initializeAnimations();
 
+    // Cleanup on unmount
     return () => {
-      clearTimeout(timer);
       if (scrollTrigger) scrollTrigger.kill();
       if (draggable) draggable.kill();
     };
@@ -462,7 +447,7 @@ export function OurTeam() {
             <motion.div
               key={member.id}
               className={cn(
-                "relative md:h-[80vh] h-[82vh] transition-all duration-700 ease-out border border-border rounded-xl bg-blue-100",
+                "relative md:h-[85vh] h-[82vh] transition-all duration-700 ease-out border border-border rounded-xl bg-blue-100",
                 activeIndex === index ? "w-[500px]" : "w-[250px]"
               )}
               onMouseEnter={() => !isDragging && setActiveIndex(index)}
