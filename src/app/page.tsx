@@ -49,24 +49,18 @@ const demoData = {
       image: "/sponsors/6.svg",
       className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
     },
-    // {
-    //   id: "logo-7",
-    //   description: "Logo 7",
-    //   image: "/sponsors/7.svg",
-    //   className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
-    // },
+    {
+      id: "logo-7",
+      description: "Logo 7",
+      image: "/sponsors/7.svg",
+      className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
+    },
     {
       id: "logo-8",
       description: "Logo 8",
       image: "/sponsors/8.svg",
       className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
     },
-    // {
-    //   id: "logo-9",
-    //   description: "Logo 9",
-    //   image: "/sponsors/9.svg",
-    //   className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
-    // },
   ],
 };
 
