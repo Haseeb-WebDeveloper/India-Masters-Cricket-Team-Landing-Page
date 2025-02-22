@@ -81,7 +81,7 @@ const Logos3 = ({
   ],
 }: Logos3Props) => {
   return (
-    <section className="pt-20 pb-24  md:py-36 bg-foreground/10  overflow-hidden">
+    <section className="pt-20 pb-24 md:pb-32 md:pt-24 bg-foreground/10  overflow-hidden">
       <div className="mx-auto rounded-2xl flex flex-col items-center gap-10">
         <div className="flex flex-col items-center text-center px-4">
           <h1 className="text-pretty text-[2.5rem] lg:text-[5rem] uppercase font-bold">

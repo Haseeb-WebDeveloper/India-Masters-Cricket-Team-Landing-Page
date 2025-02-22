@@ -152,17 +152,17 @@ export function ScheduleSection() {
   return (
     <section
       id="schedule"
-      className="relative w-full bg-background pt-28 md:pt-16 pb-32 overflow-hidden"
+      className="relative w-full bg-background pt-28 md:pt-16 pb-32 overflow-hidden max-w-[1180px] mx-auto"
     >
       <div className="container mx-auto px-4">
         <div className="md:mb-12 mb-12">
-          <h2 className="md:text-[6rem] text-[3rem] text-white outline-text text-center font-bold uppercase">
+          <h2 className="text-white outline-text text-[2.5rem] lg:text-[5rem] font-bold text-center uppercase tracking-tight max-w-5xl mx-auto leading-tight md:leading-[6rem">
             Match Fixtures
           </h2>
         </div>
 
         {/* desktop version */}
-        <div className="relative max-w-5xl mx-auto hidden md:block">
+        <div className="relative max-w-[1180px] px-2 mx-auto hidden md:block">
           <div className="grid gap-6">
             {matches.map((match) => (
               <motion.div

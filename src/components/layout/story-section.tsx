@@ -119,7 +119,7 @@ export default function StorySection() {
     return (
         <section className="bg-foreground/5 md:pb-28 pb-20 md:pt-24 pt-20 flex justify-center items-center flex-col gap-1 overflow-hidden px-4">
             <div>
-                <h2 className="text-center text-[2.5rem] md:text-[6rem] font-bold mb-8 max-w-7xl leading-tight uppercase">From the memory lane</h2>
+                <h2 className="text-[2.5rem] mb-4 md:text-[6rem] lg:text-[5rem] font-bold text-center uppercase tracking-tight max-w-5xl mx-auto leading-tight md:leading-[6rem]">From the memory lane</h2>
             </div>
             <Marquee 
                 className="space-x-0 [--duration:15s]" 
