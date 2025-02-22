@@ -76,7 +76,7 @@ export function Footer() {
 
           {/* Main Text */}
           <motion.h2
-            className="text-[12rem] font-bold text-center leading-none tracking-tighter text-foreground/70 relative"
+            className="md:text-[6rem] text-[3rem] font-bold text-center leading-none tracking-tighter text-foreground/70 relative"
             style={{ y: useTransform(textY, (v) => v * 0.5) }}
           >
             INDIA MASTERS

@@ -96,6 +96,29 @@ box-shadow: 3px 17px 33px 0px rgba(0,0,0,0.39);
 
 
 
+/* Scrollbar Track */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+/* Scrollbar Thumb (the moving part) */
+::-webkit-scrollbar-thumb {
+  background: rgb(184, 52, 11); /* Dark color for the thumb */
+  border-radius: 8px; /* Rounded corners */
+}
+
+/* Scrollbar Thumb on Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Slightly lighter on hover */
+}
+
+/* Scrollbar Track (Background) */
+::-webkit-scrollbar-track {
+  background: rgb(32, 18, 0); /* Dark background */
+}
+
+
+
 
 
 

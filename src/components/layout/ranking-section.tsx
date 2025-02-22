@@ -93,7 +93,7 @@ export function RankingSection() {
   return (
     <section
       id="ranking"
-      className="relative min-h-screen w-full bg-foreground/5 md:py-40 py-24"
+      className="relative min-h-screen w-full bg-foreground/5 md:py-40 py-24 overflow-hidden"
     >
       <div className="container mx-auto px-4">
         <div className="mb-24">

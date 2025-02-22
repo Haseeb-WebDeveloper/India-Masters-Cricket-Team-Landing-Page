@@ -292,7 +292,7 @@ export function ScheduleSection() {
 
         {/* mobile version */}
         <div className="w-full mx-auto md:hidden">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-12">
             {matches.map((match) => (
               <motion.div
                 key={match.id}
