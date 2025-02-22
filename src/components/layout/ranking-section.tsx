@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type TeamRanking = {
   id: number;
@@ -93,10 +93,29 @@ const rankings: TeamRanking[] = [
   },
 ];
 
+
 export function RankingSection() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true });
+  const [isMobile, setIsMobile] = useState(false); // Initialize with false
 
+  // Handle window width check on client-side
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check initially
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  
   return (
     <section
       id="ranking"
@@ -182,15 +201,15 @@ export function RankingSection() {
                         />
                       </div>
                       <span className="uppercase font-semibold md:text-lg text-sm md:text-[2.5rem] pl-24 md:pl-36  text-background/90 transition-colors duration-300 group-hover:text-background text-nowrap text-ellipsis overflow-hidden whitespace-nowrap truncate tracking-tight">
-                      {window.innerWidth < 768 ? (
-                        <>
-                          {team.firstName} <br /> {team.lastName}
-                        </>
-                      ) : (
-                        <>
-                          {team.firstName} {team.lastName}
-                        </>
-                      )}
+                        {isMobile ? (
+                          <>
+                            {team.firstName} <br /> {team.lastName}
+                          </>
+                        ) : (
+                          <>
+                            {team.firstName} {team.lastName}
+                          </>
+                        )}
                       </span>
                     </div>
 
