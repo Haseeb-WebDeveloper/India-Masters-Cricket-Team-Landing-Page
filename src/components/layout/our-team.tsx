@@ -431,7 +431,7 @@ export function OurTeam() {
       {/* Title with Parallax */}
       <div className="relative h-[20vh] md:h-[30vh] flex items-center justify-start md:px-[max(2rem,calc((100vw-1500px)/2))] px-6">
         <motion.div style={{ y, opacity }} className="relative z-10 ">
-          <span className="text-foreground text-[2.5rem] md:text-[6rem]  left-1/2 -translate-x-1/2 lg:text-[5rem] font-bold text-center uppercase tracking-tight max-w-5xl mx-auto leading-tight md:leading-[6rem]">
+          <span className="text-foreground text-[2.3rem] left-1/2 -translate-x-1/2 lg:text-[5rem] font-bold text-center uppercase tracking-tight max-w-5xl mx-auto leading-tight md:leading-[6rem]">
             PLayers Lineup
           </span>
         </motion.div>

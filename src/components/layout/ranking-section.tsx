@@ -100,16 +100,16 @@ export function RankingSection() {
   return (
     <section
       id="ranking"
-      className="relative  w-full bg-foreground/5 py-24 md:py-32 overflow-hidden"
+      className="relative w-full bg-foreground/5 py-24 md:py-32 overflow-hidden px-2"
     >
-      <div className="container mx-auto px-2 md:px-4">
+      <div className="container mx-auto">
         <div className="mb-8 md:mb-16">
           <h2 className="text-3xl md:text-5xl lg:text-[5rem] font-bold text-center uppercase tracking-tight max-w-5xl mx-auto leading-tight md:leading-[6rem]">
             Tournament Standings
           </h2>
         </div>
 
-        <div className="relative max-w-[1180px] px-6 mx-auto">
+        <div className="relative max-w-[1180px] mx-auto">
           {/* Header - Hide on mobile, show abbreviated version */}
           <div className="hidden md:grid grid-cols-[3fr,repeat(5,0.5fr)] gap-0 mb-8 px-8 text-foreground/80">
             <div></div>

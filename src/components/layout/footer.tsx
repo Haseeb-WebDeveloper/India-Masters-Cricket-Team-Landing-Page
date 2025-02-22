@@ -64,7 +64,7 @@ export function Footer() {
       />
 
       {/* Main heading with parallax */}
-      <div className="container mx-auto px-4 md:py-20">
+      <div className="container mx-auto px-4 py-12 md:py-20">
         <motion.div className="relative" style={{ y, scale }}>
           {/* Shadow Text */}
           {/* <motion.h2
