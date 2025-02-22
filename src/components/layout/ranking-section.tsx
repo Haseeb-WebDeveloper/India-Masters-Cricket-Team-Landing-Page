@@ -182,7 +182,15 @@ export function RankingSection() {
                         />
                       </div>
                       <span className="uppercase font-semibold md:text-lg text-sm md:text-[2.5rem] pl-24 md:pl-36  text-background/90 transition-colors duration-300 group-hover:text-background text-nowrap text-ellipsis overflow-hidden whitespace-nowrap truncate tracking-tight">
-                        {team.firstName} <br /> {team.lastName}
+                      {window.innerWidth < 768 ? (
+                        <>
+                          {team.firstName} <br /> {team.lastName}
+                        </>
+                      ) : (
+                        <>
+                          {team.firstName} {team.lastName}
+                        </>
+                      )}
                       </span>
                     </div>
 
