@@ -32,7 +32,7 @@ const customFont  = localFont({
 
 export const metadata: Metadata = {
   title: "India Masters | Official Website - International Masters League",
-  description: "India Masters is the official website for the International Masters League, a cricket tournament that features teams from around the world. The league is a celebration of the sport and a showcase of the best players from across the globe.",
+  description: "The India Masters Team is Led by the 'CRICKETING GOD' Sachin Tendulkar, whose captaincy promises a masterful blend of timeless technique and explosive T20 flair along with explosive batting of Yuvraj Singh, alongside the versatile Irfan Pathan, a true all-rounder.  The formidable batting line-up is further strengthened by the powerful Yusuf Pathan, while Ambati Rayudu provides strategic depth and explosive stroke play. Relive the glory days as these cricketing legends grace the field once more, donning the iconic blue Indian jersey.",
 };
 
 export default function RootLayout({

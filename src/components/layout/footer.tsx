@@ -31,7 +31,7 @@ const socialLinks = [
   {
     name: "Instagram",
     icon: Instagram,
-    href: "https://www.instagram.com/studioenzig/",
+    href: "https://www.instagram.com/iml_indiamasters?igsh=MTV2bnV0a2F2YzJmbg==",
   },
 ];
 
@@ -64,7 +64,7 @@ export function Footer() {
       />
 
       {/* Main heading with parallax */}
-      <div className="container mx-auto px-4 md:py-20 py-12">
+      <div className="container mx-auto px-4 md:py-20">
         <motion.div className="relative" style={{ y, scale }}>
           {/* Shadow Text */}
           {/* <motion.h2

@@ -25,7 +25,7 @@ export function Header() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate the header
+      // Animate the header on initial load
       gsap.from(headerRef.current, {
         y: -100,
         opacity: 0,
@@ -86,6 +86,38 @@ export function Header() {
     }
   }, [isMenuOpen]);
 
+  // Hide header on scroll down and show on scroll up (only on large devices)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    console.log("headerRef", headerRef.current);
+
+    let lastScrollY = window.pageYOffset;
+    console.log("lastScrollY", lastScrollY);
+
+    const updateHeader = () => {
+      if (window.innerWidth >= 1024 && headerRef.current) {
+        const currentScrollY = window.pageYOffset;
+
+        if (currentScrollY < lastScrollY) {
+          // User is scrolling up – show header
+          headerRef.current.style.transform = "translateY(0)";
+          console.log("scrolling up");
+        } else {
+          // User is scrolling down – hide header
+          headerRef.current.style.transform = "translateY(-100%)";
+          console.log("scrolling down");
+        }
+        lastScrollY = currentScrollY;
+        console.log("lastScrollY", lastScrollY);
+      }
+    };
+
+    window.addEventListener("scroll", updateHeader);
+    console.log("updateHeader", updateHeader);
+
+    return () => window.removeEventListener("scroll", updateHeader);
+  }, [  ]);
+
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
@@ -118,7 +150,7 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      className="absolute top-0 left-0 right-0 z-50 mx-auto px-4 py-4 md:py-8 lg:py-12 max-w-[1180px] md:px-6"
+      className="absolute top-0 left-0 right-0 z-50 mx-auto px-4 py-4 md:py-8 lg:py-12 max-w-[1180px] md:px-6 transition-transform duration-300"
     >
       <div className="relative mx-auto px-3 py-2 md:px-8 md:py-6 z-[1000]">
         {/* Header Background with Border */}
@@ -140,7 +172,7 @@ export function Header() {
           {/* Mobile Menu Button - Right Aligned */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden relative p-2  hover:text-primary transition-colors z-50"
+            className="md:hidden relative p-2 hover:text-primary transition-colors z-50"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
@@ -214,7 +246,6 @@ export function Header() {
                 : "opacity-0 invisible pointer-events-none"
             )}
           >
-
             {/* Menu Content */}
             <nav className="relative h-[100vh] flex flex-col items-center justify-center gap-8 bg-background">
               {navLinks.map((link, index) => (
