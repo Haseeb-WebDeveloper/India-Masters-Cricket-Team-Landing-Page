@@ -13,18 +13,21 @@ type Match = {
     logo: string;
     playerImage: string;
     bgColor: string;
+    score?: string;
   };
   team2: {
     name: string;
     logo: string;
     playerImage: string;
     bgColor: string;
+    score?: string;
   };
   matchDetails: {
     date: string;
     time: string;
     venue: string;
-    bookingLink: string;
+    bookingLink?: string;
+    winner?: string;
   };
 };
 
@@ -35,6 +38,7 @@ const matches: Match[] = [
       name: "India Masters",
       logo: "/logos/india-masters.svg",
       playerImage: "fixtures/1.svg",
+      score: "222-4",
       bgColor:
         "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
     },
@@ -42,14 +46,14 @@ const matches: Match[] = [
       name: "Sri Lanka Masters",
       logo: "/logos/sri-lanka-masters.svg",
       playerImage: "fixtures/3.svg",
+      score: "218-9",
       bgColor: "bg-gradient-to-l from-[#8E153C] via-[#8E153C]/60",
     },
     matchDetails: {
       date: "Feb 22, 2025",
       time: "19:30 IST",
       venue: "Mumbai",
-      bookingLink:
-        "https://in.bookmyshow.com/sports/iml-2025-india-vs-sri-lanka/ET00432998",
+      winner: "India Masters won by 4 runs",
     },
   },
   {
@@ -124,7 +128,7 @@ const matches: Match[] = [
     },
   },
   {
-    id: 4,
+    id: 5,
     team1: {
       name: "India Masters",
       logo: "/logos/india-masters.svg",
@@ -152,7 +156,7 @@ export function ScheduleSection() {
   return (
     <section
       id="schedule"
-      className="relative w-full bg-background pt-28 md:pt-16 pb-32 overflow-hidden max-w-[1180px] mx-auto"
+      className="relative w-full bg-background pt-28 md:pt-32 pb-32 overflow-hidden max-w-[1180px] mx-auto"
     >
       <div className="container mx-auto px-4">
         <div className="md:mb-12 mb-12">
@@ -163,14 +167,14 @@ export function ScheduleSection() {
 
         {/* desktop version */}
         <div className="relative max-w-[1180px] px-2 mx-auto hidden md:block">
-          <div className="grid gap-6">
+          <div className="grid gap-8">
             {matches.map((match) => (
               <motion.div
                 key={match.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="relative h-40 group cursor-pointer "
+                className="relative h-52 group cursor-pointer "
               >
                 {/* Base Card */}
                 <div className="absolute inset-0 h-full grid grid-cols-[1fr,auto,1fr] items-center  transition-transform duration-500 ">
@@ -242,39 +246,51 @@ export function ScheduleSection() {
                       <h3 className="font-bold text-xl text-white">
                         {match.team1.name}
                       </h3>
+                      {match.team1.score && (
+                        <p className="text-lg text-white/90">{match.team1.score}</p>
+                      )}
                     </div>
 
                     {/* Match Details */}
-                    <div className="grid grid-cols-2 gap-12 items-center justify-center h-full">
+                    <div className="grid grid-cols-1 gap-4 items-center justify-center h-full">
                       <div className="space-y-2">
-                        <div className="flex items-center justify-center gap-3 text-foreground/90">
-                          <span>{match.matchDetails.venue}</span>
-                        </div>
                         <div className="flex items-center justify-center gap-3 text-foreground/90">
                           <span className="text-lg">
                             {match.matchDetails.date}
                           </span>
                         </div>
-                        <div className="flex items-center justify-center gap-3 text-white/90">
-                          <span className="text-lg">
-                            {match.matchDetails.time}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="flex flex-col items-center justify-center gap-2 text-foreground">
-                        <div className="flex items-center justify-center gap-2 text-lg">
-                          <span>Are you ready?</span>
-                        </div>
-                        <Button variant="brand" size="lg" className="">
-                          <Link
-                            href={match.matchDetails.bookingLink}
-                            target="_blank"
-                            className="flex items-center justify-center gap-2"
-                          >
-                            <CalendarDays />
-                            Book Now
-                          </Link>
-                        </Button>
+                        {match.matchDetails.winner ? (
+                          <div className="flex flex-col items-center gap-2">
+                            <span className="text-lg text-white/90">
+                              {match.matchDetails.winner}
+                            </span>
+                          </div>
+                        ) : (
+                          <>
+                            <div className="flex items-center justify-center gap-3 text-foreground/90">
+                              <span>{match.matchDetails.venue}</span>
+                            </div>
+                            <div className="flex items-center justify-center gap-3 text-white/90">
+                              <span className="text-lg">
+                                {match.matchDetails.time}
+                              </span>
+                            </div>
+                            <div className="flex flex-col items-center justify-center gap-2 text-foreground mt-2">
+                              <div className="flex items-center justify-center gap-2 text-lg">
+                              </div>
+                              <Button variant="brand" size="lg">
+                                <Link
+                                  href={match.matchDetails.bookingLink || ""}
+                                  target="_blank"
+                                  className="flex items-center justify-center gap-2"
+                                >
+                                  <CalendarDays />
+                                  Book Now
+                                </Link>
+                              </Button>
+                            </div>
+                          </>
+                        )}
                       </div>
                     </div>
 
@@ -291,6 +307,9 @@ export function ScheduleSection() {
                       <h3 className="font-bold text-xl text-white">
                         {match.team2.name}
                       </h3>
+                      {match.team2.score && (
+                        <p className="text-lg text-white/90">{match.team2.score}</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -320,7 +339,7 @@ export function ScheduleSection() {
                 </div>
 
                 {/* Content */}
-                <div className="relative h-full flex items-center justify-between">
+                <div className="relative h-full flex items-center justify-between w-full">
                   {/* Team 1 Player */}
                   <div className="w-32 h-32 relative -bottom-2 left-0">
                     <Image
@@ -332,23 +351,38 @@ export function ScheduleSection() {
                   </div>
 
                   {/* Match Info */}
-                  <div className="flex flex-col items-center justify-center gap-1 h-full z-[1000]">
+                  <div className="flex flex-col items-center justify-center gap-1 h-full z-[1000] ">
                     <span className="text-xl font-bold text-white">VS</span>
                     <div className="flex flex-col items-center text-center">
                       <span className="text-sm font-medium text-white/90">
                         {match.matchDetails.date}
                       </span>
-                      <span className="text-xs text-white/70">
-                        {match.matchDetails.venue}
-                      </span>
+                      {match.matchDetails.winner ? (
+                        <>
+                          <span className="text-xs text-white/90">
+                            {match.matchDetails.winner}
+                          </span>
+                          {match.team1.score && match.team2.score && (
+                            <span className="text-xs text-white/70">
+                              {match.team1.score} | {match.team2.score}
+                            </span>
+                          )}
+                        </>
+                      ) : (
+                        <>
+                          <span className="text-xs text-white/70">
+                            {match.matchDetails.venue}
+                          </span>
+                          <Button
+                            variant="brand"
+                            className="mt-1"
+                          >
+                            <CalendarDays className="w-4 h-4" />
+                            Book
+                          </Button>
+                        </>
+                      )}
                     </div>
-                    <Button
-                      variant="brand"
-                      className="mt-1"
-                    >
-                      <CalendarDays className="w-4 h-4" />
-                      Book
-                    </Button>
                   </div>
 
                   {/* Team 2 Player */}
