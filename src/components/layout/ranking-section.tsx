@@ -10,11 +10,12 @@ type TeamRanking = {
   logo: string;
   firstName: string;
   lastName: string;
-  matches: number;
-  wins: number;
-  losses: number;
-  points: number;
-  nr: number;
+  P: number;
+  W: number;
+  L: number;
+  NR: number;
+  NRR: number;
+  Pts: number;
   bgColor: string;
 };
 
@@ -24,11 +25,12 @@ const rankings: TeamRanking[] = [
     logo: "partners/india-masters.svg",
     firstName: "India",
     lastName: "Masters",
-    matches: 0,
-    wins: 1,
-    losses: 0,
-    points: 1,
-    nr: 0,
+    P: 1,
+    W: 1,
+    L: 0,
+    NR: 0,
+    NRR: 0.2,
+    Pts: 2,
     bgColor: "bg-gradient-to-r from-[#EC7623] via-yellow-600",
   },
   {
@@ -36,11 +38,12 @@ const rankings: TeamRanking[] = [
     logo: "partners/south-africa-masters.svg",
     firstName: "South Africa",
     lastName: "Masters",
-    matches: 0,
-    wins: 0,
-    losses: 0,
-    points: 0,
-    nr: 0,
+    P: 0,
+    W: 0,
+    L: 0,
+    NR: 0,
+    NRR: 0,
+    Pts: 0,
     bgColor: "bg-gradient-to-r from-[#6ADFCF] via-[#6ADFCF]/50",
   },
   {
@@ -48,11 +51,12 @@ const rankings: TeamRanking[] = [
     logo: "partners/west-indies-masters.svg",
     firstName: "West Indies",
     lastName: "Masters",
-    matches: 0,
-    wins: 0,
-    losses: 0,
-    points: 0,
-    nr: 0,
+    P: 0,
+    W: 0,
+    L: 0,
+    NR: 0,
+    NRR: 0,
+    Pts: 0,
     bgColor: "bg-gradient-to-r from-[#A3383D] via-[#E4BE2F]-20%",
   },
   {
@@ -60,11 +64,12 @@ const rankings: TeamRanking[] = [
     logo: "partners/australia-masters.svg",
     firstName: "Australia",
     lastName: "Masters",
-    matches: 0,
-    wins: 0,
-    losses: 0,
-    points: 0,
-    nr: 0,
+    P: 0,
+    W: 0,
+    L: 0,
+    NR: 0,
+    NRR: 0,
+    Pts: 0,
     bgColor: "bg-gradient-to-r from-[#B7EE06] via-[#B7EE06]/50",
   },
   {
@@ -72,11 +77,12 @@ const rankings: TeamRanking[] = [
     logo: "partners/sri-lanka-masters.svg",
     firstName: "Sri Lanka",
     lastName: "Masters",
-    matches: 0,
-    wins: 0,
-    losses: 0,
-    points: 0,
-    nr: 0,
+    P: 1,
+    W: 0,
+    L: 1,
+    NR: 0,
+    NRR: -0.2,
+    Pts: 0,
     bgColor: "bg-gradient-to-r from-[#8E153C] via-[#8E153C]/60",
   },
   {
@@ -84,11 +90,12 @@ const rankings: TeamRanking[] = [
     logo: "partners/england-masters.svg",
     firstName: "England",
     lastName: "Masters",
-    matches: 0,
-    wins: 0,
-    losses: 0,
-    points: 0,
-    nr: 0,
+    P: 0,
+    W: 0,
+    L: 0,
+    NR: 0,
+    NRR: 0,
+    Pts: 0,
     bgColor: "bg-gradient-to-r from-[#418EC1] via-[#418EC1]/50",
   },
 ];
@@ -130,22 +137,25 @@ export function RankingSection() {
 
         <div className="relative max-w-[1180px] mx-auto">
           {/* Header - Hide on mobile, show abbreviated version */}
-          <div className="hidden md:grid grid-cols-[3fr,repeat(5,0.5fr)] gap-0 mb-8 px-8 text-foreground/80">
+          <div className="hidden md:grid grid-cols-[2.5fr,repeat(6,0.4fr)] gap-0 mb-8 px-8 text-foreground/80">
             <div></div>
-            <div className="text-center border-l border-border/20 text-base">MAT</div>
+            <div className="text-center border-l border-border/20 text-base">P</div>
             <div className="text-center border-l border-border/20 text-base">W</div>
             <div className="text-center border-l border-border/20 text-base">L</div>
-            <div className="text-center border-l border-border/20 text-base">PTS</div>
-            <div className="text-center border-l border-border/20 text-base">N/R</div>
+            <div className="text-center border-l border-border/20 text-base">NR</div>
+            <div className="text-center border-l border-border/20 text-base">NRR</div>
+            <div className="text-center border-l border-border/20 text-base">Pts</div>
           </div>
 
           {/* Mobile Header */}
-          <div className="grid md:hidden grid-cols-[2fr,repeat(4,0.5fr)] gap-0 mb-4 px-2 text-foreground/80 ">
+          <div className="grid md:hidden grid-cols-[1.8fr,repeat(6,0.4fr)] gap-0 mb-4 px-2 text-foreground/80">
             <div></div>
-            <div className="text-center text-xs">M</div>
+            <div className="text-center text-xs">P</div>
             <div className="text-center text-xs">W</div>
             <div className="text-center text-xs">L</div>
-            <div className="text-center text-xs">P</div>
+            <div className="text-center text-xs">NR</div>
+            <div className="text-center text-xs">NRR</div>
+            <div className="text-center text-xs">Pts</div>
           </div>
 
           {/* Rankings */}
@@ -179,7 +189,7 @@ export function RankingSection() {
 
                   <div
                     className={cn(
-                      "relative grid md:grid-cols-[3fr,repeat(5,0.5fr)] grid-cols-[2fr,repeat(4,0.5fr)] items-center gap-0 h-16 md:h-20",
+                      "relative grid md:grid-cols-[2.5fr,repeat(6,0.4fr)] grid-cols-[1.8fr,repeat(6,0.4fr)] items-center gap-0 h-16 md:h-20",
                       "shadow-[0_4px_8px_-2px_rgba(0,0,0,0.2)]",
                       "transition-transform duration-300 group-hover:scale-[1.01]"
                     )}
@@ -200,7 +210,7 @@ export function RankingSection() {
                           className="object-contain p-2 transition-transform duration-300"
                         />
                       </div>
-                      <span className="uppercase font-semibold md:text-lg text-sm md:text-[2.5rem] pl-24 md:pl-36  text-background/90 transition-colors duration-300 group-hover:text-background text-nowrap text-ellipsis overflow-hidden whitespace-nowrap truncate tracking-tight">
+                      <span className="uppercase font-semibold md:text-lg text-sm md:text-[2.5rem] pl-24 md:pl-36 text-background/90 transition-colors duration-300 group-hover:text-background text-nowrap text-ellipsis overflow-hidden whitespace-nowrap truncate tracking-tight">
                         {isMobile ? (
                           <>
                             {team.firstName} <br /> {team.lastName}
@@ -214,11 +224,12 @@ export function RankingSection() {
                     </div>
 
                     {/* Stats with hover effects - Mobile shows less stats */}
-                    <div className="text-center text-sm md:text-xl text-background/90 font-medium">{team.matches}</div>
-                    <div className="text-center text-sm md:text-xl text-background/90 font-medium">{team.wins}</div>
-                    <div className="text-center text-sm md:text-xl text-background/90 font-medium">{team.losses}</div>
-                    <div className="text-center text-sm md:text-xl text-background/90 font-medium">{team.points}</div>
-                    <div className="hidden md:block text-center text-sm md:text-xl text-background/90 font-medium">{team.nr}</div>
+                    <div className="text-center text-sm md:text-lg text-background/90 font-medium">{team.P}</div>
+                    <div className="text-center text-sm md:text-lg text-background/90 font-medium">{team.W}</div>
+                    <div className="text-center text-sm md:text-lg text-background/90 font-medium">{team.L}</div>
+                    <div className="text-center text-sm md:text-lg text-background/90 font-medium">{team.NR}</div>
+                    <div className="text-center text-sm md:text-lg text-background/90 font-medium">{team.NRR}</div>
+                    <div className="text-center text-sm md:text-lg text-background/90 font-medium">{team.Pts}</div>
                   </div>
                 </div>
               </motion.div>
