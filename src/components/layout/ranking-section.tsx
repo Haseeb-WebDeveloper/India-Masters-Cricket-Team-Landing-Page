@@ -5,6 +5,8 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
+// TeamRanking type and rankings data remain the same...
+
 type TeamRanking = {
   id: number;
   logo: string;
@@ -100,29 +102,20 @@ const rankings: TeamRanking[] = [
   },
 ];
 
-
 export function RankingSection() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true });
-  const [isMobile, setIsMobile] = useState(false); // Initialize with false
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Handle window width check on client-side
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
-    // Check initially
     checkMobile();
-    
-    // Add resize listener
     window.addEventListener('resize', checkMobile);
-    
-    // Cleanup
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  
   return (
     <section
       id="ranking"
@@ -136,19 +129,19 @@ export function RankingSection() {
         </div>
 
         <div className="relative max-w-[1180px] mx-auto">
-          {/* Header - Hide on mobile, show abbreviated version */}
-          <div className="hidden md:grid grid-cols-[2.5fr,repeat(6,0.4fr)] gap-0 mb-8 px-8 text-foreground/80">
+          {/* Header - Desktop */}
+          <div className="hidden md:grid grid-cols-[3fr,repeat(6,0.25fr)] gap-0 mb-8 px-8 text-foreground/80">
             <div></div>
-            <div className="text-center border-l border-border/20 text-base">P</div>
-            <div className="text-center border-l border-border/20 text-base">W</div>
-            <div className="text-center border-l border-border/20 text-base">L</div>
-            <div className="text-center border-l border-border/20 text-base">NR</div>
-            <div className="text-center border-l border-border/20 text-base">NRR</div>
-            <div className="text-center border-l border-border/20 text-base">Pts</div>
+            <div className="text-center text-base">P</div>
+            <div className="text-center text-base">W</div>
+            <div className="text-center text-base">L</div>
+            <div className="text-center text-base">NR</div>
+            <div className="text-center text-base">NRR</div>
+            <div className="text-center text-base">Pts</div>
           </div>
 
-          {/* Mobile Header */}
-          <div className="grid md:hidden grid-cols-[1.8fr,repeat(6,0.4fr)] gap-0 mb-4 px-2 text-foreground/80">
+          {/* Header - Mobile */}
+          <div className="grid md:hidden grid-cols-[2fr,repeat(6,0.25fr)] gap-0 mb-4 px-2 text-foreground/80">
             <div></div>
             <div className="text-center text-xs">P</div>
             <div className="text-center text-xs">W</div>
@@ -171,9 +164,7 @@ export function RankingSection() {
                   clipPath: "polygon(35px 0, 100% 0, 100% 100%, 0 100%, 0 100%)",
                 }}
               >
-                {/* Hover Effects Container */}
                 <div className="absolute inset-0 transition-all duration-300 group-hover:shadow-2xl group-hover:z-10">
-                  {/* Background with curved edges */}
                   <div className="absolute inset-0 w-[50%] h-full">
                     <div
                       className={cn(
@@ -189,14 +180,13 @@ export function RankingSection() {
 
                   <div
                     className={cn(
-                      "relative grid md:grid-cols-[2.5fr,repeat(6,0.4fr)] grid-cols-[1.8fr,repeat(6,0.4fr)] items-center gap-0 h-16 md:h-20",
+                      "relative grid md:grid-cols-[3fr,repeat(6,0.25fr)] grid-cols-[2fr,repeat(6,0.25fr)] items-center gap-0 h-16 md:h-20",
                       "shadow-[0_4px_8px_-2px_rgba(0,0,0,0.2)]",
                       "transition-transform duration-300 group-hover:scale-[1.01]"
                     )}
                   >
                     {/* Team */}
                     <div className="relative flex items-center gap-2 h-16 md:h-20">
-                      {/* Logo container with hover effect */}
                       <div
                         className="absolute left-0 top-0 w-24 md:w-32 h-16 md:h-20 bg-foreground transition-transform duration-300 group-hover:scale-[1.02]"
                         style={{
@@ -223,13 +213,13 @@ export function RankingSection() {
                       </span>
                     </div>
 
-                    {/* Stats with hover effects - Mobile shows less stats */}
-                    <div className="text-center text-sm md:text-lg text-background/90 font-medium">{team.P}</div>
-                    <div className="text-center text-sm md:text-lg text-background/90 font-medium">{team.W}</div>
-                    <div className="text-center text-sm md:text-lg text-background/90 font-medium">{team.L}</div>
-                    <div className="text-center text-sm md:text-lg text-background/90 font-medium">{team.NR}</div>
-                    <div className="text-center text-sm md:text-lg text-background/90 font-medium">{team.NRR}</div>
-                    <div className="text-center text-sm md:text-lg text-background/90 font-medium">{team.Pts}</div>
+                    {/* Stats */}
+                    <div className="text-center text-sm md:text-base text-background/90 font-medium">{team.P}</div>
+                    <div className="text-center text-sm md:text-base text-background/90 font-medium">{team.W}</div>
+                    <div className="text-center text-sm md:text-base text-background/90 font-medium">{team.L}</div>
+                    <div className="text-center text-sm md:text-base text-background/90 font-medium">{team.NR}</div>
+                    <div className="text-center text-sm md:text-base text-background/90 font-medium">{team.NRR}</div>
+                    <div className="text-center text-sm md:text-base text-background/90 font-medium">{team.Pts}</div>
                   </div>
                 </div>
               </motion.div>

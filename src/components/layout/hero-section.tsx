@@ -63,7 +63,7 @@ export function HeroSection() {
         {/* Optional: Hero Content */}
         <div className="relative top-[13vh] left-1/2 -translate-x-1/2  md:hidden z-10 container mx-auto px-4 h-full flex items-center w-full">
           <div className="max-w-2xl w-full">
-            <h1 className="text-[3rem] bg-gradient-to-r from-yellow-300 via-blue-300 to-yellow-300 bg-clip-text text-transparent text-3xl md:text-5xl lg:text-[5rem] font-bold text-center uppercase tracking-tight max-w-5xl mx-auto leading-tight md:leading-[6rem">
+            <h1 className="text-[3rem] bg-gradient-to-r from-yellow-300 via-blue-300 to-yellow-300 bg-clip-text text-transparent text-3xl md:text-5xl lg:text-[5rem] font-bold text-center uppercase tracking-tight max-w-5xl mx-auto leading-tight md:leading-[6rem] drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
               India Masters
             </h1>
           </div>
