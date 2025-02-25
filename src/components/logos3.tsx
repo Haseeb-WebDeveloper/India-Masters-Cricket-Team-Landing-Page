@@ -22,7 +22,7 @@ interface Logos3Props {
 }
 
 const Logos3 = ({
-  heading = "Our Sponsers",
+  heading = "Our Sponsors",
   logos = [
     {
       id: "logo-1",

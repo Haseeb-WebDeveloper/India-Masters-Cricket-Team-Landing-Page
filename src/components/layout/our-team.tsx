@@ -46,7 +46,7 @@ const teamMembers: TeamMember[] = [
     ],
     description:
       "Sachin Tendulkar is a global icon, a legend whose name resonates with billions. He's not just a record-breaker; he's a symbol of India's spirit, its unwavering determination, and its enduring love for cricket. The roar of the crowd, the thundering applause, the outpouring of affection. It wasn't just for the runs he scored, but for the pride he imprints on the nation. Each boundary, each masterful stroke, was a testament to his unwavering dedication and the immense love he returned to his people, forging an unbreakable bond that fueled countless victories and cemented his status as the 'God of Cricket'.",
-    imageUrl: "team/10.svg",
+    imageUrl: "team/1.png",
   },
   {
     id: 2,
@@ -62,7 +62,7 @@ const teamMembers: TeamMember[] = [
     ],
     description:
       "Yuvraj Singh, a name synonymous with explosive power and breathtaking versatility. More than just a batsman, he's a force of nature on the field, captivating audiences with his electrifying stroke play and match-winning performances. His ability to adapt, to shift gears from calm precision to ferocious power hitting, has made him a legend. But beyond the statistics and the accolades, it's his connection with the crowd that truly sets him apart. Yuvraj Singh is a spectacle, a crowd-puller, a master of his craft, and a beloved figure whose legacy is etched not just in the records, but in the hearts of countless cricket enthusiasts.",
-    imageUrl: "team/15.svg",
+    imageUrl: "team/2.png",
   },
   {
     id: 3,
@@ -71,14 +71,14 @@ const teamMembers: TeamMember[] = [
     details: [
       {
         age: "42",
-        dob: "17 Nov 1982",
+        dob: "17 November 1982",
         battingStyle: "Right Handed batsman",
         bowlingStyle: "Right arm Offbreak",
       },
     ],
     description:
       "Yusuf Pathan, a name that resonates with thunderous power and breathtaking sixes. He's a force of nature, launching the ball into the stratosphere with the ease of a seasoned marksman. His shots aren't just boundaries; they're declarations, announcements of sixes broadcast from the outer universe, each one a testament to his Herculean strength and effortless power. His hands, seemingly forged from iron, wield the bat with an almost casual dominance. He doesn't just hit the ball; he obliterates it, leaving spectators awestruck and opponents in stunned silence.",
-    imageUrl: "team/14.svg",
+    imageUrl: "team/3.png",
   },
   {
     id: 4,
@@ -87,14 +87,14 @@ const teamMembers: TeamMember[] = [
     details: [
       {
         age: "40",
-        dob: "27 OCTOBER 1984",
+        dob: "27 October 1984",
         battingStyle: "Left Handed Batsman",
         bowlingStyle: "Left arm Medium fast",
       },
     ],
     description:
       "Irfan Pathan - The Blue Eyed 'Guddu', a name whispered with awe, a true all-rounder whose skills border on the magical. He's not just a cricketer; he's a magician on the field, weaving spells of breathtaking pace bowling and mesmerizing batting. A blink of an eye, and you might miss an impossible catch, a searing yorker, or a stroke of pure genius. His all-around brilliance is captivating. It's the sheer entertainment he delivers, the unpredictability. He's a match-winner, a player whose artistry leaves you breathless and wanting more.",
-    imageUrl: "team/5.svg",
+    imageUrl: "team/4.png",
   },
   {
     id: 5,
@@ -109,7 +109,7 @@ const teamMembers: TeamMember[] = [
     ],
     description:
       "Ambati Rayudu, the resilient 'Amba' a strategic brilliance with calculated precision. He's a chess master on the Cricket field, a tactician whose skillful mind orchestrates victories. His shots are not merely strokes; they're calculated moves, part of a larger strategy to outwit the opposition. He's a thinker, a planner, a master. He doesn't just play the game; he manipulates it, using his intelligence and skill to turn matches on their head. It's about precision, control and calculated aggression. He's a strategist whose presence commands attention and whose calm decision-making often decides the fate of the match.",
-    imageUrl: "team/2.svg",
+    imageUrl: "team/5.png",
   },
   {
     id: 6,
@@ -125,7 +125,7 @@ const teamMembers: TeamMember[] = [
     ],
     description:
       "Stuart Terence Binny - 'The Limited Over Specialist', a name echoing the legacy of his father, yet forging his own path to cricketing greatness. He's not merely a player; he's a testament to perseverance, a testament to the transformative power of consistent effort. Much like his father, Stuart is a force to be reckoned with, a hard-hitting batsman capable of changing the game's momentum in the blink of an eye. His bowling, a blend of medium-paced swing and seam. His journey has been one of resilience, from early struggles to establishing himself as a key all-rounder, his presence in the middle order a source of strength. He's a crisis-solver, a partnership-breaker, a player whose contributions often prove decisive.",
-    imageUrl: "team/12.svg",
+    imageUrl: "team/6.png",
   },
   {
     id: 7,
@@ -140,7 +140,7 @@ const teamMembers: TeamMember[] = [
     ],
     description:
       "Dhawal Sunil Kulkarni 'The Quite Catalyst', a bowler whose mastery of the new ball has made him a force to be reckoned with. He's a craftsman of pace and movement, a right-arm medium-pacer whose consistent accuracy and ability to extract swing make him a nightmare for batsmen. His journey, marked by impressive performances from a young age, is a testament to unwavering dedication and a keen understanding of the game. From early breakthroughs in the Vijay Merchant Trophy to consistently leading wicket-taker in Ranji Trophy, his career is studded with significant contributions in high-stakes matches. Dhawal Kulkarni is more than just a bowler; he is a reliable performer who consistently delivers crucial breakthroughs.",
-    imageUrl: "team/3.svg",
+    imageUrl: "team/7.png",
   },
   {
     id: 8,
@@ -149,13 +149,13 @@ const teamMembers: TeamMember[] = [
     details: [
       {
         age: "40",
-        dob: "12 Feb 1984",
+        dob: "12 February 1984",
         bowlingStyle: "Right Arm medium fast",
       },
     ],
     description:
       "Ranganath Vinay Kumar 'The Davangere Express' is a fast bowler whose imposing physique and aggressive style have made him a force to be judged with. He's a physical specimen, a towering presence on the field whose height and raw pace are his greatest weapons. His journey, marked by impressive performances in domestic cricket, showcases his talent and dedication. From early success in the Ranji Trophy, where he led the bowling charts, to helping Karnataka reach the finals, Mithun has consistently demonstrated his ability to deliver crucial breakthroughs. He's a powerhouse, a player whose imposing presence and aggressive style make him a challenging opponent for any batsman.",
-    imageUrl: "team/9.svg",
+    imageUrl: "team/8.png",
   },
   {
     id: 9,
@@ -170,7 +170,7 @@ const teamMembers: TeamMember[] = [
     ],
     description:
       "Shahbaz Nadeem 'The Nimrod Nadeem' is a left-arm spinner whose classical approach and consistent performance have earned him a place among India's top bowlers. He's a master of deception, a craftsman of flight and subtle variations who uses his skills to outwit even the most accomplished batsmen. His journey, marked by impressive performances at the first-class level and a move to the Sunrisers Hyderabad, showcases his talent and unwavering determination. From early success at the Under-19 level to becoming a leading wicket-taker in the Ranji Trophy, Nadeem's consistent performances demonstrate his ability to deliver under pressure. Shahbaz Nadeem is a testament to patience and persistence.",
-    imageUrl: "team/11.svg",
+    imageUrl: "team/9.png",
   },
   {
     id: 10,
@@ -185,7 +185,7 @@ const teamMembers: TeamMember[] = [
     ],
     description:
       "Rahul Sharma 'The Rugged Rahul', a name that evokes images of flight and bounce, a leg-spinner whose unique style and impressive performances have set him apart. He's a master of extracting unexpected bounce from the pitch, utilizing his height to generate an upward trajectory that unsettles batsmen. His journey, marked by impressive IPL performances and a remarkable comeback from injury, showcases his resilience and determination. From dismissing cricketing legends to delivering crucial breakthroughs in international matches, he's proven his ability to perform under pressure. Rahul Sharma is a testament to how unique variations and skillful execution can elevate a bowler to the highest levels of the game.",
-    imageUrl: "team/8.svg",
+    imageUrl: "team/10.png",
   },
   {
     id: 11,
@@ -200,7 +200,7 @@ const teamMembers: TeamMember[] = [
     ],
     description:
       "Naman VinayKumar Ojha 'The Stalwart Naman' a top-order batsman and wicketkeeper whose consistent performances have marked him as a force to be reckoned with. He's a cornerstone of any team, a dependable batsman capable of crafting crucial innings and a steady wicketkeeper behind the stumps. His journey, marked by impressive performances at both domestic and international levels, showcases his adaptability and unwavering dedication. From early success in the Challenger Trophy to impressive displays in the Ranji Trophy and commanding scores for India A, he consistently delivers impactful performances. Naman Ojha is a reliable cornerstone, a consistent performer whose batting prowess and wicketkeeping skills have made him a valuable asset.",
-    imageUrl: "team/6.svg",
+    imageUrl: "team/11.png",
   },
   {
     id: 12,
@@ -215,7 +215,7 @@ const teamMembers: TeamMember[] = [
     ],
     description:
       "Pawan Negi 'Nimble the Gem Negi', a Twenty20 specialist whose left-arm spin and explosive batting have made him a valuable asset in the shortest format of the game. He's a game-changer, a left-arm spinner capable of turning the tide with his quick spin on turning tracks and a lower-order batsman who can clear the ropes with ease. His journey from a domestic player to a million-dollar IPL buy showcases his talent and unwavering dedication. From impressive performances in domestic limited-overs cricket to representing India in the World T20 and Asia Cup, he's proven his ability to perform at the highest level. Pawan Negi is a dynamic force in T20 cricket.",
-    imageUrl: "team/7.svg",
+    imageUrl: "team/12.png",
   },
   {
     id: 13,
@@ -230,7 +230,7 @@ const teamMembers: TeamMember[] = [
     ],
     description:
       "Gurkeerat Singh Mann 'Mr. Adaptable', an all-rounder whose consistent performances have propelled him to the forefront of Indian cricket. He's not just a player; he's a finisher, a match-winner, whose ability to deliver under pressure has made him a valuable asset to any team. His journey, marked by impressive performances in domestic cricket and a rise to the international stage, is a testament to his unwavering dedication and skill. From match-winning scores and crucial wickets in domestic matches to representing India at the ODI level, Gurkeerat has consistently showcased his all-around ability.",
-    imageUrl: "team/4.svg",
+    imageUrl: "team/13.png",
   },
   {
     id: 14,
@@ -239,13 +239,13 @@ const teamMembers: TeamMember[] = [
     details: [
       {
         age: "35",
-        dob: "25 OCTOBER 1989",
+        dob: "25 October 1989",
         bowlingStyle: "Right Arm medium fast",
       },
     ],
     description:
       "Abhimanyu Mithun 'The Unconventional Mithun', is a fast bowler whose imposing physique and aggressive style have made him a force to be judged with. He's a physical specimen, a towering presence on the field whose height and raw pace are his greatest weapons. His journey, marked by impressive performances in domestic cricket, showcases his talent and dedication. From early success in the Ranji Trophy, where he led the bowling charts, to helping Karnataka reach the finals, Mithun has consistently demonstrated his ability to deliver crucial breakthroughs. He's a powerhouse, a player whose imposing presence and aggressive style make him a challenging opponent for any batsman.",
-    imageUrl: "team/1.svg",
+    imageUrl: "team/14.png",
   },
   {
     id: 15,
@@ -254,13 +254,13 @@ const teamMembers: TeamMember[] = [
     details: [
       {
         age: "35",
-        dob: "30 Dec 1989",
+        dob: "30 December 1989",
         battingStyle: " Left-Handed Batsman",
       },
     ],
     description:
       "Saurabh Tiwary, a name whispered with respect in the corridors of Indian domestic cricket, is a testament to unwavering dedication and quiet determination. Modeled on the cool composure of MS Dhoni, Tiwary's journey from the Jamshedpur grounds to the national stage is a story of consistent performance and unwavering passion.  His elegant left-handed stroke play, honed through years of dedication, has captivated audiences and earned him the moniker of 'The Bihari Blizzard'.  He's a symbol of his state's cricketing spirit, a force of nature who quietly but powerfully makes his mark on the game.",
-    imageUrl: "team/13.svg",
+    imageUrl: "team/15.png",
   },
 ];
 
@@ -358,9 +358,9 @@ export function OurTeam() {
         minimumMovement: 2,
         throwResistance: 3000,
         snap: {
-          x: function(endValue) {
+          x: function (endValue) {
             return Math.round(endValue / 50) * 50;
-          }
+          },
         },
         // Improved momentum settings
         momentum: true,
@@ -448,7 +448,9 @@ export function OurTeam() {
               key={member.id}
               className={cn(
                 "relative md:h-[85vh] h-[82vh] transition-all duration-700 ease-out border border-border rounded-xl bg-blue-100",
-                activeIndex === index ? "w-[500px]" : "w-[250px]"
+                activeIndex === index
+                  ? "md:w-[500px] w-[300px]"
+                  : "md:w-[250px] w-[200px]"
               )}
               onMouseEnter={() => !isDragging && setActiveIndex(index)}
               initial={{ opacity: 0, y: 50 }}
@@ -460,6 +462,16 @@ export function OurTeam() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
+                <div className=" w-full h-full">
+                  <span
+                    className={cn(
+                      "text-8xl font-bold transition-colors duration-700 text-center absolute top-0 right-0 p-6 text-border z-10",
+                      activeIndex === index ? "text-white/60" : "text-white/20"
+                    )}
+                  >
+                    {String(member.id).padStart(2, "0")}
+                  </span>
+                </div>
                 <motion.div
                   className="absolute inset-0 bg-cover bg-center"
                   style={{ backgroundImage: `url(${member.imageUrl})` }}
@@ -479,7 +491,7 @@ export function OurTeam() {
                 </motion.div>
 
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/10"
+                  className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30"
                   animate={{
                     opacity: activeIndex === index ? 1 : 0,
                   }}
@@ -487,15 +499,6 @@ export function OurTeam() {
                 />
 
                 <div className="absolute bottom-0 left-0 w-full p-6 overflow-hidden">
-                  <span
-                    className={cn(
-                      "text-8xl font-bold transition-colors duration-700",
-                      activeIndex === index ? "text-white/30" : "text-white/40"
-                    )}
-                  >
-                    {String(member.id).padStart(2, "0")}
-                  </span>
-
                   <div
                     className={cn(
                       "transform transition-all duration-700",
@@ -522,7 +525,7 @@ export function OurTeam() {
                         </div>
                       ))}
                     </div>
-                    <p className="mt-4 text-sm text-white/95 max-w-[400px] line-clamp-6">
+                    <p className="mt-4 text-sm text-white/95 max-w-[400px]">
                       {member.description}
                     </p>
                   </div>

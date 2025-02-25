@@ -3,15 +3,14 @@ import { OurTeam } from "@/components/layout/our-team";
 import { ArticleSection } from "@/components/layout/artical-section";
 import { RankingSection } from "@/components/layout/ranking-section";
 import { ScheduleSection } from "@/components/layout/schedule-section";
-import { Logos3 } from "@/components/logos3"
+import { Logos3 } from "@/components/logos3";
 import RollingGallery from "@/components/layout/logo-gallery";
 import { Marquee } from "@/components/magicui/marquee";
 import StorySection from "@/components/layout/story-section";
 import { ContactSection } from "@/components/layout/contact-section";
 
-
 const demoData = {
-  heading: "Our Sponsers",
+  heading: "Our Sponsors",
   logos: [
     {
       id: "logo-1",
@@ -63,7 +62,6 @@ const demoData = {
     },
   ],
 };
-
 
 export default function Home() {
   return (

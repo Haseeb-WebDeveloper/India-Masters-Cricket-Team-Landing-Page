@@ -195,14 +195,14 @@ export function ScheduleSection() {
                         src={match.team1.logo}
                         alt={match.team1.name}
                         fill
-                        className="object-contain"
+                        className="object-contain scale-[1.15]"
                       />
                     </div>
                   </div>
 
                   {/* VS */}
                   <div className="px-0 group-hover:opacity-0 transition-opacity duration-500">
-                    <span className="text-5xl font-medium text-foreground">
+                    <span className="text-5xl font-medium text-foreground ">
                       VS
                     </span>
                   </div>
@@ -219,7 +219,7 @@ export function ScheduleSection() {
                         className="object-cover object-center"
                       />
                     </div>
-                    <div className="absolute bottom1/2 translate-y-1/2 left-16 w-40 h-[60%] group-hover:opacity-0 transition-opacity duration-500">
+                    <div className="absolute bottom-1/2 translate-y-1/2 left-16 w-40 h-[60%] group-hover:opacity-0 transition-opacity duration-500">
                       <Image
                         src={match.team2.logo}
                         alt={match.team2.name}

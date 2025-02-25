@@ -2,13 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import {
-  Facebook,
-  Instagram,
-  Twitter,
-  Youtube,
-  X,
-} from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, X } from "lucide-react";
 import { FaThreads } from "react-icons/fa6";
 import { useRef } from "react";
 
@@ -101,7 +95,7 @@ export function Footer() {
               © {new Date().getFullYear()} India Masters. All rights reserved.
             </motion.p>
 
-          {/* Social Links */}
+            {/* Social Links */}
             <div className="flex items-center gap-8 order-1 md:order-2 z-[1000]">
               {socialLinks.map((social, index) => (
                 <motion.a
@@ -130,8 +124,13 @@ export function Footer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <a href="https://www.instagram.com/studioenzig/" target="_blank" rel="noopener noreferrer" className="text-sm text-foreground/60 hover:text-primary transition-colors duration-200 cursor-pointer">
-                  Powered by Enzig
+                <a
+                  href="https://www.instagram.com/studioenzig/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-foreground/60 hover:text-primary transition-colors duration-200 cursor-pointer"
+                >
+                  Powered by Enzig Studio
                 </a>
               </motion.div>
             </div>

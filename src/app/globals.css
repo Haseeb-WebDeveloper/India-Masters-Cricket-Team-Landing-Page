@@ -275,3 +275,14 @@ box-shadow: 3px 17px 33px 0px rgba(0,0,0,0.39);
 .cursor-none {
   cursor: none;
 }
+
+
+.text-border {
+  -webkit-text-stroke: 1px #0e0d0d;
+}
+
+.text-border-2 {
+  -webkit-text-stroke: 2px #fff;
+}
+
+
