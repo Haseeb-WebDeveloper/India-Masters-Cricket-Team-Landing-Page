@@ -200,7 +200,7 @@ export function RankingSection() {
                           className="object-contain p-2 transition-transform duration-300"
                         />
                       </div>
-                      <span className="uppercase font-semibold md:text-lg text-sm md:text-[2.5rem] pl-24 md:pl-36 text-background/90 transition-colors duration-300 group-hover:text-background text-nowrap text-ellipsis overflow-hidden whitespace-nowrap truncate tracking-tight">
+                      <span className={`uppercase font-semibold text-sm md:text-[1.5rem] pl-24 md:pl-36 text-background/90 transition-colors duration-300 group-hover:text-background text-nowrap text-ellipsis overflow-hidden whitespace-nowrap truncate tracking-tight }`}>
                         {isMobile ? (
                           <>
                             {team.firstName} <br /> {team.lastName}
