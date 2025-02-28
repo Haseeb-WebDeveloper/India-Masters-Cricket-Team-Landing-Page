@@ -38,7 +38,7 @@ const matches: Match[] = [
       name: "India Masters",
       logo: "/logos/india-masters.svg",
       playerImage: "fixtures/1.svg",
-      score: "222-4",
+      score: "222/4 (20.0)",
       bgColor:
         "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
     },
@@ -46,7 +46,7 @@ const matches: Match[] = [
       name: "Sri Lanka Masters",
       logo: "/logos/sri-lanka-masters.svg",
       playerImage: "fixtures/3.svg",
-      score: "218-9",
+      score: "218/9 (20.0)",
       bgColor: "bg-gradient-to-l from-[#8E153C] via-[#8E153C]/60",
     },
     matchDetails: {
@@ -62,6 +62,7 @@ const matches: Match[] = [
       name: "India Masters",
       logo: "/logos/india-masters.svg",
       playerImage: "fixtures/1.svg",
+      score: "133/1 (11.4)",
       bgColor:
         "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
     },
@@ -69,6 +70,7 @@ const matches: Match[] = [
       name: "England Masters",
       logo: "/logos/england-masters.svg",
       playerImage: "fixtures/4.svg",
+      score: "132/8 (20.0)",
       bgColor:
         "bg-gradient-to-l from-transparent from-[#418EC1] via-[#418EC1]/50",
     },
@@ -76,8 +78,7 @@ const matches: Match[] = [
       date: "Feb 25, 2025",
       time: "19:30 IST",
       venue: "Mumbai",
-      bookingLink:
-        "https://in.bookmyshow.com/sports/iml-2025-india-vs-england/ET00433000",
+      winner: "India Masters won by 9 wickets",
     },
   },
   {
