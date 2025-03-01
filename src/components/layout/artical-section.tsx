@@ -47,11 +47,11 @@ const articles: Article[] = [
   },
   {
     id: 4,
-    title: "Yuvraj to represent India Masters in International Masters League",
+    title: "British Asian Trust partners with India Masters in IML T20",
     description:
-      "Yuvraj to represent India Masters in International Masters League",
-    image: "/article/article-4.avif",
-    link: "/articles/digital-training",
+      "British Asian Trust partners with India Masters in IML T20 to drive social change through cricket",
+    image: "/article/article-4.jpg",
+    link: "https://sportsmintmedia.com/british-asian-trust-partners-with-india-masters-in-iml-t20-to-drive-social-change-through-cricket/",
   },
   {
     id: 5,
@@ -71,19 +71,34 @@ const articles: Article[] = [
   },
   {
     id: 7,
-    title: "Duminy & Tharanga Join IML 2025 Roster",
-    description:
-      "International Masters League 2025: Yuvraj Singh, JP Duminy & Upul Tharanga to Play in Inaugural Edition of IML",
-    image: "/article/article-7.webp",
-    link: "https://www.mykhel.com/cricket/international-masters-league-2025-yuvraj-singh-jp-duminy-upul-tharanga-to-play-in-inaugural-iml-338035.html",
+    title: "Sachin Tendulkar-Yuvraj Singh reunion",
+    description:"Sachin Tendulkar-Yuvraj Singh reunion: सच‍िन तेंदुलकर-युवराज स‍िंह कर रहे क्रिकेट में 'कमबैक', बरसेंगे चौके-छक्के... इस तारीख से होंगे मुकाबले",
+    image: "/article/article-7.avif",
+    link: "https://www.aajtak.in/sports/cricket/story/sachin-tendulkar-yuvraj-singh-iml-t20-reunite-after-decade-set-to-face-sri-lanka-and-others-in-international-masters-league-ntcpbm-dskc-2172569-2025-02-21",
   },
   {
     id: 8,
-    title: "15-Man Australia Masters Squad Named; Watson to Captain",
+    title: "Tendulkar Shines as India Defeats England in IML",
     description:
-      "Australia Masters announce 15-member squad for International Masters League 2025; Shane Watson named captain",
+      "Sachin Tendulkar Rolls Back The Years As India Thrash England In International Masters League",
     image: "/article/article-8.webp",
-    link: "https://www.sportstiger.com/news/australia-masters-announce-15-member-squad-for-international-masters-league-2025-shane-watson-named-captain",
+    link: "https://sports.ndtv.com/icc-champions-trophy-2025/sachin-tendulkar-rolls-back-the-years-as-india-thrash-england-in-international-masters-league-7794491/amp/1",
+  },
+  {
+    id: 9,
+    title: "India Masters vs England Masters Highlights",
+    description:
+      "India Masters vs England Masters Highlights, IML 2025: IND wrap up dominant victory in 12 overs, beat ENG by 9 wickets",
+    image: "/article/article-9.jpg",
+    link: "https://www.hindustantimes.com/cricket/india-vs-england-live-score-updates-iml-t20-ind-vs-eng-match-today-international-masters-league-2025-dy-patil-stadium-101740479883542-amp.html",
+  },
+  {
+    id: 10,
+    title: "IML 2025: फिर एक साथ खेलते दिखेंगे सचिन और युवराज, जानिए ये मैच कब-कहां और कैसे देखें Live",
+    description:
+      "IML 2025: फिर एक साथ खेलते दिखेंगे सचिन और युवराज, जानिए ये मैच कब-कहां और कैसे देखें Live",
+    image: "/article/article-10.jpg",
+    link: "https://www.indiatv.in/sports/cricket/international-masters-league-season-1-live-streaming-tv-channels-match-timings-and-how-to-watch-online-iml-2025-2025-02-22-1115164",
   },
 ];
 
@@ -97,7 +112,7 @@ export function ArticleSection() {
     // Calculate total width for horizontal scroll
     const sections = gsap.utils.toArray<HTMLElement>(".article-card");
     const totalWidth = sections.reduce(
-      (acc, section) => acc + section.offsetWidth + 40,
+      (acc, section) => acc + section.offsetWidth + 20,
       0
     );
 
