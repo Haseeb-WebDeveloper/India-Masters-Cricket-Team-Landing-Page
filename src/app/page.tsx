@@ -30,12 +30,12 @@ const demoData = {
       image: "/sponsors/3.png",
       className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
     },
-    // {
-    //   id: "logo-4",
-    //   description: "Logo 4",
-    //   image: "/sponsors/4.svg",
-    //   className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
-    // },
+    {
+      id: "logo-4",
+      description: "Logo 4",
+      image: "/sponsors/7.png",
+      className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
+    },
     {
       id: "logo-5",
       description: "Logo 5",
