@@ -60,12 +60,12 @@ const Logos3 = ({
       image: "/sponsors/6.svg",
       className: "h-24 w-auto",
     },
-    // {
-    //   id: "logo-7",
-    //   description: "Logo 7",
-    //   image: "/sponsors/7.svg",
-    //   className: "h-24 w-auto",
-    // },
+    {
+      id: "logo-7",
+      description: "Logo 7",
+      image: "/sponsors/7.png",
+      className: "h-24 w-auto",
+    },
     {
       id: "logo-8",
       description: "Logo 8",
