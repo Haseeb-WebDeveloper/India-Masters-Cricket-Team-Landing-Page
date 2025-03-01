@@ -96,7 +96,7 @@ const articles: Article[] = [
     id: 10,
     title: "IML 2025: फिर एक साथ खेलते दिखेंगे सचिन और युवराज, जानिए ये मैच कब-कहां और कैसे देखें Live",
     description:
-      "IML 2025: फिर एक साथ खेलते दिखेंगे सचिन और युवराज, जानिए ये मैच कब-कहां और कैसे देखें Live",
+      "IML 2025: Sachin and Yuvraj will be seen playing together again, know when, where and how to watch this match live.",
     image: "/article/article-10.jpg",
     link: "https://www.indiatv.in/sports/cricket/international-masters-league-season-1-live-streaming-tv-channels-match-timings-and-how-to-watch-online-iml-2025-2025-02-22-1115164",
   },
