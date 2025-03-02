@@ -40,7 +40,7 @@ const matches: Match[] = [
       playerImage: "fixtures/1.svg",
       score: "222/4 (20.0)",
       bgColor:
-        "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
+        "bg-gradient-to-l from-transparent  to-yellow-600",
     },
     team2: {
       name: "Sri Lanka Masters",
@@ -64,7 +64,7 @@ const matches: Match[] = [
       playerImage: "fixtures/1.svg",
       score: "133/1 (11.4)",
       bgColor:
-        "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
+        "bg-gradient-to-l from-transparent  to-yellow-600",
     },
     team2: {
       name: "England Masters",
@@ -87,21 +87,22 @@ const matches: Match[] = [
       name: "India Masters",
       logo: "/logos/india-masters.svg",
       playerImage: "fixtures/1.svg",
+      score: "89/2 (11)",
       bgColor:
-        "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
+        "bg-gradient-to-l from-transparent  to-yellow-600",
     },
     team2: {
       name: "South Africa Masters",
       logo: "/logos/south-africa-masters.svg",
       playerImage: "fixtures/5.svg",
+      score: "85/10 (13.5)",
       bgColor: "bg-gradient-to-l  from-[#6ADFCF] via-[#6ADFCF]/50",
     },
     matchDetails: {
       date: "March 01, 2025",
       time: "19:30 IST",
       venue: "Vadodara",
-      bookingLink:
-        "https://in.bookmyshow.com/sports/iml-2025-india-vs-south-africa/ET00434850",
+      winner: "India Masters won by 8 wickets",
     },
   },
   {
@@ -111,7 +112,7 @@ const matches: Match[] = [
       logo: "/logos/india-masters.svg",
       playerImage: "fixtures/1.svg",
       bgColor:
-        "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
+        "bg-gradient-to-l from-transparent  to-yellow-600",
     },
     team2: {
       name: "Australia Masters",
@@ -135,7 +136,7 @@ const matches: Match[] = [
       logo: "/logos/india-masters.svg",
       playerImage: "fixtures/1.svg",
       bgColor:
-        "bg-gradient-to-l from-transparent via-yellow-500/10 to-yellow-600",
+        "bg-gradient-to-l from-transparent  to-yellow-600",
     },
     team2: {
       name: "West Indies Masters",
@@ -203,7 +204,7 @@ export function ScheduleSection() {
 
                   {/* VS */}
                   <div className="px-0 group-hover:opacity-0 transition-opacity duration-500">
-                    <span className="text-5xl font-medium text-foreground ">
+                    <span className="text-5xl font-medium text-foreground pr-6">
                       VS
                     </span>
                   </div>
@@ -262,7 +263,7 @@ export function ScheduleSection() {
                         </div>
                         {match.matchDetails.winner ? (
                           <div className="flex flex-col items-center gap-2">
-                            <span className="text-lg text-white/90">
+                            <span className="text-lg text-white/90 uppercase">
                               {match.matchDetails.winner}
                             </span>
                           </div>
@@ -398,7 +399,7 @@ export function ScheduleSection() {
                 </div>
 
                 {/* Team Logos - Small Overlays */}
-                <div className="absolute bottom-2 left-[20%] w-12 h-12">
+                <div className="absolute bottom-2 left-[18%] w-12 h-12">
                   <Image
                     src={match.team1.logo}
                     alt={match.team1.name}
@@ -406,7 +407,7 @@ export function ScheduleSection() {
                     className="object-contain"
                   />
                 </div>
-                <div className="absolute bottom-2 right-[20%] w-12 h-12">
+                <div className="absolute bottom-2 right-[18%] w-12 h-12">
                   <Image
                     src={match.team2.logo}
                     alt={match.team2.name}
