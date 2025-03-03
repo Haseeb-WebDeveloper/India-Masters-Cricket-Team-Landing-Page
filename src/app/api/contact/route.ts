@@ -20,16 +20,16 @@ export async function POST(req: Request) {
       );
     }
 
-   
     // Create email transporter
     const transporter = nodemailer.createTransport({
-      host: "smtp-relay.brevo.com",
+      service: 'brevo',
+      host: 'smtp-relay.sendinblue.com',
       port: 587,
       secure: false,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
-      },
+      }
     });
 
     // Email to company
@@ -41,7 +41,6 @@ export async function POST(req: Request) {
         <h1>New contact request</h1>
         <p>Name: ${data.name}</p>
         <p>Email: ${data.email}</p>
-        <p>Phone: ${data.phone}</p>
         <p>Message: ${data.message}</p>
       `
     };
@@ -52,7 +51,7 @@ export async function POST(req: Request) {
     // Send auto-reply to customer
     const autoReplyOptions = {
       from: process.env.SENDER_EMAIL,
-      to: data.email,
+      to: data.email, // Send to the customer's email
       subject: "Thanks for your request",
       html: `
         <h1>Thanks for your request</h1>
