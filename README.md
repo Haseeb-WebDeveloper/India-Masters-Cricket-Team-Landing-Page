@@ -58,15 +58,3 @@ Feel free to fork this project and customize it for your own portfolio:
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🤝 Contact
-
-Haseeb Ahmed - [web.dev.haseeb@gmail.com](mailto:web.dev.haseeb@gmail.com)
-
-Connect with me on:
-- [LinkedIn](https://pk.linkedin.com/in/haseeb-ahmed-raza-khan)
-- [GitHub](https://github.com/Haseeb-WebDeveloper/)
-- [Instagram](https://www.instagram.com/haseeb.ahmed.raza.khan/)
-
----
-
-Built with ❤️ by[Haseeb Ahmed Raza Khan](https://haseebkhan.online)
