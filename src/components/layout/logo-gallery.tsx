@@ -115,7 +115,7 @@ const RollingGallery = ({
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-foreground/5 md:py-28 pt-24 pb-12">
+    <div className="relative w-full overflow-hidden bg-foreground/5 md:py-28 pt-20 pb-12">
       <div className="max-w-[1550px] mx-auto h-full px-2  md:px-12">
         <div className="flex flex-col lg:flex-row items-center ">
           {/* Left side content */}

@@ -39,7 +39,7 @@ export function HeroSection() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full md:min-h-[120vh] h-[70vh] md:pt-32 overflow-hidden "
+      className="relative w-full md:min-h-[120vh] h-[550px] md:pt-32 overflow-hidden px-4 md:px-0"
     >
       <div ref={imageRef} className="sticky md:top-0 w-full md:h-[100vh] h-full" >
         <div className="absolute inset-0 w-full h-full">
@@ -52,11 +52,11 @@ export function HeroSection() {
           />
          
          <Image
-            src="/new-mobile-banner.png"
+            src="/new-mobile-banner.webp"
             alt="Hero Section"
             fill
             priority
-            className="object-contain mt-4 w-full h-full block md:hidden"
+            className="object-contain mt-12 w-full h-full block md:hidden scale-[1.10]"
           />
         </div>
 
