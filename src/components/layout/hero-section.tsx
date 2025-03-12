@@ -39,9 +39,9 @@ export function HeroSection() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full md:min-h-[120vh] h-[100vh] md:pt-32 overflow-hidden "
+      className="relative w-full md:min-h-[120vh] h-[70vh] md:pt-32 overflow-hidden "
     >
-      <div ref={imageRef} className="sticky top-0 w-full md:h-[100vh] h-full" >
+      <div ref={imageRef} className="sticky md:top-0 w-full md:h-[100vh] h-full" >
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="/new-banner.png"
@@ -56,7 +56,7 @@ export function HeroSection() {
             alt="Hero Section"
             fill
             priority
-            className="object-contain w-full h-full block md:hidden"
+            className="object-contain mt-4 w-full h-full block md:hidden"
           />
         </div>
 
