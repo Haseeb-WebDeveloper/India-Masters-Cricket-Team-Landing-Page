@@ -111,6 +111,7 @@ const matches: Match[] = [
       name: "India Masters",
       logo: "/logos/india-masters.svg",
       playerImage: "fixtures/1.svg",
+      score: " 174 (20)",
       bgColor:
         "bg-gradient-to-l from-transparent  to-yellow-600",
     },
@@ -118,6 +119,7 @@ const matches: Match[] = [
       name: "Australia Masters",
       logo: "/logos/australia-masters.svg",
       playerImage: "fixtures/6.svg",
+      score: "269/1 (20)",
       bgColor:
         "bg-gradient-to-l from-transparent from-[#B7EE06] via-[#B7EE06]/50",
     },
@@ -125,8 +127,7 @@ const matches: Match[] = [
       date: "March 05, 2025",
       time: "19:30 IST",
       venue: "Vadodara",
-      bookingLink:
-        "https://in.bookmyshow.com/sports/iml-2025-india-vs-australia/ET00434855",
+      winner: "Australia Masters won by 95 runs",
     },
   },
   {
@@ -135,6 +136,7 @@ const matches: Match[] = [
       name: "India Masters",
       logo: "/logos/india-masters.svg",
       playerImage: "fixtures/1.svg",
+      score: "253/3 (20)",
       bgColor:
         "bg-gradient-to-l from-transparent  to-yellow-600",
     },
@@ -142,16 +144,39 @@ const matches: Match[] = [
       name: "West Indies Masters",
       logo: "/logos/west-indies-masters.svg",
       playerImage: "fixtures/2.svg",
+      score: "246/6 (20)",
       bgColor: "bg-gradient-to-l from-[#A3383D] via-[#E4BE2F]-20%",
     },
     matchDetails: {
       date: "March 08, 2025",
       time: "19:30 IST",
       venue: "Raipur",
-      bookingLink:
-        "https://in.bookmyshow.com/sports/iml-2025-india-vs-west-indies/ET00434315",
+      winner: "India Masters won by 7 runs",
     },
   },
+  // {
+  //   id: 6,
+  //   team1: {
+  //     name: "Team 1 (TBC)",
+  //     logo: "/logos/india-masters.svg",
+  //     playerImage: "fixtures/1.svg",
+  //     score: "123/4 (15.5)",
+  //     bgColor: "bg-gradient-to-l from-transparent  to-yellow-600",
+  //   },
+  //   team2: {
+  //     name: "Team 2 (TBC)",
+  //     logo: "/logos/west-indies-masters.svg",
+  //     playerImage: "fixtures/2.svg",
+  //     score: "122/10 (15.5)",
+  //     bgColor: "bg-gradient-to-l from-[#A3383D] via-[#E4BE2F]-20%",
+  //   },
+  //   matchDetails: {
+  //     date: "March 13, 2025",
+  //     time: "7:30 PM",
+  //     venue: "Mumbai",
+  //     winner: "West Indies Masters won by 1 run",
+  //   },
+  // },
 ];
 
 export function ScheduleSection() {
