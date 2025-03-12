@@ -126,11 +126,11 @@ box-shadow: 3px 17px 33px 0px rgba(0,0,0,0.39);
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 239 71% 31%;
+    --foreground: 240 100% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 239 71% 31%;
+    --card-foreground: 240 100% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 239 71% 31%;
+    --popover-foreground: 240 100% 15%;
     --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
@@ -153,13 +153,13 @@ box-shadow: 3px 17px 33px 0px rgba(0,0,0,0.39);
   }
 
   .dark {
-    --background: 239 71% 31%;
+    --background: 240 100% 15%;
     --foreground: 210 40% 98%;
-    --card: 239 71% 31%;
+    --card: 240 100% 15%;
     --card-foreground: 210 40% 98%;
-    --popover: 239 71% 31%;
+    --popover: 240 100% 15%;
     --popover-foreground: 210 40% 98%;
-    --primary: 239 71% 31%;
+    --primary: 240 100% 15%;
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
