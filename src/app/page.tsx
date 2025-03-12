@@ -45,8 +45,8 @@ const demoData = {
     {
       id: "logo-6",
       description: "Logo 6",
-      image: "/sponsors/6.svg",
-      className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
+      image: "/sponsors/seva.png",
+      className: "h-24 w-auto h-24 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
     },
     {
       id: "logo-7",

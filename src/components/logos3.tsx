@@ -126,8 +126,8 @@ const Logos3 = ({
               </CarouselContent>
             </Carousel>
             {/* Gradient overlays */}
-            <div className="absolute -left-1 w-[20px] h-full bg-gradient-to-r from-[#1B202E] from-3% to-transparent"></div>
-            <div className="absolute -right-1 w-[20px] h-full bg-gradient-to-l from-[#1B202E] from-3% to-transparent"></div>
+            <div className="absolute -left-1 w-[20px] h-full bg-gradient-to-r from- #171986] from-3% to-transparent"></div>
+            <div className="absolute -right-1 w-[20px] h-full bg-gradient-to-l from- #171986] from-3% to-transparent"></div>
           </div>
         </div>
       </div>

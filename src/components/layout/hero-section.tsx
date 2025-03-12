@@ -44,7 +44,7 @@ export function HeroSection() {
       <div ref={imageRef} className="sticky top-0 w-full md:h-[100vh] h-full" >
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="/banner.png"
+            src="/new-banner.png"
             alt="Hero Section"
             fill
             priority
@@ -52,7 +52,7 @@ export function HeroSection() {
           />
          
          <Image
-            src="/mobile-banner.png"
+            src="/new-mobile-banner.png"
             alt="Hero Section"
             fill
             priority
