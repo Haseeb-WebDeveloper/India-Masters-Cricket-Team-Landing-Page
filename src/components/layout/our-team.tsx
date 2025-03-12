@@ -134,7 +134,7 @@ const teamMembers: TeamMember[] = [
     details: [
       {
         age: "36",
-        dob: "24 April 1973",
+        dob: "10 December 1988",
         bowlingStyle: "Right Arm medium Fast",
       },
     ],
@@ -525,7 +525,7 @@ export function OurTeam() {
                         </div>
                       ))}
                     </div>
-                    <p className="mt-4 text-sm text-white/95 max-w-[400px]">
+                    <p className="mt-4 text-sm text-white/95 max-w-[400px] line-clamp-[11] lg:line-clamp-none">
                       {member.description}
                     </p>
                   </div>
