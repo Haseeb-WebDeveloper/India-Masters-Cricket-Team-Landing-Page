@@ -10,6 +10,10 @@ import StorySection from "@/components/layout/story-section";
 import { ContactSection } from "@/components/layout/contact-section";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { HighlightImages } from "@/components/layout/highlight-images";
+import { HighlightVideos } from "@/components/layout/highlight-videos";
+
+
 const demoData = {
   heading: "Our Sponsors",
   logos: [
@@ -80,6 +84,8 @@ export default function Home() {
       <ScheduleSection />
       <RankingSection />
       <Logos3 {...demoData} />
+      {/* <HighlightImages /> */}
+      {/* <HighlightVideos /> */}
       <StorySection />
       <ArticleSection />
       <ContactSection />
