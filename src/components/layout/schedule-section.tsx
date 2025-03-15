@@ -160,12 +160,14 @@ const matches: Match[] = [
       name: "India Masters",
       logo: "/logos/india-masters.svg",
       playerImage: "fixtures/1.svg",
+      score: "220/7 (20.0)",
       bgColor: "bg-gradient-to-l from-transparent  to-yellow-600",
     },
     team2: {
       name: "Australia Masters",
       logo: "/logos/australia-masters.svg",
       playerImage: "fixtures/6.svg",
+      score: "126 (18.1)",
       bgColor:
         "bg-gradient-to-l from-transparent from-[#B7EE06] via-[#B7EE06]/50",
     },
@@ -173,6 +175,27 @@ const matches: Match[] = [
       date: "March 13, 2025",
       // time: "7:30 PM",
       venue: "Semifinal 1",
+      winner: "India Masters won by 94 runs",
+    },
+  },
+  {
+    id: 6,
+    team1: {
+      name: "India Masters",
+      logo: "/logos/india-masters.svg",
+      playerImage: "fixtures/1.svg",
+      bgColor: "bg-gradient-to-l from-transparent  to-yellow-600",
+    },
+    team2: {
+      name: "West Indies Masters",
+      logo: "/logos/west-indies-masters.svg",
+      playerImage: "fixtures/2.svg",
+      bgColor: "bg-gradient-to-l from-[#A3383D] via-[#E4BE2F]-20%",
+    },
+    matchDetails: {
+      date: "March 16, 2025",
+      time: "7:30 PM",
+      venue: "Raipur",
       bookingLink:
       "https://in.bookmyshow.com/sports/iml-2025-india-vs-australia/ET00434855",
     },
