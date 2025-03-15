@@ -16,6 +16,7 @@ const mediaItems = [
     desc: "Adorable loyal companion.",
     url: "https://cdn.pixabay.com/video/2024/07/24/222837_large.mp4",
     span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
+    aspectRatio: "16/9",
   },
   {
     id: 3,
@@ -40,6 +41,7 @@ const mediaItems = [
     desc: "Vibrant feathered charm",
     url: "https://cdn.pixabay.com/video/2020/07/30/46026-447087782_large.mp4",
     span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
+    aspectRatio: "16/9",
   },
   {
     id: 6,
@@ -56,6 +58,7 @@ const mediaItems = [
     desc: "Peaceful Shiva sanctuary.",
     url: "https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4",
     span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
+    aspectRatio: "16/9",
   },
 ]
 
@@ -65,7 +68,7 @@ export function HighlightVideos() {
       <InteractiveBentoGallery
         mediaItems={mediaItems}
         title="Highlight Videos"
-        description="Drag and explore our curated collection of videos"
+        description="Explore our curated collection of videos"
       />
     </div>
   )

@@ -12,7 +12,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { HighlightImages } from "@/components/layout/highlight-images";
 import { HighlightVideos } from "@/components/layout/highlight-videos";
-
+import { DynamicHighlightVideos } from "@/components/layout/dynamaic-highlight-videos";
 
 const demoData = {
   heading: "Our Sponsors",
@@ -84,8 +84,8 @@ export default function Home() {
       <ScheduleSection />
       <RankingSection />
       <Logos3 {...demoData} />
+      {/* <DynamicHighlightVideos /> */}
       {/* <HighlightImages /> */}
-      {/* <HighlightVideos /> */}
       <StorySection />
       <ArticleSection />
       <ContactSection />
