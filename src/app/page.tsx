@@ -8,7 +8,8 @@ import RollingGallery from "@/components/layout/logo-gallery";
 import { Marquee } from "@/components/magicui/marquee";
 import StorySection from "@/components/layout/story-section";
 import { ContactSection } from "@/components/layout/contact-section";
-
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 const demoData = {
   heading: "Our Sponsors",
   logos: [
@@ -72,6 +73,7 @@ const demoData = {
 export default function Home() {
   return (
     <>
+      <Header />
       <HeroSection />
       <RollingGallery autoplay={true} pauseOnHover={true} />
       <OurTeam />
@@ -81,6 +83,7 @@ export default function Home() {
       <StorySection />
       <ArticleSection />
       <ContactSection />
+      <Footer />
     </>
   );
 }
