@@ -60,6 +60,12 @@ const demoData = {
       image: "/sponsors/8.svg",
       className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
     },
+    {
+      id: "logo-10",
+      description: "Logo 10",
+      image: "/sponsors/10.png",
+      className: "h-32 w-auto h-32 w-auto drop-shadow-[0_0_6px_rgba(0,0,0,0.9)",
+    },
   ],
 };
 
