@@ -184,20 +184,21 @@ const matches: Match[] = [
       name: "India Masters",
       logo: "/logos/india-masters.svg",
       playerImage: "fixtures/1.svg",
+      score: "148/7 (20.0)",
       bgColor: "bg-gradient-to-l from-transparent  to-yellow-600",
     },
     team2: {
       name: "West Indies Masters",
       logo: "/logos/west-indies-masters.svg",
       playerImage: "fixtures/2.svg",
+      score: "149/4 (17.1)",
       bgColor: "bg-gradient-to-l from-[#A3383D] via-[#E4BE2F]-20%",
     },
     matchDetails: {
       date: "March 16, 2025",
       time: "7:30 PM",
       venue: "Raipur",
-      bookingLink:
-      "https://in.bookmyshow.com/sports/iml-2025-india-vs-australia/ET00434855",
+      winner: "West Indies Masters won by 6 wickets",
     },
   },
 ];

@@ -1,3 +1,5 @@
+'use client'
+
 import { HeroSection } from "@/components/layout/hero-section";
 import { OurTeam } from "@/components/layout/our-team";
 import { ArticleSection } from "@/components/layout/artical-section";
@@ -11,8 +13,8 @@ import { ContactSection } from "@/components/layout/contact-section";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { HighlightImages } from "@/components/layout/highlight-images";
-import { HighlightVideos } from "@/components/layout/highlight-videos";
 import { DynamicHighlightVideos } from "@/components/layout/dynamaic-highlight-videos";
+import { useState } from "react";
 
 const demoData = {
   heading: "Our Sponsors",
@@ -75,6 +77,11 @@ const demoData = {
 };
 
 export default function Home() {
+  const [highlightItems, setHighlightItems] = useState([
+    { id: 1, title: "Sample Image", url: "https://picsum.photos/200", type: "image" },
+    { id: 2, title: "Sample Video", url: "https://cdn.pixabay.com/video/2020/07/30/46026-447087782_large.mp4", type: "video" },
+  ]);
+
   return (
     <>
       <Header />
@@ -84,8 +91,8 @@ export default function Home() {
       <ScheduleSection />
       <RankingSection />
       <Logos3 {...demoData} />
-      {/* <DynamicHighlightVideos /> */}
-      {/* <HighlightImages /> */}
+      {/* <DynamicHighlightVideos highlightItems={highlightItems.filter(item => item.type === "video")} />
+      <HighlightImages highlightItems={highlightItems.filter(item => item.type === "image")} /> */}
       <StorySection />
       <ArticleSection />
       <ContactSection />
