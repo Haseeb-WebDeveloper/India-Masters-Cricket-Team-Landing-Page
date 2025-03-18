@@ -198,7 +198,7 @@ const matches: Match[] = [
       date: "March 16, 2025",
       time: "7:30 PM",
       venue: "Raipur",
-      winner: "West Indies Masters won by 6 wickets",
+      winner: "India Masters won by 6 wickets",
     },
   },
 ];
