@@ -7,6 +7,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import Image from "next/image";
 
 interface Logo {
   id: string;
@@ -114,11 +115,14 @@ const Logos3 = ({
                   >
                     <div className="mx-8 flex shrink-0 items-center justify-center">
                       <div className="w-full h-full flex items-center justify-center">
-                        <img
+                        <Image
                           src={logo.image}
                           alt={logo.description}
+                          width={180}
+                          height={180}
                           className={`${logo.className} max-w-[180px]`}
                         />
+                       
                       </div>
                     </div>
                   </CarouselItem>
