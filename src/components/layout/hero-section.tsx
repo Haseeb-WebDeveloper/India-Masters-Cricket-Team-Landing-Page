@@ -39,6 +39,7 @@ export function HeroSection() {
   return (
     <div
       ref={containerRef}
+      id="hero"
       className="relative w-full md:min-h-[120vh] h-[550px] md:pt-32 overflow-hidden px-4 md:px-0"
     >
       <div ref={imageRef} className="sticky md:top-0 w-full md:h-[100vh] h-full" >

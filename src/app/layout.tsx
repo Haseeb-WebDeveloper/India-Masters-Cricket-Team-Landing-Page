@@ -67,7 +67,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SmoothScrollProvider>
-            <main className="relative">{children}</main>
+            <main className="relative">
+              {children}
+              <Footer />
+            </main>
           </SmoothScrollProvider>
         </ThemeProvider>
       </body>

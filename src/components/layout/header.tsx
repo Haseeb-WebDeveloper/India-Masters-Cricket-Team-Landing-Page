@@ -7,14 +7,16 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const navLinks = [
-  { href: "home", label: "HOME" },
-  { href: "team", label: "TEAM" },
-  { href: "media", label: "MEDIA" },
-  { href: "schedule", label: "SCHEDULE" },
-  { href: "ranking", label: "STANDINGS" },
-  { href: "contact", label: "CONTACT" },
+  { href: "/", label: "HOME" },
+  { href: "#team", label: "TEAM" },
+  { href: "#media", label: "MEDIA" },
+  { href: "#schedule", label: "SCHEDULE" },
+  { href: "#ranking", label: "STANDINGS" },
+  { href: "/blog", label: "BLOG" },
+  { href: "#contact", label: "CONTACT" },
 ];
 
 export function Header() {
@@ -22,6 +24,7 @@ export function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
   // Use a ref for last scroll position
   const lastScrollY = useRef<number>(typeof window !== "undefined" ? window.scrollY : 0);
   // Set a threshold (in pixels) to avoid tiny changes
@@ -110,11 +113,9 @@ export function Header() {
           if (currentScrollY < lastScrollY.current) {
             // Scrolling up
             headerRef.current!.style.transform = "translateY(0)";
-            // console.log("scrolling up", { currentScrollY, lastScrollY: lastScrollY.current });
           } else if (currentScrollY > lastScrollY.current) {
             // Scrolling down
             headerRef.current!.style.transform = "translateY(-100%)";
-            // console.log("scrolling down", { currentScrollY, lastScrollY: lastScrollY.current });
           }
           lastScrollY.current = currentScrollY;
           ticking = false;
@@ -134,7 +135,7 @@ export function Header() {
     e.preventDefault();
     setIsMenuOpen(false);
 
-    if (href === "home") {
+    if (href === "/") {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -142,12 +143,18 @@ export function Header() {
       return;
     }
 
-    const element = document.getElementById(href);
+    if (href === "/blog") {
+      router.push(href);
+      return;
+    }
+
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+    
     if (element) {
       const headerHeight = headerRef.current?.offsetHeight || 0;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.pageYOffset - headerHeight;
+      const offsetPosition = elementPosition + window.scrollY - headerHeight;
 
       window.scrollTo({
         top: offsetPosition,
@@ -159,7 +166,6 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      // Changed position to fixed so it stays visible when shown
       className="fixed top-0 left-0 right-0 z-50 mx-auto px-4 py-4 md:py-8 lg:py-12 max-w-[1180px] md:px-6 transition-transform duration-300"
     >
       <div className="relative mx-auto px-3 py-2 md:px-8 md:py-6 z-[1000]">
@@ -197,7 +203,7 @@ export function Header() {
             {navLinks.slice(0, 3).map((link, index) => (
               <div key={link.href} className="flex items-center">
                 <Link
-                  href={`#${link.href}`}
+                  href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className="nav-link text-sm text-foreground/90 transition-colors hover:text-foreground tracking-wider"
                 >
@@ -233,7 +239,7 @@ export function Header() {
             {navLinks.slice(3).map((link, index) => (
               <div key={link.href} className="flex items-center">
                 <Link
-                  href={`#${link.href}`}
+                  href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className="nav-link text-sm text-foreground/90 transition-colors hover:text-foreground tracking-wider"
                 >
@@ -274,7 +280,7 @@ export function Header() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href={`#${link.href}`}
+                    href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
                     className="text-3xl font-medium text-white tracking-wider hover:text-primary transition-colors"
                   >

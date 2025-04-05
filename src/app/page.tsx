@@ -96,7 +96,6 @@ export default function Home() {
       <StorySection />
       <ArticleSection />
       <ContactSection />
-      <Footer />
     </>
   );
 }
