@@ -134,34 +134,43 @@ export function Header() {
   ) => {
     e.preventDefault();
     setIsMenuOpen(false);
-
-    if (href === "/") {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-      return;
-    }
-
+  
     if (href === "/blog") {
       router.push(href);
       return;
     }
-
-    const targetId = href.replace("#", "");
-    const element = document.getElementById(targetId);
-    
-    if (element) {
-      const headerHeight = headerRef.current?.offsetHeight || 0;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+  
+    // If it's a section link like #team, #schedule etc.
+    if (href.startsWith("#")) {
+      const targetId = href.slice(1);
+  
+      if (window.location.pathname === "/") {
+        // Already on home page – scroll directly
+        const element = document.getElementById(targetId);
+        if (element) {
+          const headerHeight = headerRef.current?.offsetHeight || 0;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - headerHeight;
+  
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      } else {
+        // Navigate to home page and pass section info
+        router.push(`/?scrollTo=${targetId}`);
+      }
+      return;
+    }
+  
+    // If it's just "/"
+    if (href === "/") {
+      router.push("/");
+      return;
     }
   };
+  
 
   return (
     <header

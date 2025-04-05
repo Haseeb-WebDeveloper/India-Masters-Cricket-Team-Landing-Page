@@ -14,7 +14,8 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { HighlightImages } from "@/components/layout/highlight-images";
 import { DynamicHighlightVideos } from "@/components/layout/dynamaic-highlight-videos";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 const demoData = {
   heading: "Our Sponsors",
@@ -77,6 +78,31 @@ const demoData = {
 };
 
 export default function Home() {
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const section = searchParams.get("scrollTo");
+    if (section) {
+      const element = document.getElementById(section);
+      if (element) {
+        setTimeout(() => {
+          const headerHeight = document.querySelector("header")?.clientHeight || 0;
+          const elementTop = element.getBoundingClientRect().top + window.scrollY;
+          const offsetTop = elementTop - headerHeight;
+
+          window.scrollTo({
+            top: offsetTop,
+            behavior: "smooth",
+          });
+        }, 200); // slight delay to ensure layout is ready
+      }
+    }
+  }, [searchParams]);
+
+
+
+
   const [highlightItems, setHighlightItems] = useState([
     { id: 1, title: "Sample Image", url: "https://picsum.photos/200", type: "image" },
     { id: 2, title: "Sample Video", url: "https://cdn.pixabay.com/video/2020/07/30/46026-447087782_large.mp4", type: "video" },
@@ -84,7 +110,6 @@ export default function Home() {
 
   return (
     <>
-      <Header />
       <HeroSection />
       <RollingGallery autoplay={true} pauseOnHover={true} />
       <OurTeam />

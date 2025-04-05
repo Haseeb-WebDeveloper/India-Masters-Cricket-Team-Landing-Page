@@ -56,7 +56,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative h-[40vh] md:h-[50vh] bg-gradient-to-r from-blue-600 to-purple-600">
+      <div className="relative pt-48 pb-16 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="absolute inset-0 bg-[url('/blog/pattern.svg')] opacity-20" />
         <div className="relative h-full flex items-center justify-center text-center px-4">
           <div>
