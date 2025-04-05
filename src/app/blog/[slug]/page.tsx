@@ -87,7 +87,7 @@ export default function BlogPost() {
   }
 
   return (
-    <div className="min-h-screen bg-background py-16 border-b border-foreground/10">
+    <div className="min-h-screen bg-background py-32 md:py-48 border-b border-foreground/10">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           {/* Back Navigation */}
