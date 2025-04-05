@@ -14,7 +14,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { HighlightImages } from "@/components/layout/highlight-images";
 import { DynamicHighlightVideos } from "@/components/layout/dynamaic-highlight-videos";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 const demoData = {
@@ -77,8 +77,8 @@ const demoData = {
   ],
 };
 
-export default function Home() {
-
+// Create a separate component for the scroll handling
+function ScrollHandler() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -95,14 +95,15 @@ export default function Home() {
             top: offsetTop,
             behavior: "smooth",
           });
-        }, 200); // slight delay to ensure layout is ready
+        }, 200);
       }
     }
   }, [searchParams]);
 
+  return null;
+}
 
-
-
+export default function Home() {
   const [highlightItems, setHighlightItems] = useState([
     { id: 1, title: "Sample Image", url: "https://picsum.photos/200", type: "image" },
     { id: 2, title: "Sample Video", url: "https://cdn.pixabay.com/video/2020/07/30/46026-447087782_large.mp4", type: "video" },
@@ -110,6 +111,9 @@ export default function Home() {
 
   return (
     <>
+      <Suspense fallback={null}>
+        <ScrollHandler />
+      </Suspense>
       <HeroSection />
       <RollingGallery autoplay={true} pauseOnHover={true} />
       <OurTeam />
