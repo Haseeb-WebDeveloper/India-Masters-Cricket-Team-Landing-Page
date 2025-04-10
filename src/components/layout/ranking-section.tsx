@@ -124,7 +124,7 @@ export function RankingSection() {
       <div className="container mx-auto">
         <div className="mb-8 md:mb-16">
           <h2 className="text-3xl md:text-5xl lg:text-[5rem] font-bold text-center uppercase tracking-tight max-w-5xl mx-auto leading-tight md:leading-[6rem]">
-            Tournament Standings
+           Qualifiers Standings
           </h2>
         </div>
 

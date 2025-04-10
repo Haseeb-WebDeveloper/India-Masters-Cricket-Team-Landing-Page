@@ -1,58 +1,39 @@
-'use client'
+import { Suspense } from 'react';
+import BlogList from './blog-list';
+import { sanityClient } from '@/lib/sanity/client';
+import { allPostsQuery, totalPostsQuery } from '@/lib/sanity/queries';
+import BlogSkeleton from './blog-skeleton';
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import Link from "next/link"
-import Image from "next/image"
-import { motion } from "framer-motion"
-
-// Mock data with more fields
-const posts = [
-  {
-    id: 1,
-    title: "A Tale of Friendship, Support, and Cricketing Triumphs of Rohit Sharma and Yuvraj Singh",
-    description: "How Yuvraj&apos;s simple gesture helped Rohit bounce back stronger than ever — a heartwarming story of friendship and second chances.",
-    date: "2024-03-20",
-    slug: "rohit-sharma-yuvi-friendship",
-    image: "/blog/rohit-sharma-yuvi-friendship.png",
-    category: "Player Stories",
-    // readTime: "5 min read",
-    author: {
-      name: "Rahul Sharma",
-      avatar: "/authors/rahul.jpg"
-    }
-  },
-  {
-    id: 2,
-    title: "The Master Blaster's Big Comeback: Sachin's IML 2025 Saga",
-    description: "Sachin&apos;s back at 51 — leading India Masters to glory in IML 2025. The legend just keeps getting better with age!",
-    date: "2024-04-04",
-    slug: "sachin-iml-2025",
-    image: "/blog/sachin-iml-2025.jpg",
-    category: "Player Stories",
-    // readTime: "4 min read",
-    author: {
-      name: "Priya Patel",
-      avatar: "/authors/priya.jpg"
-    }
-  },
-]
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
+// This function runs at build time
+export async function generateStaticParams() {
+  const total = await sanityClient.fetch(totalPostsQuery);
+  const POSTS_PER_PAGE = 10;
+  const pages = Math.ceil(total / POSTS_PER_PAGE);
+  
+  return Array.from({ length: pages }, (_, i) => ({
+    page: (i + 1).toString(),
+  }));
 }
 
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
+// This function runs at build time
+async function getInitialPosts() {
+  const [posts, total] = await Promise.all([
+    sanityClient.fetch(allPostsQuery, { start: 0, end: 10 }),
+    sanityClient.fetch(totalPostsQuery)
+  ]);
+
+  console.log("posts", posts);
+  
+  return {
+    posts,
+    total
+  };
 }
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const { posts, total } = await getInitialPosts();
+  console.log("posts", posts);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -70,63 +51,9 @@ export default function BlogPage() {
         </div>
       </div>
 
-      {/* Blog Posts Grid */}
-      <div className="container mx-auto px-4 py-16">
-        <motion.div 
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {posts.map((post) => (
-            <motion.div key={post.id} variants={item}>
-              <Link href={`/blog/${post.slug}`}>
-                <Card className="group overflow-hidden bg-foreground/10">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute top-4 left-4 bg-white/90 dark:bg-gray-900/90 px-3 py-1 rounded-full">
-                      <span className="text-sm font-medium">{post.category}</span>
-                    </div>
-                  </div>
-                  <CardHeader>
-                    {/* <div className="flex items-center gap-2 mb-2">
-                      <Image
-                        src={post.author.avatar}
-                        alt={post.author.name}
-                        width={24}
-                        height={24}
-                        className="rounded-full"
-                      />
-                      <span className="text-sm text-muted-foreground">{post.author.name}</span>
-                    </div> */}
-                    <CardTitle className="text-xl line-clamp-2">
-                      {post.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground line-clamp-2 mb-4">
-                      {post.description}
-                    </p>
-                    <div className="flex items-center justify-between text-sm text-muted-foreground">
-                      <span>{new Date(post.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric'
-                      })}</span>
-                      {/* <span>{post.readTime}</span> */}
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+        <BlogList initialPosts={posts} totalPosts={total} />
+      {/* <Suspense fallback={<BlogSkeleton />}>
+      </Suspense> */}
     </div>
-  )
+  );
 } 
