@@ -5,6 +5,7 @@
       "name": "game-landing-page",
       "dependencies": {
         "@heroicons/react": "^2.2.0",
+        "@netlify/plugin-nextjs": "^5.10.4",
         "@radix-ui/react-scroll-area": "^1.2.3",
         "@radix-ui/react-slot": "^1.1.2",
         "@studio-freight/lenis": "^1.0.42",
@@ -460,6 +461,8 @@
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.25", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ=="],
 
     "@juggle/resize-observer": ["@juggle/resize-observer@3.4.0", "", {}, "sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA=="],
+
+    "@netlify/plugin-nextjs": ["@netlify/plugin-nextjs@5.10.4", "", {}, "sha512-E6r2BG9xfRptY6GviEtghG03tr6+M9S0fnPs7MxNqOjLjrqNCmXgeY5ZoDoTcf1J4H8rf2PW4VL6TjxzxBgOWQ=="],
 
     "@next/env": ["@next/env@15.1.7", "", {}, "sha512-d9jnRrkuOH7Mhi+LHav2XW91HOgTAWHxjMPkXMGBc9B2b7614P7kjt8tAplRvJpbSt4nbO1lugcT/kAaWzjlLQ=="],
 
