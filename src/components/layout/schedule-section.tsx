@@ -237,16 +237,18 @@ export function ScheduleSection() {
                     className={`relative w-full h-full ${match.team1.bgColor} transition-all duration-500 rounded-t-md`}
                   >
                     <div className="absolute bottom-0 left-0 w-1/2 h-56 group-hover:opacity-0 transition-opacity duration-500">
-                      <img
+                      <Image
                         src={match.team1.playerImage}
                         alt={`${match.team1.name} Player`}
+                        fill
                         className="object-cover object-center"
                       />
                     </div>
                     <div className="absolute bottom-1/2 translate-y-1/2 right-16 w-40 h-[60%] group-hover:opacity-0 transition-opacity duration-500">
-                      <img
+                      <Image
                         src={match.team1.logo}
                         alt={match.team1.name}
+                        fill
                         className="object-contain scale-[1.15]"
                       />
                     </div>
@@ -264,16 +266,18 @@ export function ScheduleSection() {
                     className={`relative w-full h-full ${match.team2.bgColor} transition-all duration-500 rounded-t-md`}
                   >
                     <div className="absolute bottom-0 right-0 w-1/2 h-56 group-hover:opacity-0 transition-opacity duration-500">
-                      <img
+                      <Image
                         src={match.team2.playerImage}
                         alt={`${match.team2.name} Player`}
+                        fill
                         className="object-cover object-center"
                       />
                     </div>
                     <div className="absolute bottom-1/2 translate-y-1/2 left-16 w-40 h-[60%] group-hover:opacity-0 transition-opacity duration-500">
-                      <img
+                      <Image
                         src={match.team2.logo}
                         alt={match.team2.name}
+                        fill
                         className="object-contain"
                       />
                     </div>
@@ -286,9 +290,10 @@ export function ScheduleSection() {
                     {/* Team 1 Info */}
                     <div className="text-centerD flex flex-col items-center justify-center">
                       <div className="w-20 h-20 relative mb-2">
-                        <img
+                        <Image
                           src={match.team1.logo}
                           alt={match.team1.name}
+                          fill
                           className="object-contain"
                         />
                       </div>
@@ -349,9 +354,10 @@ export function ScheduleSection() {
                     {/* Team 2 Info */}
                     <div className="text-center flex flex-col items-center justify-center">
                       <div className="w-20 h-20 relative mb-2">
-                        <img
+                        <Image
                           src={match.team2.logo}
                           alt={match.team2.name}
+                          fill
                           className="object-contain"
                         />
                       </div>
@@ -393,9 +399,10 @@ export function ScheduleSection() {
                 <div className="relative h-full flex items-center justify-between w-full">
                   {/* Team 1 Player */}
                   <div className="w-32 h-32 relative -bottom-2 left-0">
-                    <img
+                    <Image
                       src={match.team1.playerImage}
                       alt={match.team1.name}
+                      fill
                       className="object-cover object-center"
                     />
                   </div>
@@ -443,9 +450,10 @@ export function ScheduleSection() {
 
                   {/* Team 2 Player */}
                   <div className="w-32 h-32 relative -bottom-2 right-0">
-                    <img
+                    <Image
                       src={match.team2.playerImage}
                       alt={match.team2.name}
+                      fill
                       className="object-cover object-center"
                     />
                   </div>
@@ -453,16 +461,18 @@ export function ScheduleSection() {
 
                 {/* Team Logos - Small Overlays */}
                 <div className="absolute bottom-2 left-[18%] w-12 h-12">
-                  <img
+                  <Image
                     src={match.team1.logo}
                     alt={match.team1.name}
+                    fill
                     className="object-contain"
                   />
                 </div>
                 <div className="absolute bottom-2 right-[18%] w-12 h-12">
-                  <img
+                  <Image
                     src={match.team2.logo}
                     alt={match.team2.name}
+                    fill
                     className="object-contain"
                   />
                 </div>
