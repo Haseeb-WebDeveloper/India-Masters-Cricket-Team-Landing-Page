@@ -125,7 +125,7 @@ export function Footer() {
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <a
-                  href="https://www.instagram.com/studioenzig/"
+                  href="https://www.enzigstudio.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-foreground/60 hover:text-primary transition-colors duration-200 cursor-pointer"

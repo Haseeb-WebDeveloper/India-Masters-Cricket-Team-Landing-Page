@@ -11,7 +11,6 @@ interface FormData {
 export async function POST(req: Request) {
   try {
     const data: FormData = await req.json();
-    console.log(data);
     // Validate required  fields
     if (!data.name || !data.email) {
       return NextResponse.json(
@@ -64,7 +63,6 @@ export async function POST(req: Request) {
     // Send auto-reply
     await transporter.sendMail(autoReplyOptions);
 
-    console.log("Email sent successfully", mailOptions, autoReplyOptions);
 
     return NextResponse.json(
       { message: "Email sent successfully" },

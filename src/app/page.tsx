@@ -18,7 +18,6 @@ import ScrollHandler from "@/components/scroll-handling";
 // Make the page async
 export default async function Home() {
   const posts = await fetchFeaturedPosts();
-  console.log(posts);
 
   return (
     <>

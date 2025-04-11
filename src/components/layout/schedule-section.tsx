@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 type Match = {
   id: number;
+  title?: string;
   team1: {
     name: string;
     logo: string;
@@ -156,6 +157,7 @@ const matches: Match[] = [
   },
   {
     id: 6,
+    title: "Semifinal Fixtures",
     team1: {
       name: "India Masters",
       logo: "/logos/india-masters.svg",
@@ -179,7 +181,8 @@ const matches: Match[] = [
     },
   },
   {
-    id: 6,
+    id: 7,
+    title: "Final Match",
     team1: {
       name: "India Masters",
       logo: "/logos/india-masters.svg",
@@ -305,7 +308,10 @@ export function ScheduleSection() {
                     {/* Match Details */}
                     <div className="grid grid-cols-1 gap-4 items-center justify-center h-full">
                       <div className="space-y-2">
-                        <div className="flex items-center justify-center gap-3 text-foreground/90">
+                        <div className="flex flex-col  items-center justify-center gap-3 text-foreground/90">
+                          {match.title && (
+                            <span className="text-lg font-bold">{match.title}</span>
+                          )}
                           <span className="text-lg">
                             {match.matchDetails.date}
                           </span>
@@ -403,9 +409,15 @@ export function ScheduleSection() {
 
                   {/* Match Info */}
                   <div className="flex flex-col items-center justify-center gap-1 h-full z-[1000] ">
-                    <span className="text-xl font-bold text-white">VS</span>
+                  {match.title && (
+                        <span className="text-sm font-medium text-white/90">
+                          {match.title}
+                        </span>
+                      )}
+                    <span className="text-xs text-white">VS</span>
                     <div className="flex flex-col items-center text-center">
-                      <span className="text-sm font-medium text-white/90">
+                     
+                      <span className="text-xs text-white/90">
                         {match.matchDetails.date}
                       </span>
                       {match.matchDetails.winner ? (

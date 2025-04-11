@@ -42,7 +42,6 @@ export async function fetchFeaturedPosts(): Promise<Post[]> {
 export async function fetchPosts(start: number = 0, end: number = 10): Promise<Post[]> {
   try {
     const posts = await sanityClient.fetch(allPostsQuery, { start, end });
-    console.log(allPostsQuery, { start, end })
     return posts;
   } catch (error) {
     console.error("Error fetching posts:", error);

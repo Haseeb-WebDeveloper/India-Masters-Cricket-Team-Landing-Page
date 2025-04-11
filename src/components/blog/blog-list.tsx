@@ -37,8 +37,6 @@ export default function BlogList({ initialPosts, totalPosts }: BlogListProps) {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  console.log("initialPosts  from blog-list", initialPosts);
-
   const loadMorePosts = async () => {
     try {
       setLoading(true);
