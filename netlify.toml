@@ -1,0 +1,24 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+  ignore = "git diff --quiet HEAD^ HEAD studio-india-master/"
+
+[build.environment]
+  NEXT_PUBLIC_SANITY_PROJECT_ID = "your_project_id"
+  NEXT_PUBLIC_SANITY_DATASET = "production"
+
+# Ignore Sanity Studio folder
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/*"
+  to = "/_next/static/:splat"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
