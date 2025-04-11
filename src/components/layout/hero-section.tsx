@@ -44,19 +44,15 @@ export function HeroSection() {
     >
       <div ref={imageRef} className="sticky md:top-0 w-full md:h-[100vh] h-full" >
         <div className="absolute inset-0 w-full h-full">
-          <Image
+          <img
             src="/new-banner.webp"
             alt="Hero Section"
-            fill
-            priority
             className="object-contain object-center w-full h-full hidden md:block "
           />
          
-         <Image
+         <img            
             src="/new-mobile-banner.webp"
             alt="Hero Section"
-            fill
-            priority
             className="object-contain mt-12 w-full h-full block md:hidden scale-[1.10]"
           />
         </div>

@@ -115,7 +115,7 @@ const Logos3 = ({
                   >
                     <div className="mx-8 flex shrink-0 items-center justify-center">
                       <div className="w-full h-full flex items-center justify-center">
-                        <Image
+                        <img
                           src={logo.image}
                           alt={logo.description}
                           width={180}

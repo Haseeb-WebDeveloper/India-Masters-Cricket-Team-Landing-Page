@@ -184,13 +184,12 @@ export function Header() {
         <div className="relative flex items-center justify-between px-4 ">
           {/* Mobile Logo - Left Aligned */}
           <div className="md:hidden relative h-12 w-12">
-            <Image
+            <img
               src="/logo.png"
               alt="India Champions Logo"
               width={48}
               height={48}
               className="relative z-10"
-              priority
             />
           </div>
 
@@ -232,13 +231,12 @@ export function Header() {
           >
             <div className="relative h-28 w-28 lg:h-36 lg:w-36 mt-4">
               <div className="absolute inset-0 animate-pulse rounded-full bg-blue-400/20 blur-xl opacity-50" />
-              <Image
+              <img
                 src="/logo.png"
                 alt="India Champions Logo"
                 width={105}
                 height={105}
                 className="relative z-10 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
-                priority
               />
             </div>
           </div>
