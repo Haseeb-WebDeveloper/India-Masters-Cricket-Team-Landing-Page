@@ -1,12 +1,13 @@
 [build]
   command = "bun run build"
   publish = ".next"
-  ignore = "echo 'Skipping Sanity Studio build'"
+  ignore = "git diff --quiet HEAD^ HEAD -- . ':!studio-india-master/'"
 
 [build.environment]
   NEXT_PUBLIC_SANITY_PROJECT_ID = "6zhwqxjk"
   NEXT_PUBLIC_SANITY_DATASET = "production"
   NEXT_DISABLE_ESLINT = "1"
+   NODE_VERSION = "20.11.0" 
 
 # Ignore Sanity Studio folder
 [[plugins]]
