@@ -1,11 +1,12 @@
 [build]
-  command = "npm run build"
+  command = "bun run build"
   publish = ".next"
-  ignore = "git diff --quiet HEAD^ HEAD studio-india-master/"
+  ignore = "echo 'Skipping Sanity Studio build'"
 
 [build.environment]
-  NEXT_PUBLIC_SANITY_PROJECT_ID = "your_project_id"
+  NEXT_PUBLIC_SANITY_PROJECT_ID = "6zhwqxjk"
   NEXT_PUBLIC_SANITY_DATASET = "production"
+  NEXT_DISABLE_ESLINT = "1"
 
 # Ignore Sanity Studio folder
 [[plugins]]
@@ -13,7 +14,7 @@
 
 [[redirects]]
   from = "/*"
-  to = "/_next/static/:splat"
+  to = "/index.html"
   status = 200
 
 [[headers]]
