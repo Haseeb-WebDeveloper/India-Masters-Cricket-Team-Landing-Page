@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
-import BlogList from './blog-list';
+import BlogList from '../../components/blog/blog-list';
 import { sanityClient } from '@/lib/sanity/client';
 import { allPostsQuery, totalPostsQuery } from '@/lib/sanity/queries';
-import BlogSkeleton from './blog-skeleton';
+import BlogSkeleton from '../../components/blog/blog-skeleton';
 
 // This function runs at build time
 export async function generateStaticParams() {
@@ -17,23 +17,26 @@ export async function generateStaticParams() {
 
 // This function runs at build time
 async function getInitialPosts() {
-  const [posts, total] = await Promise.all([
-    sanityClient.fetch(allPostsQuery, { start: 0, end: 10 }),
-    sanityClient.fetch(totalPostsQuery)
-  ]);
-
-  console.log("posts", posts);
-  
-  return {
-    posts,
-    total
-  };
+  try {
+    const [posts, total] = await Promise.all([
+      sanityClient.fetch(allPostsQuery, { start: 0, end: 10 }),
+      sanityClient.fetch(totalPostsQuery)
+    ]);
+    
+    return {
+      posts,
+      total
+    };
+  } catch (error) {
+    console.error("Error fetching initial posts:", error);
+    return {
+      posts: [],
+      total: 0
+    };
+  }
 }
 
 export default async function BlogPage() {
-  const { posts, total } = await getInitialPosts();
-  console.log("posts", posts);
-
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -51,9 +54,26 @@ export default async function BlogPage() {
         </div>
       </div>
 
-        <BlogList initialPosts={posts} totalPosts={total} />
-      {/* <Suspense fallback={<BlogSkeleton />}>
-      </Suspense> */}
+      <Suspense fallback={<BlogSkeleton />}>
+        <BlogPosts />
+      </Suspense>
     </div>
   );
+}
+
+// Separate async component for posts
+async function BlogPosts() {
+  const { posts, total } = await getInitialPosts();
+
+  if (posts.length === 0) {
+    return (
+      <div className="container mx-auto px-4 py-16">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold">No posts found</h2>
+        </div>
+      </div>
+    );
+  }
+
+  return <BlogList initialPosts={posts} totalPosts={total} />;
 } 
