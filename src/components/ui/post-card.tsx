@@ -19,7 +19,8 @@ export default function PostCard({ post }: { post: Post }) {
           <Image
             src={urlForImage(post.imageUrl).url()}
             alt={post.title}
-            fill
+            width={500}
+            height={500}
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute top-4 left-4 bg-white/90 dark:bg-gray-900/90 px-3 py-1 rounded-full">

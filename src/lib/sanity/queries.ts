@@ -38,3 +38,26 @@ export const singlePostQuery = `
 export const totalPostsQuery = `
   count(*[_type == "blog"])
 `; 
+
+
+
+export const imageGalleryQuery = `
+*[_type == "imageGallery"]{
+  title,
+  categories[]{
+    categoryTitle,
+    images[]{
+      image{
+        asset->{
+          _id,
+          url
+        }
+      },
+      title,
+      alt
+    }
+  }
+}
+
+`;
+

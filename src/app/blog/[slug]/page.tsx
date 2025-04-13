@@ -90,9 +90,10 @@ export default function BlogPost() {
             <Image
               src={urlForImage(post.imageUrl).url()}
               alt={post.title}
-              fill
-              className="object-cover"
+              width={500}
+              height={500}
               priority
+              className="object-cover w-full h-full"
             />
           </div>
 

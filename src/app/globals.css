@@ -285,4 +285,59 @@ box-shadow: 3px 17px 33px 0px rgba(0,0,0,0.39);
   -webkit-text-stroke: 2px #fff;
 }
 
+/* Add these styles to your existing globals.css */
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+/* Add or update these styles in your globals.css */
+@layer components {
+  /* Dialog animations */
+  .dialog-overlay {
+    animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .dialog-content {
+    animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Update the DialogContent styles in your Dialog component */
+.DialogContent {
+  max-height: 85vh;
+  margin: 2rem;
+  background-color: rgba(0, 0, 0, 0.95);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
 

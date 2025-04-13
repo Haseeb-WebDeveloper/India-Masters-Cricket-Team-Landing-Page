@@ -1,7 +1,7 @@
 import { createClient } from "next-sanity";
 import imageUrlBuilder from '@sanity/image-url';
 import { groq } from 'next-sanity';
-import { featuredPostsQuery, allPostsQuery, singlePostQuery, totalPostsQuery } from './queries';
+import { featuredPostsQuery, allPostsQuery, singlePostQuery, totalPostsQuery, imageGalleryQuery } from './queries';
 
 export const sanityClient = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
@@ -27,6 +27,12 @@ export interface Post {
   imageUrl: string;
   category: string;
   content?: any[];
+}
+
+export interface ImageGallery {
+  _id: string;
+  title: string;
+  categories: any[];
 }
 
 export async function fetchFeaturedPosts(): Promise<Post[]> {
@@ -68,3 +74,15 @@ export async function fetchPostBySlug(slug: string): Promise<Post | null> {
     return null;
   }
 } 
+
+
+
+export async function fetchImageGallery() {
+ try {
+  const imageGallery = await sanityClient.fetch(imageGalleryQuery);
+  return imageGallery;
+ } catch (error) {
+  console.error("Error fetching image gallery:", error);
+  return [];
+ }
+}

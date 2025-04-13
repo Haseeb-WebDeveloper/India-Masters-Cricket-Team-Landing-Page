@@ -9,8 +9,9 @@ import StorySection from "@/components/layout/story-section";
 import { ContactSection } from "@/components/layout/contact-section";
 import { Suspense } from "react";
 import BlogSection from "@/components/layout/blog-section";
-import { fetchFeaturedPosts } from "@/lib/sanity/client";
+import { fetchFeaturedPosts, fetchImageGallery } from "@/lib/sanity/client";
 import ScrollHandler from "@/components/scroll-handling";
+import { ImageGallery } from "@/components/layout/image-gallery";
 
 
 
@@ -31,6 +32,7 @@ export default async function Home() {
       <RankingSection />
       <Logos3 />
       <StorySection />
+      <ImageGallery />
       <BlogSection posts={posts} />
       <ArticleSection />
       <ContactSection />
