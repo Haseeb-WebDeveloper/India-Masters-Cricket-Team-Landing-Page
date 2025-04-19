@@ -40,18 +40,18 @@ export function HeroSection() {
     <div
       ref={containerRef}
       id="hero"
-      className="relative w-full md:min-h-[120vh] h-[550px] md:pt-32 overflow-hidden px-4 md:px-0"
+      className="relative w-full md:min-h-[130vh] h-[580px] md:pt-32 overflow-hidden px-4 md:px-0"
     >
       <div ref={imageRef} className="sticky md:top-0 w-full md:h-[100vh] h-full" >
         <div className="absolute inset-0 w-full h-full">
           <img
-            src="/new-banner.webp"
+            src="/home-image.png"
             alt="Hero Section"
             className="object-contain object-center w-full h-full hidden md:block "
           />
          
          <img            
-            src="/new-mobile-banner.webp"
+            src="/home-image-mobile.png"
             alt="Hero Section"
             className="object-contain mt-12 w-full h-full block md:hidden scale-[1.10]"
           />

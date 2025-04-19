@@ -3,6 +3,7 @@ import BlogList from '../../components/blog/blog-list';
 import { sanityClient } from '@/lib/sanity/client';
 import { allPostsQuery, totalPostsQuery } from '@/lib/sanity/queries';
 import BlogSkeleton from '../../components/blog/blog-skeleton';
+import { Footer } from '@/components/layout/footer';
 
 // This function runs at build time
 export async function generateStaticParams() {
@@ -57,6 +58,7 @@ export default async function BlogPage() {
       <Suspense fallback={<BlogSkeleton />}>
         <BlogPosts />
       </Suspense>
+      <Footer />  
     </div>
   );
 }

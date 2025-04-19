@@ -12,6 +12,9 @@ import BlogSection from "@/components/layout/blog-section";
 import { fetchFeaturedPosts, fetchImageGallery } from "@/lib/sanity/client";
 import ScrollHandler from "@/components/scroll-handling";
 import { ImageGallery } from "@/components/layout/image-gallery";
+import ClientWrapper from '@/components/client-wrapper';
+import { Footer } from "@/components/layout/footer";
+import { Header } from "@/components/layout/header";
 
 
 
@@ -21,21 +24,25 @@ export default async function Home() {
   const posts = await fetchFeaturedPosts();
 
   return (
-    <>
-      <Suspense fallback={null}>
-        <ScrollHandler />
-      </Suspense>
-      <HeroSection />
-      <RollingGallery autoplay={true} pauseOnHover={true} />
-      <OurTeam />
-      <ScheduleSection />
-      <RankingSection />
-      <Logos3 />
-      <StorySection />
-      <ImageGallery />
-      <BlogSection posts={posts} />
-      <ArticleSection />
-      <ContactSection />
-    </>
+    <ClientWrapper>
+      <main className="fade-in">
+        <Header />
+        <Suspense fallback={null}>
+          <ScrollHandler />
+        </Suspense>
+        <HeroSection />
+        <RollingGallery autoplay={true} pauseOnHover={true} />
+        <OurTeam />
+        <ScheduleSection />
+        <RankingSection />
+        <Logos3 />
+        <StorySection />
+        <ImageGallery />
+        <BlogSection posts={posts} />
+        <ArticleSection />
+        <ContactSection />
+        <Footer />
+      </main>
+    </ClientWrapper>
   );
 }
