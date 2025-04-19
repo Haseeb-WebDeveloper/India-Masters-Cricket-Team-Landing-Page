@@ -6,6 +6,7 @@ const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [showMainContent, setShowMainContent] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
+  const [showTexture, setShowTexture] = useState(true);
 
   useEffect(() => {
     // Check if intro has been played in this session
@@ -13,6 +14,7 @@ const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
     
     if (alreadyShown) {
       setShowMainContent(true);
+      setShowTexture(false);
     } else {
       // First time visit - show video
       setShowVideo(true);
@@ -40,6 +42,7 @@ const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
     setShowVideo(false);
     sessionStorage.setItem('introPlayed', 'true');
     document.body.style.overflow = '';
+    setShowTexture(false);
     
     // Show main content immediately after video ends
     requestAnimationFrame(() => {
@@ -47,17 +50,35 @@ const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
     });
   };
 
+//   giving background white to whole website untill video is loaded
+useEffect(() => {
+    const root = document.documentElement;
+  
+    root.style.backgroundColor = '#f3f3f3';
+    root.style.backgroundImage = `
+      repeating-radial-gradient(
+        circle, 
+        rgba(0, 0, 0, 0.03) 0, 
+        rgba(0, 0, 0, 0.03) 1px, 
+        transparent 1px, 
+        transparent 5px
+      )
+    `;
+    root.style.filter = 'contrast(110%) brightness(102%)';
+  
+    return () => {
+      // Clean up on unmount
+      root.style.backgroundColor = '';
+      root.style.backgroundImage = '';
+      root.style.filter = '';
+    };
+  }, []);
+  
+
   // Show loading state during initial check
   if (isFirstLoad) {
     return (
-      <div className="fixed inset-0  flex items-center justify-center z-[999999]"
-      style={{
-        backgroundImage: 'url(/intro-bg.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-    }}
-      >
+      <div className="fixed inset-0 flex items-center justify-center z-[999999] bg-texture">
         <div className="loader"></div>
       </div>
     );
@@ -65,16 +86,14 @@ const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
+      {/* Background Texture */}
+      {showTexture && (
+        <div className="fixed inset-0 z-[999998] bg-texture"></div>
+      )}
+
       {/* Video or Loading Overlay */}
       {(showVideo || !showMainContent) && (
-        <div className="fixed inset-0 z-[999999]"
-        style={{
-          backgroundImage: 'url(/intro-bg.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-      }}
-        >
+        <div className="fixed inset-0 z-[999999]">
           {showVideo && <IntroVideo onVideoEnd={handleVideoEnd} />}
         </div>
       )}

@@ -43,13 +43,13 @@ const IntroVideo = ({ onVideoEnd }: { onVideoEnd: () => void }) => {
   }, [onVideoEnd]);
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000" 
-        style={{
-            backgroundImage: 'url(/intro-bg.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-        }}
+    <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000 bg-texture" 
+        // style={{
+        //     backgroundImage: 'url(/intro-bg.webp)',
+        //     backgroundSize: 'cover',
+        //     backgroundPosition: 'center',
+        //     backgroundRepeat: 'no-repeat',
+        // }}
     >
       {/* {!isLoaded && (
          <div className="fixed inset-0 bg-black flex items-center justify-center z-[999999]">

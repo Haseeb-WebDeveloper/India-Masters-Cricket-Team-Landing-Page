@@ -344,6 +344,18 @@ box-shadow: 3px 17px 33px 0px rgba(0,0,0,0.39);
 
 
 
+.bg-texture {
+  background-color: #f3f3f3;
+  background-image: 
+    repeating-radial-gradient(
+      circle, 
+      rgba(0, 0, 0, 0.03) 0, 
+      rgba(0, 0, 0, 0.03) 1px, 
+      transparent 1px, 
+      transparent 5px
+    );
+  filter: contrast(110%) brightness(102%);
+}
 
 /* HTML: <div class="loader"></div> */
 .loader {
