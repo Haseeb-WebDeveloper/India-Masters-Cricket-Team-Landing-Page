@@ -9,8 +9,8 @@ export async function GET(request: Request) {
 
   try {
     const [posts, total] = await Promise.all([
-      sanityClient.fetch(allPostsQuery, { start, end }),
-      sanityClient.fetch(totalPostsQuery)
+      sanityClient.fetch(allPostsQuery, { start, end }, { next: { revalidate: 60 } }),
+      sanityClient.fetch(totalPostsQuery, {}, { next: { revalidate: 60 } })
     ]);
 
     return NextResponse.json({ posts, total });

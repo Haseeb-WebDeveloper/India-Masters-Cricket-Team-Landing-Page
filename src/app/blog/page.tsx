@@ -7,7 +7,7 @@ import { Footer } from '@/components/layout/footer';
 
 // This function runs at build time
 export async function generateStaticParams() {
-  const total = await sanityClient.fetch(totalPostsQuery);
+  const total = await sanityClient.fetch(totalPostsQuery, {}, { next: { revalidate: 60 } });
   const POSTS_PER_PAGE = 10;
   const pages = Math.ceil(total / POSTS_PER_PAGE);
   
@@ -20,8 +20,8 @@ export async function generateStaticParams() {
 async function getInitialPosts() {
   try {
     const [posts, total] = await Promise.all([
-      sanityClient.fetch(allPostsQuery, { start: 0, end: 10 }),
-      sanityClient.fetch(totalPostsQuery)
+      sanityClient.fetch(allPostsQuery, { start: 0, end: 10 }, { next: { revalidate: 60 } }),
+      sanityClient.fetch(totalPostsQuery, {}, { next: { revalidate: 60 } })
     ]);
     
     return {
@@ -58,7 +58,6 @@ export default async function BlogPage() {
       <Suspense fallback={<BlogSkeleton />}>
         <BlogPosts />
       </Suspense>
-      <Footer />  
     </div>
   );
 }

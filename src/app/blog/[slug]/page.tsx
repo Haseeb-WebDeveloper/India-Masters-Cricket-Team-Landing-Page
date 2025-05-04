@@ -1,48 +1,15 @@
-'use client'
-
-import { useParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, Calendar } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { fetchPostBySlug, urlForImage } from '@/lib/sanity/client'
+import { fetchPostBySlug, fetchPosts, urlForImage } from '@/lib/sanity/client'
 import type { Post } from '@/lib/sanity/client'
 import { PortableText } from '@portabletext/react'
+import Content from '@/components/blog/content'
 
-export default function BlogPost() {
-  const params = useParams()
-  const slug = params.slug as string
-  const [post, setPost] = useState<Post | null>(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const loadPost = async () => {
-      const postData = await fetchPostBySlug(slug)
-      setPost(postData)
-      setLoading(false)
-    }
-    loadPost()
-  }, [slug])
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background md:pt-52 pt-32 pb-16">
-        <div className="max-w-3xl mx-auto px-4">
-          <div className="animate-pulse">
-            <div className="h-8 bg-foreground/10 rounded w-1/2 mb-4"></div>
-            <div className="h-4 bg-foreground/10 rounded w-1/4 mb-8"></div>
-            <div className="aspect-video bg-foreground/10 rounded mb-8"></div>
-            <div className="space-y-4">
-              <div className="h-4 bg-foreground/10 rounded w-full"></div>
-              <div className="h-4 bg-foreground/10 rounded w-full"></div>
-              <div className="h-4 bg-foreground/10 rounded w-3/4"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = await fetchPostBySlug(slug)
 
   if (!post) {
     return (
@@ -52,7 +19,7 @@ export default function BlogPost() {
         </div>
       </div>
     )
-  }
+  } 
 
   return (
     <div className="min-h-screen bg-background py-32 md:py-48 border-b border-foreground/10">
@@ -97,17 +64,15 @@ export default function BlogPost() {
             />
           </div>
 
-          {/* Article Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="prose prose-lg dark:prose-invert max-w-none prose-a:underline prose-p:text-foreground/95 prose-p:text-xl prose-p:leading-relaxed "
-          >
-              <PortableText value={post.content} />
-          </motion.div>
+          <Content post={post} />
         </div>
       </div>
     </div>
   )
 } 
+
+
+export async function generateStaticParams() {
+  const posts = await fetchPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}

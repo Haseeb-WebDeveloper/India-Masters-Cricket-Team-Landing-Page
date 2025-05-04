@@ -37,7 +37,7 @@ export interface ImageGallery {
 
 export async function fetchFeaturedPosts(): Promise<Post[]> {
   try {
-    const posts = await sanityClient.fetch(featuredPostsQuery);
+    const posts = await sanityClient.fetch(featuredPostsQuery, {}, { next: { revalidate: 60 } });
     return posts;
   } catch (error) {
     console.error("Error fetching featured posts:", error);
@@ -47,7 +47,7 @@ export async function fetchFeaturedPosts(): Promise<Post[]> {
 
 export async function fetchPosts(start: number = 0, end: number = 10): Promise<Post[]> {
   try {
-    const posts = await sanityClient.fetch(allPostsQuery, { start, end });
+    const posts = await sanityClient.fetch(allPostsQuery, { start, end }, { next: { revalidate: 60 } });
     return posts;
   } catch (error) {
     console.error("Error fetching posts:", error);
@@ -57,7 +57,7 @@ export async function fetchPosts(start: number = 0, end: number = 10): Promise<P
 
 export async function fetchTotalPosts(): Promise<number> {
   try {
-    const total = await sanityClient.fetch(totalPostsQuery);
+    const total = await sanityClient.fetch(totalPostsQuery, {}, { next: { revalidate: 60 } });
     return total;
   } catch (error) {
     console.error("Error fetching total posts:", error);
@@ -67,7 +67,7 @@ export async function fetchTotalPosts(): Promise<number> {
 
 export async function fetchPostBySlug(slug: string): Promise<Post | null> {
   try {
-    const post = await sanityClient.fetch(singlePostQuery, { slug });
+    const post = await sanityClient.fetch(singlePostQuery, { slug }, { next: { revalidate: 60 } });
     return post;
   } catch (error) {
     console.error("Error fetching post:", error);
@@ -75,11 +75,9 @@ export async function fetchPostBySlug(slug: string): Promise<Post | null> {
   }
 } 
 
-
-
 export async function fetchImageGallery() {
  try {
-  const imageGallery = await sanityClient.fetch(imageGalleryQuery);
+  const imageGallery = await sanityClient.fetch(imageGalleryQuery, {}, { next: { revalidate: 60 } });
   return imageGallery;
  } catch (error) {
   console.error("Error fetching image gallery:", error);
