@@ -31,13 +31,18 @@ export const singlePostQuery = `
     publishedAt,
     "imageUrl": featuredImage.asset._ref,
     category,
-    content
+    content[]{
+      ...,
+      _type == "image" => {
+        asset->{ url }
+      }
+    }
   }
 `;
 
 export const totalPostsQuery = `
   count(*[_type == "blog"])
-`; 
+`;
 
 
 
